@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Payment Confirmation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/bootstrap-grid.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/fonts-glyphicon.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/aggregator-module.css" rel="stylesheet" type="text/css" media="all" />
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+	
+	/* Global Navigation on close click for resposnive design start*/
+	$('.navbar-toggler').click(function(){
+			$('body').addClass("fixedPosition");
+	});
+
+	$("#ctrl-navbar-close, .mobile-global-navbar-overlay").click(function(){
+        $("#collapsibleNavbar").removeClass('show');
+		$('body').removeClass("fixedPosition");		
+    });
+	/* Global Navigation on close click for resposnive design end*/	
+		
+	/* Mobile search control */
+	$('#mobile-search-ctrl').hide();
+	
+	$('#SearchModal-MobTab').click(function(){
+			$('#mobile-search-ctrl').show();
+	});
+	$("#mobile-search-close").click(function(){
+			$('#mobile-search-ctrl').hide();
+	});
+	/* Mobile search control end */
+	
+	/* Filter close control start*/
+	$('#nav-filter-wrapper').hide();
+	$('#nav-filter-action').click(function(){
+			$('#nav-filter-wrapper').show();
+			$('body').addClass("fixedPosition");			
+	});
+	$("#btn-filter-close, #btn-filter-pridone, #btn-filter-secclose").click(function(){
+			$('#nav-filter-wrapper').hide();
+			$('body').removeClass("fixedPosition");			
+	});
+	/* Filter close control end*/
+	
+	
+	
+});
+</script>
+</head>
+<body>
+<div class="page-background"> </div>
+<!-- Mobile search modal start -->
+<div id="mobile-search-ctrl" class="mobile-search-control"> <span id="mobile-search-close" class="glyphicon glyphicon-remove-circle"></span>
+  <input type="search" placeholder="I am looking for..." class="field-search">
+  <button class="btn-search">Search</button>
+  <div class="recent-search-wrapper">
+    <h2 class="search-heading">Recent Search</h2>
+    <ul class="recent-search-items">
+      <li class="search-items">Indra gandhi institue of yoga</li>
+      <li class="search-items">Hype Gym</li>
+      <li class="search-items">Gold Gym</li>
+      <li class="search-items">Indra gandhi institue of yoga</li>
+      <li class="search-items">Hype Gym</li>
+    </ul>
+  </div>
+</div>
+<!-- Mobile search modal end --> 
+<!--  login modal start -->
+<div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="registration-features-col">
+          <header class="heading">Benefits</header>
+          <ul>
+            <li>Publish multiple ads in <span class="highlight-text">Free</span></li>
+            <li>Provide <span class="highlight-text">personalise dashboard</span> to manage posted ads after registration</li>
+            <li>Provide ability to Share ads with friends on <span class="highlight-text">social networking</span> </li>
+          </ul>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+        <div class="login-signup-wrapper">
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item"> <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Login</a> </li>
+            <li class="nav-item"> <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a> </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <form class="form-signup">
+                <div class="form-label-group">
+                  <input type="text" class="form-control" id="label-email" placeholder="Enter your registered email id">
+                  <label for="label-email">Email</label>
+                </div>
+                <div class="form-label-group">
+                  <input type="password" class="form-control" id="label-password" placeholder="Enter your password">
+                  <label for="label-password">Password</label>
+                </div>
+                <div class="form-label-group">
+                  <input type="button" class="button button-primary" value="Login">
+                </div>
+              </form>
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+              <form class="form-signup">
+                <div class="form-label-group">
+                  <input type="text" class="form-control" id="label-reg-email" placeholder="Enter your email id">
+                  <label for="label-reg-email">Email</label>
+                </div>
+                <div class="form-label-group">
+                  <input type="password" class="form-control" id="label-reg-password" placeholder="Enter your password">
+                  <label for="label-reg-password">Password</label>
+                </div>
+                <div class="form-label-group">
+                  <input type="password" class="form-control" id="label-regconf-password" placeholder="Enter your password">
+                  <label for="label-regconf-password">Confirm Password</label>
+                </div>
+                <div class="form-label-group">
+                  <input type="button" class="button button-primary" value="Register">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="single-signup-wrapper">
+          <div class="single-signup-content">
+            <div class="regular-text">Sign in With</div>
+            <button class="icon-gmail-signup"><img src="images/icon-gmail-login.png"> Gmail Account</button>
+            <button class="icon-facebook-signup"><img src="images/icon-facebook-login.png"> Facebook Account</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- login modal end -->
+<section class="page-content"> 
+  <!-- header start -->
+  <header class="page-header">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"> <span class="glyphicon glyphicon-menu-hamburger"></span> </button>
+    <a href="index.html" class="brand-logo"><img src="images/brand-logo.png"></a>
+    <div class="mobile-ctrl-header">
+      <div class="header-links-wrapper">
+        <div class="search-wrapper">
+          <div class="mobtab-search-bar">
+            <div class="btn-search" id="SearchModal-MobTab"><span class="glyphicon glyphicon-search"></span></div>
+          </div>
+          <div class="desktop-search-bar">
+            <input type="text" placeholder="Search for videos, people, trainers" class="input-search">
+            <button class="btn-search"> <span class="glyphicon glyphicon-search"></span> </button>
+          </div>
+        </div>
+        <div class="notification-wrapper"><span class="notification-count">5</span></div>
+        <div class="userlogin-wrapper" data-toggle="modal" data-target="#LoginModal"></div>
+      </div>
+    </div>
+  </header>
+  <!-- header end -->
+  <div class="main-content">
+    <div class="page-content-wrapper">
+      <section class='order-confirmation-screen'>
+        <div class='order-left'>
+            <div class='order-section-heading heading-red'><b>Transaction Failed</b> <span class="glyphicon glyphicon-warning-sign"></span>
+            </div>
+            <div class='placed-order-address'>Unfortunately, we couldn't collect payment on you have made. 
+            	<br><br>
+                This could happen due to following reasons.
+					<ul type="square">
+                    <li>Page session timeout.
+                    <li>Incorrect card details.
+                    <li>Server is busy while making payment.</li>
+                    </ul>
+			</div>
+            <div class='placed-order-contactdetails'>Please click on below button to make the payment again. <br><br>
+            	<div class="order-payment-action">
+            		<button class="button-make-payment">Try Again</button>
+                </div>
+            </div>
+        </div>
+        <div class='order-amt-right'>
+        	<div class="order-section-heading">Total Amount</div>
+            <table border="0" class="grid_orderconfirm_charges">                
+                <tr>
+                <td>Charges</td>
+                <td class="order-amt-col">Rs. 1000</td>
+                </tr>
+                <tr>
+                <td class="order-charges-div">Discount</td>
+                <td class="order-amt-col order-charges-div order-discount-amt">Rs. 250</td>
+                </tr>
+                <tr>
+                <td class="order-charges-topdiv">Balance</td>
+                <td class="order-amt-col order-charges-topdiv">Rs. 750</td>
+                </tr>
+                <tr>
+                <td>GST (state 9%)</td>
+                <td class="order-amt-col">Rs. 67.5</td>
+                </tr>
+                <tr>
+                <td class="order-charges-div">GST (Center 9%)</td>
+                <td class="order-amt-col order-charges-div">Rs. 67.5</td>
+                </tr>
+                <tr>
+                <td class='order-charges-topdiv'>Total Amount</td>
+                <td class="order-amt-col order-charges-topdiv">Rs. 885</td>
+                </tr>
+                </table>
+            
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+</body>
+</html>

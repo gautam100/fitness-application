@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitness - Vednor Dashbboard Panel</title>
+<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/bootstrap-grid.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/vendor-module.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/page-generic.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/fonts-glyphicon.css" type="text/css" rel="stylesheet" media="all">
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function() {
+	$('#mobile-search-ctrl').hide();
+	$('#SearchModal-MobTab').click(function(){
+			$('#mobile-search-ctrl').show();
+		
+	});
+	$("#mobile-search-close").click(function(){
+			$('#mobile-search-ctrl').hide();
+	});
+});
+</script>
+</head>
+<body>
+<div id="mobile-search-ctrl" class="mobile-search-control"> <span id="mobile-search-close" class="glyphicon glyphicon-remove-circle"></span>
+  <input type="search" placeholder="I am looking for..." class="field-search">
+  <button class="btn-search"><img src="images/icon-search.png"></button>
+</div>
+<div class="container-fluid">
+  <header class="col-lg-12 page-header-wrapper">
+    <div class="col-3 float-left"> <a href="site-home.html"><img class="site-logo" src="images/logo.png"></a></div>
+    <div class="col-lg-7 col-3 float-left mob-float-right">
+      <div class="mobtab-search-bar">
+        <button class="btn-search" id="SearchModal-MobTab"><img src="images/icon-search.png"></button>
+      </div>
+      <div class="desktop-search-bar">
+        <input type="search" placeholder="Search for Videos, people, trainers" class="field-search">
+        <button class="btn-search"><img src="images/icon-search.png"></button>
+      </div>
+    </div>
+  </header>
+  <section class="page-content">
+    <div class="left-menus col-lg-2 col-md-12 col-sm-12 float-left">
+      <nav class="navbar navbar-expand-md bg-navbar-dark-purple navbar-dark"> 
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"> <span class="navbar-toggler-icon"></span> </button>
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="vendor-1-dashboard.html" class="nav-link">Dashboard</a></li>
+            <li class="nav-item"><a href="vendor-2-ProductPage.html" class="nav-link active">Products</a></li>
+            <li class="nav-item"><a href="vendor-3-Reports.html" class="nav-link">Reports</a></li>
+            <li class="nav-item"><a href="vendor-4-Profile.html" class="nav-link">Profile</a></li>
+            <li class="nav-item"><a href="vendor-5-Support.html" class="nav-link">Support</a></li>
+            <li class="nav-item"><a href="vendor-6-Plan.html" class="nav-link">Plan</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="main-cotent col-lg-10 col-md-12 col-sm-12 float-left">
+      <section class="middle-content-wrapper">
+      <a href="vendor-2-ProductPage.html" class="anchor-black header-anchor"><span class="glyphicon glyphicon-arrow-left"></span>Back to Products</a>
+      <div class="item-content">
+        <header class="header-wrapper">
+          <h2 class="float-left">Category</h2>
+        </header>
+        <div class="item-content-wrapper">
+          <form>
+            <div class="form-group row">
+              <label for="selectCategory" class="col-sm-2 col-form-label">Category <span class="required-field">*</span></label>
+              <div class="col-sm-4">
+                <select class="form-control">
+                  <option>Select Category</option>
+                  <option>Gym
+                  <option>Yoga</option>
+                  <option>Aerobics</option>
+                  <option>Trainer</option>
+                  <option>Zumba Classes</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="item-content">
+        <header class="header-wrapper">
+          <h2 class="float-left">Product Details</h2>
+        </header>
+        <div class="item-content-wrapper">
+        <form>
+          <div class="drop-file-msgbox">
+            <p>Drag and drop file here or <span class="anchor-lightblue-link">browse files</span></p>
+            <p>Recommended image size is 760px width and height 250px.</p>
+            </p>
+          </div>
+          <div class="uploaded-image-wrapper">
+            <div class="heading">Uploaded Images</div>
+            <div class="uploaded-image-item"> <img src="images/uploaded-image.jpg">
+              <div class="remove-item"><span class="glyphicon glyphicon-remove"></span>Remove</div>
+            </div>
+            <div class="uploaded-image-item"> <img src="images/uploaded-image.jpg">
+              <div class="remove-item"><span class="glyphicon glyphicon-remove"></span>Remove</div>
+            </div>
+            <div class="uploaded-image-item"> <img src="images/uploaded-image.jpg">
+              <div class="remove-item"><span class="glyphicon glyphicon-remove"></span>Remove</div>
+            </div>
+            <div class="uploaded-image-item"> <img src="images/uploaded-image.jpg">
+              <div class="remove-item"><span class="glyphicon glyphicon-remove"></span>Remove</div>
+            </div>
+            <div class="uploaded-image-item"> <img src="images/uploaded-image.jpg">
+              <div class="remove-item"><span class="glyphicon glyphicon-remove"></span>Remove</div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="form-group row">
+            <label for="selectCategory" class="col-sm-2 col-form-label">Name <span class="required-field">*</span></label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="selectCategory" class="col-sm-2 col-form-label">Address <span class="required-field">*</span></label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="selectCategory" class="col-sm-2 col-form-label">Contact No <span class="required-field">*</span></label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" />
+              <div class="help-text"><span class="glyphicon glyphicon-info-sign"></span> You can add mulitple contact number for example: XXXXXXXXXX / XXXXXXXXX / XXXXXXXX</div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="selectCategory" class="col-sm-2 col-form-label">Offer 1</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="selectCategory" class="col-sm-2 col-form-label">Offer 2</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="selectCategory" class="col-sm-2 col-form-label">Offer 3</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+      <div class="item-content">
+        <header class="header-wrapper">
+          <h2 class="float-left">Subscription</h2>
+        </header>
+        <div class="item-content-wrapper">
+        <form>
+          <div class="form-group row">
+            <label for="selectCategory" class="col-sm-2 col-form-label">Subscription Amount <span class="required-field">*</span></label>
+            <div class="col-sm-2">
+              <label class="col-form-label">Monthly</label>
+              <input type="text" class="form-control" />
+            </div>
+            <div class="col-sm-2">
+              <label class="col-form-label">Quarterly</label>            
+              <input type="text" class="form-control" />
+            </div>
+            <div class="col-sm-2">
+              <label class="col-form-label">Half Yearly</label>            
+              <input type="text" class="form-control" />
+            </div>
+            <div class="col-sm-2">
+              <label class="col-form-label">Yearly</label>            
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="selectCategory" class="col-sm-2 col-form-label">Recommended for subscribers </label>
+            <div class="col-sm-2">
+              	<div class="custom-control custom-checkbox">
+			    	<input class="custom-control-input" id="customCheck1" type="checkbox"><label class="custom-control-label" for="customCheck1"></label>
+  				</div>
+            </div>
+            <div class="col-sm-2">
+				<div class="custom-control custom-checkbox">
+			    	<input class="custom-control-input" id="customCheck2" type="checkbox"><label class="custom-control-label" for="customCheck2"></label>
+  				</div>
+            </div>
+            <div class="col-sm-2">
+              <div class="custom-control custom-checkbox">
+			    	<input class="custom-control-input" id="customCheck3" type="checkbox"><label class="custom-control-label" for="customCheck3"></label>
+  				</div>
+            </div>
+            <div class="col-sm-2">
+              <div class="custom-control custom-checkbox">
+			    	<input class="custom-control-input" id="customCheck4" type="checkbox"><label class="custom-control-label" for="customCheck4"></label>
+  				</div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+   	  <div class="item-content">
+        <header class="header-wrapper">
+          <h2 class="float-left">Programs</h2>
+        </header>
+        	<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.</div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor,</div>
+</div>
+    </div>
+    <div>
+    <button class="btn btn-primary">Publish Page</button> <button class="btn btn-secondary">Save as Draft</button> <button class="btn btn-light">Cancel</button>
+    </div>
+  </section>
+</div>
+</section>
+</div>
+</body>
+</html>

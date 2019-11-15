@@ -1,14 +1,60 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>IMFIT</title>
-  <base href="/">
-
+  <title>My Fitness products listing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+  <script>
+      $(document).ready(function(){
+        
+        /* Global Navigation on close click for resposnive design start*/
+        $('.navbar-toggler').click(function(){
+            $('body').addClass("fixedPosition");
+        });
+      
+        $("#ctrl-navbar-close, .mobile-global-navbar-overlay").click(function(){
+              $("#collapsibleNavbar").removeClass('show');
+          $('body').removeClass("fixedPosition");		
+          });
+        /* Global Navigation on close click for resposnive design end*/	
+          
+        /* Mobile search control */
+        $('#mobile-search-ctrl').hide();
+        
+        $('#SearchModal-MobTab').click(function(){
+            $('#mobile-search-ctrl').show();
+        });
+        $("#mobile-search-close").click(function(){
+            $('#mobile-search-ctrl').hide();
+        });
+        /* Mobile search control end */
+        
+        /* Filter close control start*/
+        $('#nav-filter-wrapper').hide();
+        $('#nav-filter-action').click(function(){
+            $('#nav-filter-wrapper').show();
+            if ($(window).width() < 1024) { 
+              $('body').addClass("fixedPosition");			
+            };
+        });
+        $("#btn-filter-close, #btn-filter-pridone, #btn-filter-secclose, .mobile-filter-wrapper-overlay").click(function(){
+            $('#nav-filter-wrapper').hide();
+            $('body').removeClass("fixedPosition");			
+        });
+        /* Filter close control end*/
+        
+        
+        
+      });
+      </script>
 </head>
+
 <body>
   <app-root></app-root>
 </body>
+
 </html>

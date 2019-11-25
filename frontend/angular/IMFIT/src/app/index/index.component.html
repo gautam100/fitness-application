@@ -1,165 +1,120 @@
 <section class="page-content">
-<!-- header start -->
-<app-header-main></app-header-main>
-<!-- header end --> 
+  <!-- header start -->
+  <app-header-main></app-header-main>
+  <!-- header end -->
 
-<div class="main-content">
-  <div class="page-content-wrapper">
-    <!-- global navigation start -->
-    <div class="global-navbar collapse" id="collapsibleNavbar">
-      <div class="mobile-global-navbar-overlay"></div>
-      <div id="ctrl-navbar-close" class="navbar-close"><span class="glyphicon glyphicon-remove"></span></div>
-      <div class="navbar-items-wrapper">
-        <div class="profile-wrapper">
-          <div class="user-profile-img"></div>
-          <div class="profile-name">Gautam Mukherjee</div>
-          <div class="profile-points-wrapper"> <span class="profile-points">400</span> <span
-              class="profile-points-label">rewards points</span> </div>
-          <div class="profile-notification">Redeem above points
-            in membership and shopping</div>
-        </div>
-        <a href="index.html">Home</a>
-        <div class="global-navbar-dropdown">
-          <div class="dropbtn">Discover <i class="glyphicon glyphicon-menu-down"></i> </div>
-          <div class="global-navbar-dropdown-content">
-            <div class="row">
-              <div class="column">
-                <ul>
-                  <li class="selected-link"><a href="#">Gyms</a></li>
-                  <li><a href="#">Yoga</a></li>
-                  <li><a href="#">Aerobics</a></li>
-                  <li><a href="#">Trainer</a></li>
-                  <li><a href="#">Zumba Classes</a></li>
-                  <li><a href="#">Upcoming Events</a></li>
-                  <li><a href="#">Karate Centers</a></li>
-                  <li><a href="#">Sports Centers</a></li>
-                  <li><a href="#">Health Clubs</a></li>
-                </ul>
+  <div class="main-content">
+    <div class="page-content-wrapper">
+      <!-- global navigation start -->
+      <app-left-menu></app-left-menu>
+      <!-- global navigation end -->
+      <div class="page-right-panel">
+        <!-- page title and filter start -->
+        <section class="page-header-filter-wrapper">
+          <div class="header-filter-content">
+            <div class="page-header"><span class="page-title">Gyms</span> - look for gyms in nearby places</div>
+            <div class="btn-filter"><span class="glyphicon glyphicon-filter" id="nav-filter-action"></span></div>
+            <div class="filter-wrapper" id="nav-filter-wrapper">
+              <div class="mobile-filter-wrapper-overlay"></div>
+              <div class="filter-item-wrapper">
+                <div class="filter-header">
+                  Filter by
+                </div>
+                <div class="filter-close">
+                  <span id="btn-filter-close" class="glyphicon glyphicon-remove"></span>
+                </div>
+                <div class="search-location"><input type="tex" placeholder="Search by location" class="ctrl-input">
+                </div>
+                <div class="sort-price"><select class="ctrl-dropdown">
+                    <option>Sort By Price</option>
+                    <option>Ascending</option>
+                    <option>Descending</option>
+                  </select></div>
+                <div class="sort-brand"><select class="ctrl-dropdown">
+                    <option>Sort By Brand</option>
+                    <option>Gold Gym</option>
+                    <option>Hype Gym</option>
+                    <option>Indra gandhi institue of yoga</option>
+                  </select></div>
+                <div class="btn-wrapper">
+                  <button class="btn-pri" id="btn-filter-pridone">Done</button>
+                  <button class="btn-sec" id="btn-filter-secclose">Close</button>
+                </div>
+              </div>
+            </div>
+
+            <div class='selected-filters-wrapper'>
+              <span class='field-label'>Tags:</span> <span class="active-filter">Indra Gandhi... <span
+                  class="glyphicon glyphicon-remove"></span></span> <span class="active-filter">Gold Gym <span
+                  class="glyphicon glyphicon-remove"></span></span> <span class="active-filter">24 hours <span
+                  class="glyphicon glyphicon-remove"></span></span>
+            </div>
+          </div>
+        </section>
+        <!-- page title and filter end -->
+        <!-- products items start -->
+        <div class='aggregator-product'>
+          <div class='product-item'>
+            <div class='product-image-wrapper'> <img src='../../assets/images/aggregator-img.jpg'> </div>
+            <div class='product-details-wrapper'>
+              <a routerLink="/detail">
+                <div class='product-title'>Indra Gandhi Institue of Yoga</div>
+                <div class='product-address'>Palam Vihar, New Delhi</div>
+                <div class="product-footer">
+                  <span class='product-recommend-price'>Rs. 1000 MONTHLY</span> <span class='offer-label'>6
+                    Offers</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class='product-item'>
+            <div class='product-image-wrapper'> <img src='../../assets/images/aggregator-img.jpg'> </div>
+            <div class='product-details-wrapper'>
+              <div class='product-title'>Indra Gandhi Institue of Yoga</div>
+              <div class='product-address'>Palam Vihar, New Delhi</div>
+              <div class="product-footer">
+                <span class='product-recommend-price'>Rs. 1000 MONTHLY</span> <span class='offer-label'>3 Offers</span>
               </div>
             </div>
           </div>
-        </div>
-        <div class="global-navbar-dropdown">
-          <div class="dropbtn">Fitness Store <i class="glyphicon glyphicon-menu-down"></i> </div>
-          <div class="global-navbar-dropdown-content">
-            <div class="row">
-              <div class="column">
-                <ul>
-                  <li><a href="#">Men</a></li>
-                  <li><a href="#">Women</a></li>
-                  <li><a href="#">Fitness Gears</a></li>
-                  <li><a href="#">Sports</a></li>
-                </ul>
+
+          <div class='product-item'>
+            <div class='product-image-wrapper'> <img src='../../assets/images/aggregator-img.jpg'> </div>
+            <div class='product-details-wrapper'>
+              <div class='product-title'>Indra Gandhi Institue of Yoga</div>
+              <div class='product-address'>Palam Vihar, New Delhi</div>
+              <div class="product-footer">
+                <span class='product-recommend-price'>Rs. 1000 MONTHLY</span> <span class='offer-label'>3 Offers</span>
               </div>
             </div>
           </div>
+
+          <div class='product-item'>
+            <div class='product-image-wrapper'> <img src='../../assets/images/aggregator-img.jpg'> </div>
+            <div class='product-details-wrapper'>
+              <div class='product-title'>Indra Gandhi Institue of Yoga</div>
+              <div class='product-address'>Palam Vihar, New Delhi</div>
+              <div class="product-footer">
+                <span class='product-recommend-price'>Rs. 1000 MONTHLY</span> <span class='offer-label'>3 Offers</span>
+              </div>
+            </div>
+          </div>
+
+          <div class='product-item'>
+            <div class='product-image-wrapper'> <img src='../../assets/images/aggregator-img.jpg'> </div>
+            <div class='product-details-wrapper'>
+              <div class='product-title'>Indra Gandhi Institue of Yoga</div>
+              <div class='product-address'>Palam Vihar, New Delhi</div>
+              <div class="product-footer">
+                <span class='product-recommend-price'>Rs. 1000 MONTHLY</span> <span class='offer-label'>3 Offers</span>
+              </div>
+            </div>
+          </div>
+
         </div>
+        <!-- products items end -->
       </div>
-    </div>
-    <!-- global navigation end -->
-    <div class="page-right-panel">
-      <!-- page title and filter start -->
-      <section class="page-header-filter-wrapper">
-        <div class="header-filter-content">
-          <div class="page-header"><span class="page-title">Gyms</span> - look for gyms in nearby places</div>
-          <div class="btn-filter"><span class="glyphicon glyphicon-filter" id="nav-filter-action"></span></div>
-          <div class="filter-wrapper" id="nav-filter-wrapper">
-            <div class="mobile-filter-wrapper-overlay"></div>
-            <div class="filter-item-wrapper">
-              <div class="filter-header">
-                Filter by
-              </div>
-              <div class="filter-close">
-                <span id="btn-filter-close" class="glyphicon glyphicon-remove"></span>
-              </div>
-              <div class="search-location"><input type="tex" placeholder="Search by location" class="ctrl-input"></div>
-              <div class="sort-price"><select class="ctrl-dropdown">
-                  <option>Sort By Price</option>
-                  <option>Ascending</option>
-                  <option>Descending</option>
-                </select></div>
-              <div class="sort-brand"><select class="ctrl-dropdown">
-                  <option>Sort By Brand</option>
-                  <option>Gold Gym</option>
-                  <option>Hype Gym</option>
-                  <option>Indra gandhi institue of yoga</option>
-                </select></div>
-              <div class="btn-wrapper">
-                <button class="btn-pri" id="btn-filter-pridone">Done</button>
-                <button class="btn-sec" id="btn-filter-secclose">Close</button>
-              </div>
-            </div>
-          </div>
-
-          <div class='selected-filters-wrapper'>
-            <span class='field-label'>Tags:</span> <span class="active-filter">Indra Gandhi... <span
-                class="glyphicon glyphicon-remove"></span></span> <span class="active-filter">Gold Gym <span
-                class="glyphicon glyphicon-remove"></span></span> <span class="active-filter">24 hours <span
-                class="glyphicon glyphicon-remove"></span></span>
-          </div>
-        </div>
-      </section>
-      <!-- page title and filter end -->
-      <!-- products items start -->
-      <div class='aggregator-product'>
-        <div class='product-item'>
-          <div class='product-image-wrapper'> <img src='../../assets/images/aggregator-img.jpg'> </div>
-          <div class='product-details-wrapper'>
-            <div class='product-title'>Indra Gandhi Institue of Yoga</div>
-            <div class='product-address'>Palam Vihar, New Delhi</div>
-            <div class="product-footer">
-              <span class='product-recommend-price'>Rs. 1000 MONTHLY</span> <span class='offer-label'>3 Offers</span>
-            </div>
-          </div>
-        </div>
-
-        <div class='product-item'>
-          <div class='product-image-wrapper'> <img src='../../assets/images/aggregator-img.jpg'> </div>
-          <div class='product-details-wrapper'>
-            <div class='product-title'>Indra Gandhi Institue of Yoga</div>
-            <div class='product-address'>Palam Vihar, New Delhi</div>
-            <div class="product-footer">
-              <span class='product-recommend-price'>Rs. 1000 MONTHLY</span> <span class='offer-label'>3 Offers</span>
-            </div>
-          </div>
-        </div>
-
-        <div class='product-item'>
-          <div class='product-image-wrapper'> <img src='../../assets/images/aggregator-img.jpg'> </div>
-          <div class='product-details-wrapper'>
-            <div class='product-title'>Indra Gandhi Institue of Yoga</div>
-            <div class='product-address'>Palam Vihar, New Delhi</div>
-            <div class="product-footer">
-              <span class='product-recommend-price'>Rs. 1000 MONTHLY</span> <span class='offer-label'>3 Offers</span>
-            </div>
-          </div>
-        </div>
-
-        <div class='product-item'>
-          <div class='product-image-wrapper'> <img src='../../assets/images/aggregator-img.jpg'> </div>
-          <div class='product-details-wrapper'>
-            <div class='product-title'>Indra Gandhi Institue of Yoga</div>
-            <div class='product-address'>Palam Vihar, New Delhi</div>
-            <div class="product-footer">
-              <span class='product-recommend-price'>Rs. 1000 MONTHLY</span> <span class='offer-label'>3 Offers</span>
-            </div>
-          </div>
-        </div>
-
-        <div class='product-item'>
-          <div class='product-image-wrapper'> <img src='../../assets/images/aggregator-img.jpg'> </div>
-          <div class='product-details-wrapper'>
-            <div class='product-title'>Indra Gandhi Institue of Yoga</div>
-            <div class='product-address'>Palam Vihar, New Delhi</div>
-            <div class="product-footer">
-              <span class='product-recommend-price'>Rs. 1000 MONTHLY</span> <span class='offer-label'>3 Offers</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <!-- products items end -->
     </div>
   </div>
-</div>
 </section>

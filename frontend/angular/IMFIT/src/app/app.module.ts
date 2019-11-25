@@ -7,6 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { IndexComponent } from './index/index.component';
 import { HeaderMainComponent } from './header-main/header-main.component';
+import { DetailPageComponent } from './detail-page/detail-page.component';
+import { LeftMenuComponent } from './left-menu/left-menu.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { HeaderMainComponent } from './header-main/header-main.component';
     HeaderComponent,
     FooterComponent,
     IndexComponent,
-    HeaderMainComponent
+    HeaderMainComponent,
+    DetailPageComponent,
+    LeftMenuComponent
   ],
   imports: [
     BrowserModule,

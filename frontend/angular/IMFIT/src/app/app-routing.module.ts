@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from './index/index.component';
+import { DetailPageComponent } from './detail-page/detail-page.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,10 @@ const routes: Routes = [
     path: 'index',
     component: IndexComponent
   },
+  {
+    path: 'detail',
+    component: DetailPageComponent
+  }
 ];
 
 @NgModule({

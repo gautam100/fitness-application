@@ -1,0 +1,27 @@
+<div class="login_box">
+  <h2 class="title">
+    <img src="assets/images/AlphaMeld-Logo.png">
+  </h2>
+  <div class="alert alert-danger" *ngIf="error">
+    {{errorMessage}}
+  </div>
+  <!-- <small class="form-text sub-title">Hello! Sign in with your email</small>-->
+  <form (ngSubmit)="login()" #form="ngForm" autocomplete="nope">
+    <div class="form-group">
+      <!--     <label for="input-email" class="sr-only">Email address</label> -->
+      <input name="email" #emailForm="ngModel" [(ngModel)]="email" id="input-email" pattern=".+@.+..+" class="form-control" placeholder="Email address"
+        [class.form-control-danger]="emailForm.invalid &&  emailForm.touched" autofocus required>
+      <small class="form-text error" *ngIf=" emailForm.invalid &&  emailForm.touched &&  emailForm.errors?.required">Email is required!</small>
+      <small class="form-text error" *ngIf=" emailForm.invalid &&  emailForm.touched &&  emailForm.errors?.pattern">Email should be the real one!</small>
+    </div>
+    <div class="form-group">
+      <!--     <label for="input-password" class="sr-only">Password</label>-->
+      <input name="password" #passwordFrom="ngModel" [(ngModel)]="password" type="password" id="input-password" class="form-control"
+        placeholder="Password" [class.form-control-danger]="passwordFrom.invalid && passwordFrom.touched" required>
+      <small class="form-text error" *ngIf="passwordFrom.invalid && passwordFrom.touched && passwordFrom.errors?.required">Password is required!</small>
+    </div>
+    <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+    />
+    <button class="btn btn-block">Sign In</button>
+  </form>
+</div>

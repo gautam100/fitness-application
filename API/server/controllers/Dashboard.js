@@ -16,13 +16,30 @@ exports.index = function (req, res) {
 }
 
 exports.getDashboardContent = function (req, res) {
-
   model_dashboard.getDashboardContent(req.body, function (err, result) {
     if (err) {
     } else {
       res.send(result);
       elementData = result;
       // console.log(elementData);
+    }
+  });
+}
+
+exports.getCategoryContent = function (req, res) {
+  model_dashboard.getCategoryContent(req.body, function (err, result) {
+    if (err) {
+    } else {
+      res.send(result);
+    }
+  });
+}
+
+exports.getCateList = function (req, res) {
+  model_dashboard.getCateList(req.body, function (err, result) {
+    if (err) {
+    } else {
+      res.send(result);
     }
   });
 }

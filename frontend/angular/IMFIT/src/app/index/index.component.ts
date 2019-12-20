@@ -43,19 +43,19 @@ export class IndexComponent implements OnInit {
       }
     );
 
-    this.dashboardService.getDashboardBranchOfferCount().subscribe(
-      data => {
-        this.result = data;
-        this.homePageLists = this.result.result;
-        console.log("newData: ", this.homePageLists);
-      },
-      err => {
-        console.log(err.message)
-      },
-      () => {
-        console.log("loading finish")
-      }
-    );
+    // this.dashboardService.getDashboardBranchOfferCount().subscribe(
+    //   data => {
+    //     this.result = data;
+    //     this.homePageLists = this.result.result;
+    //     console.log("newData: ", this.homePageLists);
+    //   },
+    //   err => {
+    //     console.log(err.message)
+    //   },
+    //   () => {
+    //     console.log("loading finish")
+    //   }
+    // );
 
   }
 

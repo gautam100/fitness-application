@@ -17,14 +17,17 @@ import { CoreModule } from './@core/core.module';
 // import { AuthModule } from './auth/auth.module';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { DetailComponent } from './detail/detail.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    LeftMenuComponent,
     FooterComponent,
     IndexComponent,
-    DetailComponent
+    DetailComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +38,11 @@ import { DetailComponent } from './detail/detail.component';
   ],
   exports: [
     HeaderComponent,
+    LeftMenuComponent,
     FooterComponent,
     IndexComponent,
-    DetailComponent
+    DetailComponent,
+    CategoriesComponent
   ],
   providers: [DatePipe,
     {

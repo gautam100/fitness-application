@@ -19,6 +19,14 @@ export class DashboardService {
   getDashboardContent() {
     return this.http.get(API_URL + 'getDashboardContent');
   }
+
+  getCategoryContent() {
+    return this.http.get(API_URL + 'getCategoryContent');
+  }
+
+  getCateList(params) {
+    return this.http.post(API_URL + 'getCateList', params, httpOptions);
+  }
   
   getDashboardBranchOfferCount() {
     return this.http.get(API_URL + 'getDashboardBranchOfferCount');

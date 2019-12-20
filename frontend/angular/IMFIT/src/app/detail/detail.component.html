@@ -28,56 +28,7 @@
     <div class="main-content">
         <div class="page-content-wrapper">
             <!-- global navigation start -->
-            <div class="global-navbar collapse" id="collapsibleNavbar">
-                <div class="mobile-global-navbar-overlay"></div>
-                <div id="ctrl-navbar-close" class="navbar-close"><span class="glyphicon glyphicon-remove"></span></div>
-                <div class="navbar-items-wrapper">
-                    <div class="profile-wrapper">
-                        <div class="user-profile-img"></div>
-                        <div class="profile-name">Gaurav Khanna</div>
-                        <div class="profile-points-wrapper"> <span class="profile-points">400</span> <span class="profile-points-label">rewards
-                                points</span> </div>
-                        <div class="profile-notification">Redeem above points
-                            in membership and shopping</div>
-                    </div>
-                    <a href="index.html">Home</a>
-                    <div class="global-navbar-dropdown">
-                        <div class="dropbtn">Discover <i class="glyphicon glyphicon-menu-down"></i> </div>
-                        <div class="global-navbar-dropdown-content">
-                            <div class="row">
-                                <div class="column">
-                                    <ul>
-                                        <li class="selected-link"><a href="#">Gyms</a></li>
-                                        <li><a href="#">Yoga</a></li>
-                                        <li><a href="#">Aerobics</a></li>
-                                        <li><a href="#">Trainer</a></li>
-                                        <li><a href="#">Zumba Classes</a></li>
-                                        <li><a href="#">Upcoming Events</a></li>
-                                        <li><a href="#">Karate Centers</a></li>
-                                        <li><a href="#">Sports Centers</a></li>
-                                        <li><a href="#">Health Clubs</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="global-navbar-dropdown">
-                        <div class="dropbtn">Fitness Store <i class="glyphicon glyphicon-menu-down"></i> </div>
-                        <div class="global-navbar-dropdown-content">
-                            <div class="row">
-                                <div class="column">
-                                    <ul>
-                                        <li><a href="#">Men</a></li>
-                                        <li><a href="#">Women</a></li>
-                                        <li><a href="#">Fitness Gears</a></li>
-                                        <li><a href="#">Sports</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <app-left-menu></app-left-menu>
             <!-- global navigation end -->
 
             <div class="page-right-panel">
@@ -96,15 +47,10 @@
 
                             <!-- slider image start -->
                             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
+                                <div class="carousel-inner" *ngFor="let branchImage of branchImages">
                                     <div class="carousel-item active">
-                                        <img class="d-block w-100" src="images/slider-1.jpg" alt="First slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="images/slider-1.jpg" alt="Second slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="images/slider-1.jpg" alt="Third slide">
+                                        <img class="d-block w-100" src="http://localhost/imfit/app/webroot/media/branch_images/{{branchImage.branch_image}}"
+                                            alt="First slide">
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
@@ -121,23 +67,23 @@
                             <!-- slider image end -->
 
                         </div>
-                        <div class='detailed-content-wrapper'>
-                            <div class='product-title'>Indra Gandhi Institue of Yoga</div>
-                            <div class='product-address'>Palam Vihar, New Delhi</div>
-                            <div class='contact-details'>Contact Details: XX91 - 011 - 98111XXXXX</div>
+                        <div class='detailed-content-wrapper' *ngFor="let branchContent of branchContents">
+                            <div class='product-title'>{{branchContent.name}}</div>
+                            <div class='product-address'>{{branchContent.branch_address}},
+                                {{branchContent.branch_city}}</div>
+                            <div class='contact-details'>Contact Details: {{branchContent.branch_contact_no}}</div>
                             <div class='detailed-offer-wrapper'> <span class='offer-label'>Offer:</span> <span class='offer-details'>Get
                                     discount Rs. 1000 on subscription of 3 months</span> </div>
-
                         </div>
                     </div>
-                    <div class="detailed-sectionheading">
+                    <div class="detailed-sectionheading" *ngFor="let branchContent of branchContents">
                         <header class="header-wrapper">
                             <h2>Subscription</h2>
                         </header>
                         <div class="subscription-plan">
                             <div class="subscription-item">
                                 <div class="subscription-label">Monthly</div>
-                                <div class="subscription-price">Rs. 1000</div>
+                                <div class="subscription-price">Rs. {{branchContent.monthly_subscription_amt}}</div>
                                 <div class="custom-control custom-radio">
                                     <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio1"></label>
@@ -147,7 +93,7 @@
                         <div class="subscription-plan recommended-plan">
                             <div class="subscription-item"> <span class="glyphicon glyphicon-star"></span>
                                 <div class="subscription-label">Quarterly</div>
-                                <div class="subscription-price">Rs. 2000</div>
+                                <div class="subscription-price">Rs. {{branchContent.quaterly_subscription_amt}}</div>
                                 <div class="custom-control custom-radio">
                                     <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio1"></label>
@@ -157,7 +103,7 @@
                         <div class="subscription-plan">
                             <div class="subscription-item">
                                 <div class="subscription-label">Half Yearly</div>
-                                <div class="subscription-price">Rs. 6000</div>
+                                <div class="subscription-price">Rs. {{branchContent.halfyearly_subscription_amt}}</div>
                                 <div class="custom-control custom-radio">
                                     <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio1"></label>
@@ -167,7 +113,7 @@
                         <div class="subscription-plan">
                             <div class="subscription-item">
                                 <div class="subscription-label">Yearly</div>
-                                <div class="subscription-price">Rs. 12000</div>
+                                <div class="subscription-price">Rs. {{branchContent.yearly_subscription_amt}}</div>
                                 <div class="custom-control custom-radio">
                                     <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio1"></label>
@@ -214,52 +160,8 @@
                         <div class="other-products-slider">
                             <ul>
                                 <li class="other-product-item">
-                                    <div class="other-product-brand"><img src='images/other-product-img1.jpg'></div>
+                                    <div class="other-product-brand"><img src=''></div>
                                     <div class="other-product-title">Hype Gym</div>
-                                </li>
-                                <li class="other-product-item">
-                                    <div class="other-product-brand"><img src='images/other-product-img2.jpg'></div>
-                                    <div class="other-product-title">Gold Gym</div>
-                                </li>
-                                <li class="other-product-item">
-                                    <div class="other-product-brand"><img src='images/other-product-img1.jpg'></div>
-                                    <div class="other-product-title">Hype Gym</div>
-                                </li>
-                                <li class="other-product-item">
-                                    <div class="other-product-brand"><img src='images/other-product-img2.jpg'></div>
-                                    <div class="other-product-title">Gold Gym</div>
-                                </li>
-                                <li class="other-product-item">
-                                    <div class="other-product-brand"><img src='images/other-product-img1.jpg'></div>
-                                    <div class="other-product-title">Hype Gym</div>
-                                </li>
-                                <li class="other-product-item">
-                                    <div class="other-product-brand"><img src='images/other-product-img2.jpg'></div>
-                                    <div class="other-product-title">Gold Gym</div>
-                                </li>
-                                <li class="other-product-item">
-                                    <div class="other-product-brand"><img src='images/other-product-img1.jpg'></div>
-                                    <div class="other-product-title">Hype Gym</div>
-                                </li>
-                                <li class="other-product-item">
-                                    <div class="other-product-brand"><img src='images/other-product-img2.jpg'></div>
-                                    <div class="other-product-title">Gold Gym</div>
-                                </li>
-                                <li class="other-product-item">
-                                    <div class="other-product-brand"><img src='images/other-product-img1.jpg'></div>
-                                    <div class="other-product-title">Hype Gym</div>
-                                </li>
-                                <li class="other-product-item">
-                                    <div class="other-product-brand"><img src='images/other-product-img2.jpg'></div>
-                                    <div class="other-product-title">Gold Gym</div>
-                                </li>
-                                <li class="other-product-item">
-                                    <div class="other-product-brand"><img src='images/other-product-img1.jpg'></div>
-                                    <div class="other-product-title">Hype Gym</div>
-                                </li>
-                                <li class="other-product-item">
-                                    <div class="other-product-brand"><img src='images/other-product-img2.jpg'></div>
-                                    <div class="other-product-title">Gold Gym</div>
                                 </li>
                             </ul>
                         </div>

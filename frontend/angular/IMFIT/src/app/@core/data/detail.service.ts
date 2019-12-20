@@ -17,8 +17,10 @@ export class DetailService {
   }
 
   getDetailContent(params) {
-    console.log("param: ", params);
     return this.http.post(API_URL + 'getDetailContent', params, httpOptions);
+  }
+  getDetailImageContent(params) {
+    return this.http.post(API_URL + 'getDetailImageContent', params, httpOptions);
   }
 
 }

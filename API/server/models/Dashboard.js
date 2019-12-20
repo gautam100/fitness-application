@@ -32,7 +32,22 @@ exports.getDashboardData = function (where, callback) {
 exports.getDashboardContent = function (where, callback) {
     var rows = [];
     // console.log('SELECT products.id, products.name, products.description, product_branches.id, count(branch_offers.branch_id) as offerCount, branch_images.branch_image, product_branches.branch_address, product_branches.branch_city, product_branches.branch_state, product_branches.branch_pincode, product_branches.branch_contact_person, product_branches.branch_contact_no, product_branches.monthly_subscription_amt FROM products left join product_branches on products.id=product_branches.product_id left join branch_images ON branch_images.branch_id=product_branches.id left join branch_offers on branch_offers.branch_id=product_branches.id WHERE product_branches.active=1 and products.active group by product_branches.id order by product_branches.id');
-    connection.query('SELECT products.id, products.name, products.description, product_branches.id, count(branch_offers.branch_id) as offerCount, branch_images.branch_image, product_branches.branch_address, product_branches.branch_city, product_branches.branch_state, product_branches.branch_pincode, product_branches.branch_contact_person, product_branches.branch_contact_no, product_branches.monthly_subscription_amt FROM products left join product_branches on products.id=product_branches.product_id left join branch_images ON branch_images.branch_id=product_branches.id left join branch_offers on branch_offers.branch_id=product_branches.id WHERE product_branches.active=1 and products.active group by product_branches.id order by product_branches.id', function (err, rows) {
+    connection.query('SELECT products.id, products.name, products.description, product_branches.id, count(branch_offers.branch_id) as offerCount, branch_images.branch_image, product_branches.branch_address, product_branches.branch_city, product_branches.branch_state, product_branches.branch_pincode, product_branches.branch_contact_person, product_branches.branch_contact_no, product_branches.monthly_subscription_amt FROM products left join product_branches on products.id=product_branches.product_id left join branch_images ON branch_images.branch_id=product_branches.id left join branch_offers on branch_offers.branch_id=product_branches.id WHERE product_branches.active=1 and products.active=1 group by product_branches.id order by product_branches.id', function (err, rows) {
+        if (err) throw err
+        callback(null, { result: rows });
+    });
+}
+
+exports.getCategoryContent = function (where, callback) {
+    connection.query('Select id, name FROM categories WHERE categories.active=1 order by categories.id', function (err, rows) {
+        if (err) throw err
+        callback(null, { result: rows });
+    });
+}
+
+exports.getCateList = function (where, callback) {
+    console.log('SELECT products.id, products.name, products.description, product_branches.id, count(branch_offers.branch_id) as offerCount, branch_images.branch_image, product_branches.branch_address, product_branches.branch_city, product_branches.branch_state, product_branches.branch_pincode, product_branches.branch_contact_person, product_branches.branch_contact_no, product_branches.monthly_subscription_amt FROM products left join product_branches on products.id=product_branches.product_id left join branch_images ON branch_images.branch_id=product_branches.id left join branch_offers on branch_offers.branch_id=product_branches.id left join categories on categories.id=products.category_id WHERE categories.id='+where.cat_id+' and product_branches.active=1 and products.active=1 group by product_branches.id order by product_branches.id');
+    connection.query('SELECT products.id, products.name, products.description, product_branches.id, count(branch_offers.branch_id) as offerCount, branch_images.branch_image, product_branches.branch_address, product_branches.branch_city, product_branches.branch_state, product_branches.branch_pincode, product_branches.branch_contact_person, product_branches.branch_contact_no, product_branches.monthly_subscription_amt FROM products left join product_branches on products.id=product_branches.product_id left join branch_images ON branch_images.branch_id=product_branches.id left join branch_offers on branch_offers.branch_id=product_branches.id left join categories on categories.id=products.category_id WHERE categories.id='+where.cat_id+' and product_branches.active=1 and products.active=1 group by product_branches.id order by product_branches.id', function (err, rows) {
         if (err) throw err
         callback(null, { result: rows });
     });

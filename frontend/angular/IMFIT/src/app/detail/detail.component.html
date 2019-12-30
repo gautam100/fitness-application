@@ -47,10 +47,10 @@
 
                             <!-- slider image start -->
                             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner" *ngFor="let branchImage of branchImages">
-                                    <div class="carousel-item active">
-                                        <img class="d-block w-100" src="http://localhost/imfit/app/webroot/media/branch_images/{{branchImage.branch_image}}"
-                                            alt="First slide">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active" *ngFor="let branchImage of branchImages; let index = index"
+                                        [class.active]="index == 0">
+                                        <img class="d-block w-100" src="http://localhost/imfit/app/webroot/media/branch_images/{{branchImage.branch_image}}">
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button"

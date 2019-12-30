@@ -29,7 +29,7 @@ export class DetailComponent implements OnInit {
     this.getDetailsPageList();
     this.getDetailsPageImageList();
   }
-
+ 
   getDetailsPageList() {
     this.loading = true;
 

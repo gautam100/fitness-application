@@ -28,14 +28,14 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.scss",
-              "./node_modules/custom/css/bootstrap-grid.min.css",
-              "./node_modules/custom/css/fonts-glyphicon.css",
-              "./node_modules/custom/css/aggregator-module_v2.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+              "node_modules/custom/css/fonts-glyphicon.css",
+              "node_modules/custom/css/aggregator-module_v2.css"
             ],
             "scripts": [
-              "./node_modules/custom/js/jquery.min.js"
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {

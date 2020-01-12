@@ -15,7 +15,8 @@ import { DatePipe } from '@angular/common';
 export class DetailComponent implements OnInit {
 
   result: any = [];
-  branchContents = [];
+  branchContents = {};
+  branchContent = {};
   branchImages = [];
   loading = false;
   _product_id: string;
@@ -38,7 +39,8 @@ export class DetailComponent implements OnInit {
       data => {
         this.result = data;
         this.branchContents = this.result.results;
-        console.log("detail: ", this.branchContents);
+        this.branchContent = this.branchContents[0];
+        console.log("detail: ", this.branchContent);
       },
       err => {
         console.log(err.message)

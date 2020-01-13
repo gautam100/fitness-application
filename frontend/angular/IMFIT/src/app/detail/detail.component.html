@@ -47,10 +47,10 @@
 
                             <!-- slider image start -->
                             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner" *ngFor="let branchImage of branchImages">
-                                    <div class="carousel-item active">
-                                        <img class="d-block w-100" src="http://localhost/imfit/app/webroot/media/branch_images/{{branchImage.branch_image}}"
-                                            alt="First slide">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active" *ngFor="let branchImage of branchImages; let index = index"
+                                        [class.active]="index == 0">
+                                        <img class="d-block w-100" src="http://52.14.36.239/imfit/app/webroot/media/branch_images/{{branchImage.branch_image}}">
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
@@ -67,7 +67,7 @@
                             <!-- slider image end -->
 
                         </div>
-                        <div class='detailed-content-wrapper' *ngFor="let branchContent of branchContents">
+                        <div class='detailed-content-wrapper'>
                             <div class='product-title'>{{branchContent.name}}</div>
                             <div class='product-address'>{{branchContent.branch_address}},
                                 {{branchContent.branch_city}}</div>
@@ -76,7 +76,7 @@
                                     discount Rs. 1000 on subscription of 3 months</span> </div>
                         </div>
                     </div>
-                    <div class="detailed-sectionheading" *ngFor="let branchContent of branchContents">
+                    <div class="detailed-sectionheading">
                         <header class="header-wrapper">
                             <h2>Subscription</h2>
                         </header>
@@ -95,7 +95,7 @@
                                 <div class="subscription-label">Quarterly</div>
                                 <div class="subscription-price">Rs. {{branchContent.quaterly_subscription_amt}}</div>
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio1"></label>
                                 </div>
                             </div>
@@ -105,7 +105,7 @@
                                 <div class="subscription-label">Half Yearly</div>
                                 <div class="subscription-price">Rs. {{branchContent.halfyearly_subscription_amt}}</div>
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                    <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio1"></label>
                                 </div>
                             </div>
@@ -115,7 +115,7 @@
                                 <div class="subscription-label">Yearly</div>
                                 <div class="subscription-price">Rs. {{branchContent.yearly_subscription_amt}}</div>
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                    <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio1"></label>
                                 </div>
                             </div>

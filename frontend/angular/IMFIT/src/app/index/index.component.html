@@ -54,7 +54,7 @@
           <div class='product-item' *ngFor="let homePageList of homePageLists">
             <div class='product-image-wrapper'>
               <!-- <img src='../../assets/images/aggregator-img.jpg'> -->
-              <img src='http://localhost/imfit/app/webroot/media/branch_images/{{homePageList.branch_image}}'>
+              <img src='http://52.14.36.239/imfit/app/webroot/media/branch_images/{{homePageList.branch_image}}'>
             </div>
             <div class='product-details-wrapper'>
               <div class='product-title'><a [routerLink]="['/detail', homePageList.id]">{{homePageList.name}}</a></div>

@@ -14,79 +14,138 @@
     </ul>
   </div>
 </div>
-<!-- Mobile search modal end --> 
+<!-- Mobile search modal end -->
 
 <!--  login modal start -->
 <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="registration-features-col">
-            <header class="heading">Benefits</header>
-            <ul>
-              <li>Publish multiple ads in <span class="highlight-text">Free</span></li>
-              <li>Provide <span class="highlight-text">personalise dashboard</span> to manage posted ads after registration</li>
-              <li>Provide ability to Share ads with friends on <span class="highlight-text">social networking</span> </li>
-            </ul>
-          </div>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-          <div class="login-signup-wrapper">
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-              <li class="nav-item"> <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Loginss</a> </li>
-              <li class="nav-item"> <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Register</a> </li>
-            </ul>
-            <div class="tab-content" id="pills-tabContent">
-              
-              <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                <form class="form-signup">
-                  <div class="form-label-group">
-                    <input type="text" class="form-control" id="label-email" placeholder="Enter your registered email id">
-                    <label for="label-email">Email</label>
-                  </div>
-                  <div class="form-label-group">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="registration-features-col">
+          <header class="heading">Benefits</header>
+          <ul>
+            <li>Publish multiple ads in <span class="highlight-text">Free</span></li>
+            <li>Provide <span class="highlight-text">personalise dashboard</span> to manage posted ads after
+              registration</li>
+            <li>Provide ability to Share ads with friends on <span class="highlight-text">social networking</span> </li>
+          </ul>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="login-signup-wrapper">
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item"> <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
+                role="tab" aria-controls="pills-home" aria-selected="true">Logins</a> </li>
+            <li class="nav-item"> <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                role="tab" aria-controls="pills-profile" aria-selected="false">Register</a> </li>
+          </ul>
+          <div class="tab-content" id="pills-tabContent">
+
+            <div class="alert alert-success" *ngIf="success">
+              {{successMessage}}
+            </div>
+            <div class="alert alert-danger" *ngIf="error">
+              {{errorMessage}}
+            </div>
+
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <!-- <form class="form-signup"> -->
+              <form (ngSubmit)="login()" #form="ngForm" autocomplete="nope">
+                <!-- <div class="form-label-group"> -->
+                <!-- <input type="text" class="form-control" id="label-email" placeholder="Enter your registered email id">
+                    <label for="label-email">Email</label> -->
+
+                <div class="form-group">
+                  <!--     <label for="input-email" class="sr-only">Email address</label> -->
+                  <input name="email" #emailForm="ngModel" [(ngModel)]="email" id="input-email" pattern=".+@.+..+"
+                    class="form-control" placeholder="Email address" [class.form-control-danger]="emailForm.invalid &&  emailForm.touched"
+                    autofocus required>
+                  <small class="form-text error" *ngIf=" emailForm.invalid &&  emailForm.touched &&  emailForm.errors?.required">Email
+                    is required!</small>
+                  <small class="form-text error" *ngIf=" emailForm.invalid &&  emailForm.touched &&  emailForm.errors?.pattern">Email
+                    should be the real one!</small>
+                </div>
+
+                <!-- </div> -->
+                <!-- <div class="form-label-group">
                     <input type="password" class="form-control" id="label-password" placeholder="Enter your password">
                     <label for="label-password">Password</label>
-                  </div>
-                  <div class="form-label-group">
-                    <input type="button" class="button button-primary" value="Login">
-                  </div>
-                </form>
-              </div>
-              
-              <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <form class="form-signup">
-                  <div class="form-label-group">
-                    <input type="text" class="form-control" id="label-reg-email" placeholder="Enter your email id">
-                    <label for="label-reg-email">Email</label>
-                  </div>
-                  <div class="form-label-group">
-                    <input type="password" class="form-control" id="label-reg-password" placeholder="Enter your password">
-                    <label for="label-reg-password">Password</label>
-                  </div>
-                  <div class="form-label-group">
-                    <input type="password" class="form-control" id="label-regconf-password" placeholder="Enter your password">
-                    <label for="label-regconf-password">Confirm Password</label>
-                  </div>
-                  <div class="form-label-group">
-                    <input type="button" class="button button-primary" value="Register">
-                  </div>
-                </form>
-              </div>
+                  </div> -->
+
+                <div class="form-group">
+                  <!--     <label for="input-password" class="sr-only">Password</label>-->
+                  <input name="password" #passwordFrom="ngModel" [(ngModel)]="password" type="password" id="input-password"
+                    class="form-control" placeholder="Password" [class.form-control-danger]="passwordFrom.invalid && passwordFrom.touched"
+                    required>
+                  <small class="form-text error" *ngIf="passwordFrom.invalid && passwordFrom.touched && passwordFrom.errors?.required">Password
+                    is required!</small>
+                </div>
+                <div class="form-label-group">
+                  <!-- <input type="button" class="button button-primary" value="Login"> -->
+                  <button class="button button-primary">Sign In</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+              <!-- <form class="form-signup"> -->
+              <form (ngSubmit)="register()" #form="ngForm" autocomplete="nope">
+                <!-- <div class="form-label-group">
+                  <input type="text" class="form-control" id="label-reg-email" placeholder="Enter your email id">
+                  <label for="label-reg-email">Email</label>
+                </div>
+                <div class="form-label-group">
+                  <input type="password" class="form-control" id="label-reg-password" placeholder="Enter your password">
+                  <label for="label-reg-password">Password</label>
+                </div>
+                <div class="form-label-group">
+                  <input type="password" class="form-control" id="label-regconf-password" placeholder="Enter your password">
+                  <label for="label-regconf-password">Confirm Password</label>
+                </div> -->
+
+                <div class="form-group">
+                  <input name="reg_email" #emailForm="ngModel" [(ngModel)]="email" id="input-reg-email" pattern=".+@.+..+"
+                    class="form-control" placeholder="Email address" [class.form-control-danger]="emailForm.invalid &&  emailForm.touched"
+                    autofocus required>
+                  <small class="form-text error" *ngIf=" emailForm.invalid &&  emailForm.touched &&  emailForm.errors?.required">Email
+                    is required!</small>
+                  <small class="form-text error" *ngIf=" emailForm.invalid &&  emailForm.touched &&  emailForm.errors?.pattern">Email
+                    should be the real one!</small>
+                </div>
+                <div class="form-group">
+                  <input name="reg_password" #passwordFrom="ngModel" [(ngModel)]="password" type="password" id="input-reg-password"
+                    class="form-control" placeholder="Password" [class.form-control-danger]="passwordFrom.invalid && passwordFrom.touched"
+                    required>
+                  <small class="form-text error" *ngIf="passwordFrom.invalid && passwordFrom.touched && passwordFrom.errors?.required">Password
+                    is required!</small>
+                </div>
+                <div class="form-group">
+                  <input name="reg_confirm_password" #passwordConfirmFrom="ngModel" [(ngModel)]="confirm_password" type="password"
+                    id="input-reg-confirm-password" class="form-control" placeholder="Confirm Password"
+                    [class.form-control-danger]="passwordConfirmFrom.invalid && passwordConfirmFrom.touched" required>
+                  <small class="form-text error" *ngIf="passwordConfirmFrom.invalid && passwordConfirmFrom.touched && passwordConfirmFrom.errors?.required">Confrm
+                    Password
+                    is required!</small>
+                </div>
+
+                <div class="form-label-group">
+                  <!-- <input type="button" class="button button-primary" value="Register"> -->
+                  <button class="button button-primary">Register</button>
+                </div>
+              </form>
             </div>
           </div>
-          <div class="single-signup-wrapper">
-            <div class="single-signup-content">
-              <div class="regular-text">Sign in With</div>
-              <button class="icon-gmail-signup"><img src="../../assets/images/icon-gmail-login.png"> Gmail Account</button>
-              <button class="icon-facebook-signup"><img src="../../assets/images/icon-facebook-login.png"> Facebook Account</button>
-            </div>
+        </div>
+        <div class="single-signup-wrapper">
+          <div class="single-signup-content">
+            <div class="regular-text">Sign in With</div>
+            <button class="icon-gmail-signup"><img src="../../assets/images/icon-gmail-login.png"> Gmail Account</button>
+            <button class="icon-facebook-signup"><img src="../../assets/images/icon-facebook-login.png"> Facebook
+              Account</button>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </div>
-  <!-- login modal end -->
-
-  
-    
-  
+<!-- login modal end -->

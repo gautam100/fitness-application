@@ -1,30 +1,4 @@
 <section class="page-content">
-    <!-- header start -->
-    <header class="page-header">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"> <span
-                class="glyphicon glyphicon-menu-hamburger"></span>
-        </button>
-        <a href="index.html" class="brand-logo"><img src="../../assets/images/brand-logo.png"></a>
-        <div class="mobile-ctrl-header">
-            <div class="header-links-wrapper">
-                <div class="search-wrapper">
-                    <div class="mobtab-search-bar">
-                        <div class="btn-search" id="SearchModal-MobTab"><span class="glyphicon glyphicon-search"></span></div>
-                    </div>
-                    <div class="desktop-search-bar">
-                        <input type="text" placeholder="Search for videos, people, trainers" class="input-search">
-                        <button class="btn-search">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </div>
-                </div>
-                <div class="notification-wrapper"><span class="notification-count">5</span></div>
-                <div class="userlogin-wrapper" data-toggle="modal" data-target="#LoginModal"></div>
-            </div>
-        </div>
-    </header>
-    <!-- header end -->
-
     <div class="main-content">
         <div class="page-content-wrapper">
             <!-- global navigation start -->
@@ -72,60 +46,75 @@
                             <div class='product-address'>{{branchContent.branch_address}},
                                 {{branchContent.branch_city}}</div>
                             <div class='contact-details'>Contact Details: {{branchContent.branch_contact_no}}</div>
-                            <div class='detailed-offer-wrapper'> <span class='offer-label'>Offer:</span> <span class='offer-details'>Get
+                            <div class='detailed-offer-wrapper'> <span class='offer-label' style="float:left;">Offer:</span>
+                                <span class='offer-details'>Get
                                     discount Rs. 1000 on subscription of 3 months</span> </div>
                         </div>
                     </div>
+
+
                     <div class="detailed-sectionheading">
-                        <header class="header-wrapper">
-                            <h2>Subscription</h2>
-                        </header>
-                        <div class="subscription-plan">
-                            <div class="subscription-item">
-                                <div class="subscription-label">Monthly</div>
-                                <div class="subscription-price">Rs. {{branchContent.monthly_subscription_amt}}</div>
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio1"></label>
+                        <!-- <form (ngSubmit)="subscriptionPlan()" #form="ngForm" autocomplete="nope"> -->
+                            <header class="header-wrapper">
+                                <h2>Subscription</h2>
+                            </header>
+                            <div class="subscription-plan">
+                                <div class="subscription-item">
+                                    <div class="subscription-label">Monthly</div>
+                                    <div class="subscription-price">Rs. {{branchContent.monthly_subscription_amt}}</div>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" [(ngModel)]="subscription_amt" value="{{branchContent.monthly_subscription_amt}}" id="customRadio1" name="customRadio" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadio1"></label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="subscription-plan recommended-plan">
-                            <div class="subscription-item"> <span class="glyphicon glyphicon-star"></span>
-                                <div class="subscription-label">Quarterly</div>
-                                <div class="subscription-price">Rs. {{branchContent.quaterly_subscription_amt}}</div>
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio1"></label>
+                            <div class="subscription-plan recommended-plan">
+                                <div class="subscription-item"> <span class="glyphicon glyphicon-star"></span>
+                                    <div class="subscription-label">Quarterly</div>
+                                    <div class="subscription-price">Rs. {{branchContent.quaterly_subscription_amt}}</div>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" [(ngModel)]="subscription_amt" value="{{branchContent.quaterly_subscription_amt}}" id="customRadio2" name="customRadio" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadio2"></label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="subscription-plan">
-                            <div class="subscription-item">
-                                <div class="subscription-label">Half Yearly</div>
-                                <div class="subscription-price">Rs. {{branchContent.halfyearly_subscription_amt}}</div>
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio1"></label>
+                            <div class="subscription-plan">
+                                <div class="subscription-item">
+                                    <div class="subscription-label">Half Yearly</div>
+                                    <div class="subscription-price">Rs. {{branchContent.halfyearly_subscription_amt}}</div>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" [(ngModel)]="subscription_amt" value="{{branchContent.halfyearly_subscription_amt}}" id="customRadio3" name="customRadio" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadio3"></label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="subscription-plan">
-                            <div class="subscription-item">
-                                <div class="subscription-label">Yearly</div>
-                                <div class="subscription-price">Rs. {{branchContent.yearly_subscription_amt}}</div>
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio1"></label>
+                            <div class="subscription-plan">
+                                <div class="subscription-item">
+                                    <div class="subscription-label">Yearly</div>
+                                    <div class="subscription-price">Rs. {{branchContent.yearly_subscription_amt}}</div>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" [(ngModel)]="subscription_amt" value="{{branchContent.yearly_subscription_amt}}" id="customRadio4" name="customRadio" class="custom-control-input">
+                                        <label class="custom-control-label" for="customRadio4"></label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="product-action detailedpage-enrollment">
-                            <button class="button-enroll" onClick="window.location.href='user-aggregator-paymentpage.html'">Enroll
-                                Now</button>
-                            <div class="product-enrolled"> 24 People Enrolled </div>
-                        </div>
+                            <div class="product-action detailedpage-enrollment">
+
+                                <!-- <button class="button-enroll" *ngIf="!success">Enroll
+                                Now</button> -->
+                                <button class="button-enroll" *ngIf="user_name">
+                                    <a [routerLink]="['/paymentpage', _product_id]">Enroll Now</a>
+                                </button>
+                                <button class="button-enroll" *ngIf="!user_name">
+                                    <div data-toggle="modal" data-target="#LoginModal">Enroll Now</div>
+                                </button>
+                                <div class="product-enrolled"> 24 People Enrolled </div>
+                            </div>
+                        <!-- </form> -->
+
                     </div>
+
+
                     <div class="detailed-sectionheading">
                         <header class="header-wrapper">
                             <h2>Programs</h2>

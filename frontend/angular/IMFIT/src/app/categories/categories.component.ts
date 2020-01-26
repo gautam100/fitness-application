@@ -5,6 +5,7 @@ import { DashboardService } from '../@core/data/dashboard.service';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
+import { HeaderService } from '../@core/data/header.service';
 
 @Component({
   selector: 'app-categories',
@@ -18,17 +19,27 @@ export class CategoriesComponent implements OnInit {
   branchImages = [];
   loading = false;
   _cate_id: string;
+  user_name: any = {};
+  title = 'Category Page';
 
   cateProductLists = [];
   
   constructor(
     private dashboardService: DashboardService,
     // private globalVariableService: GlobalVariableService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private headerService: HeaderService
   ) { }
 
   ngOnInit() {
+    this.user_name = JSON.parse(sessionStorage.getItem('currentUser'));
     this.getDashboardPageList();
+    console.log("email2: ", this.user_name);
+
+    this.headerService.title.subscribe(title => {
+      this.title = title;
+    });
+    this.headerService.setTitle(this.user_name);
   }
 
   getDashboardPageList() {

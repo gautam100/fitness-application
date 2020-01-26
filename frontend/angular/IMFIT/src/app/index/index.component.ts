@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, 
 
 import { DashboardService } from '../@core/data/dashboard.service';
 // import { GlobalVariableService } from '../@core/data/shared/global-variable.service';
+import { HeaderService } from '../@core/data/header.service';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { DatePipe } from '@angular/common';
 
@@ -16,14 +17,26 @@ export class IndexComponent implements OnInit {
   result: any = [];
   homePageLists = [];
   loading = false;
+  user_name: any = {};
+  title = 'Home Page';
 
   constructor(
     private dashboardService: DashboardService,
     // private globalVariableService: GlobalVariableService,
+    private headerService: HeaderService
   ) { }
 
   ngOnInit() {
+
+    this.user_name = JSON.parse(sessionStorage.getItem('currentUser'));
     this.getDashboardPageList();
+    console.log("email: ", this.user_name);
+
+    this.headerService.title.subscribe(title => {
+      this.title = title;
+    });
+    this.headerService.setTitle(this.user_name);
+
   }
 
   getDashboardPageList() {

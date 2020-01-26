@@ -5,12 +5,14 @@ import { UserService } from './users.service';
 import { StateService } from './state.service';
 import { DashboardService } from './dashboard.service';
 import { DetailService } from './detail.service';
+import { HeaderService } from './header.service';
 
 const SERVICES = [
   UserService,
   DashboardService,
   StateService,
-  DetailService
+  DetailService,
+  HeaderService
 ];
 
 @NgModule({

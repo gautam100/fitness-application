@@ -47,6 +47,9 @@ export class UserService {
   doLogin(data) {
     return this.http.post(API_URL + 'login', data, httpOptions);
   }
+  doRegister(data) {
+    return this.http.post(API_URL + 'register', data, httpOptions);
+  }
   getCurrentUser(): string {
     return sessionStorage.getItem('currentUser');
   }

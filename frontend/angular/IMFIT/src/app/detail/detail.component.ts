@@ -20,13 +20,23 @@ export class DetailComponent implements OnInit {
   branchImages = [];
   loading = false;
   _product_id: string;
+  user_name: any = {};
 
+  subscription_amt: string;
+  productId;
+  productCredentials: any = {};
+  currentUser: any = {};
+  error = false;
+  success = false;
+  
   constructor(
     private detailService: DetailService,
     private route: ActivatedRoute
     ) { }
 
   ngOnInit() {
+    this.user_name = JSON.parse(sessionStorage.getItem('currentUser'));
+    console.log("username: ", this.user_name);
     this.getDetailsPageList();
     this.getDetailsPageImageList();
   }
@@ -69,7 +79,13 @@ export class DetailComponent implements OnInit {
         this.loading = false;
       }
     );
-
   }
+
+  // subscriptionPlan(){
+  //   this.loading = true;
+  //   this.error = false;
+  //   this.productCredentials = { subscription: this.subscription_amt, productId: this._product_id };
+  //   console.log("user: ", this.productCredentials);
+  // }
 
 }

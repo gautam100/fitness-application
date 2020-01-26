@@ -1,2 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 //@import "~bootstrap/dist/css/bootstrap.css"
+
+.userlogin-wrapper .dropdown-menu{
+    padding: 0px 0px;
+    border-radius: 0px;
+   }	
+   .userlogin-wrapper .dropdown-menu .user-logedin-name{
+   font: normal 14px/24px SSP-Regular;	
+   color: #6a6a6a;
+   padding: 12px 24px;	
+   display: block;
+   border-bottom: 1px solid #e6e7e7;
+   }
+   .userlogin-wrapper .dropdown-menu .dropdown-item{
+   font: normal 14px/24px SSP-Regular;
+   color: #252525;
+   padding: 12px 24px;	
+   }
+   .userlogin-wrapper .dropdown-menu .dropdown-item:active,
+   .userlogin-wrapper .dropdown-menu .dropdown-item:focus{
+       color: #252525;
+       text-decoration: none;
+       background-color: #fff;
+   }	
+   .userlogin-wrapper .dropdown-menu .dropdown-item:hover{
+       color: #252525;
+       text-decoration: underline;
+       background-color: #fff;
+   }	

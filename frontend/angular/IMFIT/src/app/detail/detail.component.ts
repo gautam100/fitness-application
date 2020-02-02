@@ -1,11 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, Renderer, Inject } from '@angular/core';
-
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 import { DetailService } from '../@core/data/detail.service';
 // import { GlobalVariableService } from '../@core/data/shared/global-variable.service';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail',
@@ -22,17 +23,23 @@ export class DetailComponent implements OnInit {
   _product_id: string;
   user_name: any = {};
 
-  subscription_amt: string;
+  subscription_amt: any;
   productId;
   productCredentials: any = {};
   currentUser: any = {};
   error = false;
   success = false;
-  
+  public href: string = "";
+
   constructor(
     private detailService: DetailService,
-    private route: ActivatedRoute
-    ) { }
+    private route: ActivatedRoute,
+    private router: Router,
+    private location: Location
+  ) {
+    this.href = location.path();
+    // this.subscription_amt = 1200;
+  }
 
   ngOnInit() {
     this.user_name = JSON.parse(sessionStorage.getItem('currentUser'));
@@ -40,12 +47,12 @@ export class DetailComponent implements OnInit {
     this.getDetailsPageList();
     this.getDetailsPageImageList();
   }
- 
+
   getDetailsPageList() {
     this.loading = true;
 
     this._product_id = this.route.snapshot.paramMap.get("id");
-    this.detailService.getDetailContent({'product_id': this._product_id}).subscribe(
+    this.detailService.getDetailContent({ 'product_id': this._product_id }).subscribe(
       data => {
         this.result = data;
         this.branchContents = this.result.results;
@@ -64,7 +71,7 @@ export class DetailComponent implements OnInit {
   getDetailsPageImageList() {
     this.loading = true;
     this._product_id = this.route.snapshot.paramMap.get("id");
-    this.detailService.getDetailImageContent({'product_id': this._product_id}).subscribe(
+    this.detailService.getDetailImageContent({ 'product_id': this._product_id }).subscribe(
       data => {
         this.result = data;
         this.branchImages = this.result.results;
@@ -79,6 +86,18 @@ export class DetailComponent implements OnInit {
         this.loading = false;
       }
     );
+  }
+
+  goToPayment(productId, amount) {
+    if (amount == "" || amount == undefined) {
+      alert("Please choose plan...");
+      return false;
+    }
+    console.log("Resetting filters ON click OpenTAs: ", amount);
+    localStorage.setItem('product_id', productId);
+    localStorage.setItem('subscription_amount', amount);
+    this.router.navigate(['paymentpage']);
+    // this.router.navigate(['paymentpage/'+productId+'/'+amount]);
   }
 
   // subscriptionPlan(){

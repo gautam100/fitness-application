@@ -24,8 +24,7 @@
                                 <div class="carousel-inner">
                                     <div class="carousel-item active" *ngFor="let branchImage of branchImages; let index = index"
                                         [class.active]="index == 0">
-
-                                        <img class="d-block w-100" src="http://52.14.36.239/imfit/app/webroot/media/branch_images/{{branchImage.branch_image}}">
+                                        <img class="d-block w-100" src="http://localhost/imfit/app/webroot/media/branch_images/{{branchImage.branch_image}}">
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
@@ -53,64 +52,69 @@
                         </div>
                     </div>
 
-
                     <div class="detailed-sectionheading">
                         <!-- <form (ngSubmit)="subscriptionPlan()" #form="ngForm" autocomplete="nope"> -->
-                            <header class="header-wrapper">
-                                <h2>Subscription</h2>
-                            </header>
-                            <div class="subscription-plan">
-                                <div class="subscription-item">
-                                    <div class="subscription-label">Monthly</div>
-                                    <div class="subscription-price">Rs. {{branchContent.monthly_subscription_amt}}</div>
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" [(ngModel)]="subscription_amt" value="{{branchContent.monthly_subscription_amt}}" id="customRadio1" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio1"></label>
-                                    </div>
+                        <header class="header-wrapper">
+                            <h2>Subscription</h2>
+                        </header>
+                        <div class="subscription-plan">
+                            <div class="subscription-item">
+                                <div class="subscription-label">Monthly</div>
+                                <div class="subscription-price">Rs. {{branchContent.monthly_subscription_amt}}</div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" [(ngModel)]="subscription_amt" value="{{branchContent.monthly_subscription_amt}}"
+                                        id="customRadio1" name="customRadio" class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadio1"></label>
                                 </div>
                             </div>
-                            <div class="subscription-plan recommended-plan">
-                                <div class="subscription-item"> <span class="glyphicon glyphicon-star"></span>
-                                    <div class="subscription-label">Quarterly</div>
-                                    <div class="subscription-price">Rs. {{branchContent.quaterly_subscription_amt}}</div>
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" [(ngModel)]="subscription_amt" value="{{branchContent.quaterly_subscription_amt}}" id="customRadio2" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio2"></label>
-                                    </div>
+                        </div>
+                        <div class="subscription-plan">
+                            <div class="subscription-item">
+                                <!-- <span class="glyphicon glyphicon-star"></span> -->
+                                <div class="subscription-label">Quarterly</div>
+                                <div class="subscription-price">Rs. {{branchContent.quaterly_subscription_amt}}</div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" [(ngModel)]="subscription_amt" value="{{branchContent.quaterly_subscription_amt}}"
+                                        id="customRadio2" name="customRadio" class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadio2"></label>
                                 </div>
                             </div>
-                            <div class="subscription-plan">
-                                <div class="subscription-item">
-                                    <div class="subscription-label">Half Yearly</div>
-                                    <div class="subscription-price">Rs. {{branchContent.halfyearly_subscription_amt}}</div>
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" [(ngModel)]="subscription_amt" value="{{branchContent.halfyearly_subscription_amt}}" id="customRadio3" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio3"></label>
-                                    </div>
+                        </div>
+                        <div class="subscription-plan">
+                            <div class="subscription-item">
+                                <div class="subscription-label">Half Yearly</div>
+                                <div class="subscription-price">Rs. {{branchContent.halfyearly_subscription_amt}}</div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" [(ngModel)]="subscription_amt" value="{{branchContent.halfyearly_subscription_amt}}"
+                                        id="customRadio3" name="customRadio" class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadio3"></label>
                                 </div>
                             </div>
-                            <div class="subscription-plan">
-                                <div class="subscription-item">
-                                    <div class="subscription-label">Yearly</div>
-                                    <div class="subscription-price">Rs. {{branchContent.yearly_subscription_amt}}</div>
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" [(ngModel)]="subscription_amt" value="{{branchContent.yearly_subscription_amt}}" id="customRadio4" name="customRadio" class="custom-control-input">
-                                        <label class="custom-control-label" for="customRadio4"></label>
-                                    </div>
+                        </div>
+                        <div class="subscription-plan">
+                            <div class="subscription-item">
+                                <div class="subscription-label">Yearly</div>
+                                <div class="subscription-price">Rs. {{branchContent.yearly_subscription_amt}}</div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" [(ngModel)]="subscription_amt" value="{{branchContent.yearly_subscription_amt}}"
+                                        id="customRadio4" name="customRadio" class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadio4"></label>
                                 </div>
                             </div>
-                            <div class="product-action detailedpage-enrollment">
+                        </div>
+                        <div class="product-action detailedpage-enrollment">
 
-                                <!-- <button class="button-enroll" *ngIf="!success">Enroll
+                            <!-- <button class="button-enroll" *ngIf="!success">Enroll
                                 Now</button> -->
-                                <button class="button-enroll" *ngIf="user_name">
-                                    <a [routerLink]="['/paymentpage', _product_id]">Enroll Now</a>
-                                </button>
-                                <button class="button-enroll" *ngIf="!user_name">
-                                    <div data-toggle="modal" data-target="#LoginModal">Enroll Now</div>
-                                </button>
-                                <div class="product-enrolled"> 24 People Enrolled </div>
-                            </div>
+                            <button class="button-enroll" *ngIf="user_name">
+                                <div (click)="goToPayment(_product_id, subscription_amt)">Enroll Now</div>
+                                <!-- <a [routerLink]="['/paymentpage', _product_id, ]">Enroll Now</a> -->
+                            </button>
+                            <button class="button-enroll" *ngIf="!user_name">
+                                <div data-toggle="modal" data-target="#LoginModal">Enroll Now</div>
+                            </button>
+                            <div class="product-enrolled"> 24 People Enrolled </div>
+                        </div>
                         <!-- </form> -->
 
                     </div>

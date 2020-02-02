@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgModel, NgForm } from '@angular/forms';
 import { UserService } from './../@core/data/users.service';
@@ -28,19 +29,22 @@ export class HeaderComponent implements OnInit {
   headerService: any;
   title = 'Login';
   // display='none';
-  
-  ngOnInit() {
-  }
-
+  public href: string = "";
+    
   // @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
 
-  constructor(private uesrService: UserService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private uesrService: UserService, private router: Router, private route: ActivatedRoute, private location: Location) { 
+    this.href = location.path();
+  }
+
+  ngOnInit() {
+  }
 
   login() {
     this.loading = true;
     this.error = false;
     this.userCredentials = { email: this.email, password: this.password };
-    console.log("user: ", this.userCredentials);
+    // console.log("user: ", this.userCredentials);
     this.uesrService.doLogin(this.userCredentials).subscribe(
       data => {
         this.result = data;
@@ -56,10 +60,11 @@ export class HeaderComponent implements OnInit {
           // this.IsmodelShow = true;
           // this.router.navigate(['']);
           // this.display='block';
-          // jQuery("#LoginModal").modal('hide');
+
+          jQuery("#LoginModal").modal('hide');
+          this.router.navigate([]);
           
-          window.location.href = './index';
-          // this.router.navigate(['']);
+          // window.location.href = './index';
 
           // this.headerService.title.subscribe(title => {
           //   this.title = title;

@@ -9,7 +9,7 @@
               <div class='placed-order-contactdetails'>Contact Details: {{branchContent.branch_contact_no}}</div>
               <div class='order-subscription-amt'>
                 <div class='order-section-heading'>Subscription</div>
-                <div class="placed-order-amt">Monthly: Rs. {{branchContent.monthly_subscription_amt}}</div>
+                <div class="placed-order-amt">{{this.subscriptionType}} : Rs. {{_subscription_amount}}</div>
               </div>
               <div class='order-applyvocher'>
                 <div class='order-section-heading'>Apply Vocher</div>
@@ -67,27 +67,27 @@
               <table border="0" class="grid_orderconfirm_charges">                
                   <tr>
                   <td>Charges</td>
-                  <td class="order-amt-col">Rs. {{branchContent.monthly_subscription_amt}}</td>
+                  <td class="order-amt-col">Rs. {{_subscription_amount}}</td>
                   </tr>
                   <tr>
                   <td class="order-charges-div">Discount</td>
-                  <td class="order-amt-col order-charges-div order-discount-amt">Rs. 250</td>
+                  <td class="order-amt-col order-charges-div order-discount-amt">Rs. {{discount_amount}}</td>
                   </tr>
                   <tr>
                   <td class="order-charges-topdiv">Balance</td>
-                  <td class="order-amt-col order-charges-topdiv">Rs. 750</td>
+                  <td class="order-amt-col order-charges-topdiv">Rs. {{balance_amount}}</td>
                   </tr>
                   <tr>
                   <td>GST (state 9%)</td>
-                  <td class="order-amt-col">Rs. 67.5</td>
+                  <td class="order-amt-col">Rs. {{gst_state_amount}}</td>
                   </tr>
                   <tr>
                   <td class="order-charges-div">GST (Center 9%)</td>
-                  <td class="order-amt-col order-charges-div">Rs. 67.5</td>
+                  <td class="order-amt-col order-charges-div">Rs. {{gst_center_amount}}</td>
                   </tr>
                   <tr>
                   <td class='order-charges-topdiv'>Total Amount</td>
-                  <td class="order-amt-col order-charges-topdiv">Rs. 885</td>
+                  <td class="order-amt-col order-charges-topdiv">Rs. {{total_amount}}</td>
                   </tr>
                   </table>
               

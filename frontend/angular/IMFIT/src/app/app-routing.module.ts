@@ -25,7 +25,8 @@ const routes: Routes = [
     component: CategoriesComponent
   },
   {
-    path: 'paymentpage/:id',
+    //path: 'paymentpage/:id/:amount',
+    path: 'paymentpage',
     component: PaymentPageComponent
   },
   {

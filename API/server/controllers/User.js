@@ -32,7 +32,23 @@ exports.login = function (req, res) {
 }
 
 exports.register = function (req, res) {
-    var credentials = { email: req.body.email, password: md5(req.body.password) };
+    if(req.body.password != ""){
+        var pwd = md5(req.body.password);
+    }else{
+        var pwd = '';
+    }
+    if(req.body.google_id != ""){
+        var gid = req.body.google_id;
+    }else{
+        var gid = '';
+    }
+    if(req.body.facebook_id != ""){
+        var fbid = req.body.facebook_id;
+    }else{
+        var fbid = '';
+    }
+
+    var credentials = { email: req.body.email, password: pwd, google_id: gid, facebook_id: fbid };
     Model_user.register(credentials, function (err, userData) {
         res.send(userData);
     });

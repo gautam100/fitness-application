@@ -92,7 +92,7 @@
                   </table>
               
               <div class="order-payment-action">
-                <button class="button-make-payment" onClick="window.location.href='user-aggregator-paymentconfirmation.html'">Make Payment</button>
+                <button class="button-make-payment" (click)="goToPaymentConfirmation(_product_id, _subscription_amount, discount_amount, gst_state_amount, gst_center_amount, total_amount)">Make Payment</button>
               </div>
               
           </div>

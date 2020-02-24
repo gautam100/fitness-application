@@ -1,0 +1,431 @@
+@charset "utf-8";
+/* CSS Document */
+@media screen and (min-width: 320px){
+	.page-background {
+		background: url(../images/page-headerbg.jpg) no-repeat 0px 0px #815da0;
+		/*background-color: #815da0;*/
+		height: 124px;
+		position: absolute;
+		width: 100%;
+		z-index: -1;
+		background-size: cover;
+	}
+	.page-content{
+		width: 100%;
+		margin: 0px auto;
+	}
+	/*========================
+	common css start
+	==========================*/
+	.modal-header {
+		padding: 1rem 3rem;
+	}	
+	.modal-content, .btn{
+		border-radius: 0px;
+	}
+	.modal-footer{
+		text-align: center;
+		display: block;		
+	}
+	.btn-secondary{
+		padding: 4px 10px;
+		font-size: 16px;
+		background-color: #fff;
+		border: 1px solid #075ba4;
+		color: #616161;
+	}
+	.btn-secondary:hover, 	.btn-secondary:active, 	.btn-secondary:visited{
+		background-color: #075ba4;
+		border: 1px solid #075ba4;
+		color: #fff;		
+	}
+	.modal-title{
+		font-size: 24px;
+		color: #616161;
+		font-family: "SSP-SemiBold", arial;
+		font-weight: bold;
+	}	
+	.modal-dialog{
+		max-width: 920px;
+	}
+	.modal .modal-body{
+		padding: 48px 48px;
+	}
+	.form-control{
+		border-radius: 0px;
+		color: #171717;
+	}
+	.modal-footer>:not(:last-child) {
+		margin-right: 24px;
+	}	
+	/*========================
+	common css end
+	==========================*/
+	
+	/*========================
+	header start
+	=========================*/
+	.page-header {
+		display: table;
+		width: 100%;
+		padding: 20px;
+		box-sizing: border-box;
+	}
+	.brand-logo {
+		float: left;
+		padding: 0px;
+		margin: 0px 20px 0px 0px;
+		width: 36%;
+		margin-right: 0px;
+	}
+	.brand-logo img{
+		width: 80%;
+	}		
+	.mobile-search-control {
+		position: fixed;
+		z-index: 1;
+		background-color: #fff;
+		width: 100%;
+		height: 100%;
+		opacity: 1;
+		padding: 50px 20px 30px;
+		text-align: left;
+	}
+	.mobtab-search-bar .btn-search {
+		color: #FFF;
+		font-size: 15px;
+		background: none;
+		text-align: center;	
+	}	
+	.mobile-search-control .glyphicon {
+		display: inline-block;
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		color: #ededed;
+		font-size: 18px;
+	}
+	.mobile-search-control .search-heading {
+		color: #313131;
+		font-family: 'SSP-Regular', arial;
+		font-size: 14px;
+		font-weight: bold;
+		text-align: left;
+		margin: 30px 0px 20px;
+	}
+	.mobile-search-control .field-search {
+	    font: normal 14px 'SSP-Regular', arial;
+		color: #262626;
+		width: 66%;
+		padding: 15px 10px 15px 0px;
+		box-sizing: border-box;
+		border: 1px solid #c9c9c9;
+		border-top: 0px;
+		border-left: 0px;
+		border-right: 0px;
+		margin-top: 0px;
+		float: left;
+	}
+	.mobile-search-control .btn-search {
+		border: 0px;
+		padding-bottom: 6px\9;
+		background-color: #2ca8d6;
+		margin: 6px auto 0px;
+		color: #fff;
+		width: auto;
+		height: auto;
+		border-radius: 0px;
+		padding: 2px 18px;
+		font-size: 14px;
+	}		
+	.search-wrapper {
+		float: left;
+		padding-bottom: 8px;
+	}
+	.input-search, .input-search::placeholder{
+		background-color: transparent;
+		border: 0px;
+		color: #fff;
+		font: normal 14px 'SSP-Regular', arial;
+		width: 440px;
+		outline: 0px;
+		padding-left: 6px;
+		box-sizing: border-box;
+	}
+    .input-search::placeholder{
+		color: #d1bbe7;
+	}
+	.btn-search {
+		width: 33px;
+		/* height: 27px; */
+		border: 0px;
+		box-shadow: none;
+		outline: 0px;
+		position: relative;
+		top: 4px;
+		opacity: 1;
+	}
+	.recent-search-wrapper{
+		display: table;
+		clear: both;
+		margin: 30px 0px;
+	}
+	ul.recent-search-items{
+		margin: 0px;
+		padding: 0px 0px;
+		list-style: none;
+	}
+	ul.recent-search-items li{
+		font: normal 14px 'SSP-Regular', arial;
+		color: #262626;	
+		margin:20px 0px;	
+	}
+	.header-links-wrapper{
+		float: right;		
+	}
+	.notification-wrapper {
+		background: url(../images/icon-notification.png) no-repeat 0px 0px transparent;
+		width: 25px;
+		height: 25px;
+		float: left;
+		position: relative;
+		background-size: cover;
+		top: 1px;
+	}
+	.notification-wrapper .notification-count{
+		font-size: 10px;
+		font-weight: bold;
+		background-color: #ffd200;
+		position: absolute;
+		top: 5px;
+		right: -5px;
+		padding: 0px 6px;
+		border-radius: 100%;
+		box-sizing: border-box;
+	}
+	.userlogin-wrapper {
+		background: url(../images/icon-header-user.png) no-repeat 0px 0px transparent;
+		width: 24px;
+		height: 24px;
+		float: left;
+		margin-left: 18px;
+		position: relative;
+		background-size: cover;
+		background-position: center;
+		top: 0px;
+	}
+	div[aria-labelledby='userlogedinMenu']{
+		box-shadow: rgba(75, 75, 75, 0.5) 1px 1px 9px 0px;
+		top: -8px !important;
+		left: -44px !important;
+	}	
+	.desktop-search-bar{
+		display: none;
+		width: 485px;		
+	    border-bottom: 1px solid #d1bbe7;		
+	}				
+	.user-logined {
+		width: 32px;
+		background-size: 22px;
+		text-align: right;
+		padding-top: 3px;
+		color: #fff;
+		background-position: 0px;
+		font-size: 12px;
+		margin-left: 18px;
+	}	
+	.user-loged-in .dropdown-menu {
+		padding: 0px 0px;
+		border-radius: 0px;
+		transform: translate3d(-80px, 38px, 0px) !important;
+		border-radius: 4px;
+	}	
+	.user-loged-in .dropdown-menu .user-logedin-name {
+		font: normal 14px/24px SSP-Regular;
+		color: #6a6a6a;
+		padding: 12px 24px;
+		display: block;
+		border-bottom: 1px solid #e6e7e7;
+	}
+	.user-loged-in .dropdown-menu .dropdown-item {
+		font: normal 14px/24px SSP-Regular;
+		color: #252525;
+		padding: 12px 24px;
+	}	
+	.user-loged-in .dropdown-menu .dropdown-item:active {
+		background-color: #2ca8d6;
+		color: #fff !important;
+	}	
+	
+	/*========================
+	header end
+	=========================*/	
+}
+@media screen and (max-width: 767px) {
+    .column {
+        width: 100%;
+        height: auto;
+    }
+	.search-wrapper {
+		padding: 0px 8px;
+	}	
+	.login-wrapper {
+		padding: 0px 10px;
+	}	
+	div[aria-labelledby='LoginModalLabel'] .modal-dialog{
+		margin: 0px;
+	}	
+	#SearchModal-MobTab{
+		display: block;
+	}		
+	.navbar-close{
+		left: 80%;
+	}	
+}
+
+@media screen and (min-width: 768px){
+	/*========================
+	header start
+	=========================*/
+	.page-background {
+		height: 144px;
+	}
+	.page-header {
+		display: table;
+		width: 100%;
+		padding: 20px 30px 40px;
+		box-sizing: border-box;
+	}	
+	.brand-logo {
+		margin-right: 0px;
+		width: 20%;		
+		margin: 8px 20px 0px 0px;
+	}	
+	.brand-logo img {
+		width: 80%;
+	}	
+	.page-header-filter-wrapper {
+		padding: 0px 30px;
+	}		
+	.mobile-search-control {
+		padding: 50px 150px 30px;
+	}
+	.search-wrapper, .notification-wrapper{
+		margin: 0px 24px;
+	}
+	div[aria-labelledby='LoginModalLabel'] .modal-dialog {
+		margin: 0px;
+	}	
+	.mobtab-search-bar .btn-search {
+		font-size: 18px;
+	}
+	.btn-search {
+		width: 33px;
+		top: 16px;
+	}	
+	.notification-wrapper {
+		width: 28px;
+		height: 29px;
+		top: 12px;
+	}
+	.userlogin-wrapper {
+		top: 13px;
+	}	
+	.user-logined {
+		width: 42px;
+		background-size: 26px;
+		font-size: 16px;
+	}	
+	/*========================
+	header start
+	=========================*/
+}
+@media screen and (min-width: 1024px){
+	/*========================
+	header start
+	=========================*/
+	.page-background {
+		/*height: 250px;*/
+	}
+	.brand-logo{
+		width: 16%;
+	}
+	.page-header, .page-header-filter-wrapper, .aggregator-product {
+		padding-left: 80px;
+		padding-right: 80px;
+	}	
+	.product-item {
+		margin: 30px 30px 0px 0px;
+		width: 30.8%;
+	}	
+	.brand-logo img {
+		width: 85%;
+	}		
+	/*========================
+	header end
+	=========================*/	
+}
+@media screen and (min-width: 1280px){
+	/*========================
+	header start
+	=========================*/
+	.brand-logo {
+		width: 162px;
+		height: 54px;
+		margin-left: 0px;		
+		margin-right: 0px;
+	}	
+	.page-background {
+		height: 127px;
+	}	
+	.page-header {
+		padding: 24px 0px 24px;
+		width: 1156px;
+		margin: 0px auto;
+	}
+	.page-header-filter-wrapper .header-filter-content {
+		padding: 0px;
+		border: 0px;
+		background-color: transparent;
+	}	
+	.page-header-filter-wrapper .page-header {
+		font-size: 14px;
+	}
+	.page-header-filter-wrapper .page-header .page-title {
+		font-size: 24px;		
+		clear: none;
+		display: inline;
+	}	
+	.mobtab-search-bar{
+		display: none;
+	}
+	.desktop-search-bar{
+		display: block;
+		width: 480px;
+	}
+	.header-links-wrapper{
+		width: 69%;
+	}
+	.btn-search {
+		top: 0px;
+		background: none;
+		color: #fff;
+	}
+	.search-wrapper{
+		margin-right: 136px;
+    	margin-top: 12px;		
+	}
+	.notification-wrapper, .userlogin-wrapper{
+		width: 32px;
+		height: 30px;
+    	top: 16px;		
+	}
+	.userlogin-wrapper{
+		width: 48px;
+		background-size: contain;
+		top: 17px;
+	}	
+	/*========================
+	header end
+	=========================*/	
+}

@@ -61,10 +61,10 @@ export class HeaderComponent implements OnInit {
           // this.router.navigate(['']);
           // this.display='block';
 
-          jQuery("#LoginModal").modal('hide');
-          this.router.navigate([]);
+          //jQuery("#LoginModal").modal('hide');
+          //this.router.navigate([]);
           
-          // window.location.href = './index';
+          window.location.href = './index';
 
           // this.headerService.title.subscribe(title => {
           //   this.title = title;
@@ -112,9 +112,9 @@ export class HeaderComponent implements OnInit {
           // this.router.navigate(['index']);
           // this.router.navigate(['success']);
           // this.display='block';
-          jQuery("#LoginModal").modal('hide');
-          this.router.navigate(['/cate/2']);
-          // window.location.href = './index';
+          //jQuery("#LoginModal").modal('hide');
+          //this.router.navigate(['/cate/2']);
+          window.location.href = './index';
         } else if (this.result.status == 2) {
           this.error = true;
           // this.IsmodelShow = false;

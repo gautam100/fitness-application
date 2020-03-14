@@ -20,4 +20,8 @@ export class OrderService {
     return this.http.post(API_URL + 'doOrders', params, httpOptions);
   }
 
+  getOrderConfirmation(params) {
+    return this.http.post(API_URL + 'getOrderConfirmation', params, httpOptions);
+  }
+
 }

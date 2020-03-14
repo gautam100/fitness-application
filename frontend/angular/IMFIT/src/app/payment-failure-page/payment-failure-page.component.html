@@ -22,20 +22,20 @@
           </div> -->
         </div>
 
-        <!-- <div class='order-amt-right'>
+        <div class='order-amt-right'>
           <div class="order-section-heading">Total Amount</div>
           <table border="0" class="grid_orderconfirm_charges">
             <tr>
               <td>Charges</td>
-              <td class="order-amt-col">Rs. 1000</td>
+              <td class="order-amt-col">Rs. {{orderContent.charges}}</td>
             </tr>
             <tr>
               <td class="order-charges-div">Discount</td>
-              <td class="order-amt-col order-charges-div order-discount-amt">Rs. 100</td>
+              <td class="order-amt-col order-charges-div order-discount-amt">Rs. {{orderContent.discount}}</td>
             </tr>
             <tr>
               <td class="order-charges-topdiv">Balance</td>
-              <td class="order-amt-col order-charges-topdiv">Rs. 900</td>
+              <td class="order-amt-col order-charges-topdiv">Rs. {{balance}}</td>
             </tr>
             <tr>
               <td>GST (state 9%)</td>
@@ -47,10 +47,10 @@
             </tr>
             <tr>
               <td class='order-charges-topdiv'>Total Amount</td>
-              <td class="order-amt-col order-charges-topdiv">Rs. 999</td>
+              <td class="order-amt-col order-charges-topdiv">Rs. {{orderContent.total_amount}}</td>
             </tr>
           </table>
-        </div> -->
+        </div>
       </section>
     </div>
   </div>

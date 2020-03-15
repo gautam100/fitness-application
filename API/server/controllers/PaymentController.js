@@ -36,7 +36,7 @@ exports.paymentFailure = function (req, res, next) {
             res.send(error);
         } else {
             // Redirect to payment failure page
-            const redirectUrl = "http://localhost:4200/payment/payment-failure-page/"+paymentSuccessBody.udf1;
+            const redirectUrl = "http://localhost:4200/payment/payment-failure-page/"+paymentFailureBody.udf1;
             res.redirect(redirectUrl);
         }
     });

@@ -18,6 +18,7 @@ export class IndexComponent implements OnInit {
   homePageLists = [];
   loading = false;
   user_name: any = {};
+  user_id;
   title = 'Home Page';
 
   constructor(
@@ -29,8 +30,11 @@ export class IndexComponent implements OnInit {
   ngOnInit() {
 
     this.user_name = JSON.parse(sessionStorage.getItem('currentUser'));
+    this.user_id = JSON.parse(sessionStorage.getItem('currentUserID'));
+    // console.log("user_name: ", this.user_name);
+    // console.log("user_id: ", this.user_id);
+
     this.getDashboardPageList();
-    console.log("email: ", this.user_name);
 
     this.headerService.title.subscribe(title => {
       this.title = title;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DetailService } from '../@core/data/detail.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment-page',
@@ -26,7 +26,8 @@ export class PaymentPageComponent implements OnInit {
   user_name: any = {};
 
   constructor(private detailService: DetailService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this._product_id = parseInt(localStorage.getItem('product_id'));
@@ -49,8 +50,6 @@ export class PaymentPageComponent implements OnInit {
         this.branchContent = this.branchContents[0];
         console.log("payments: ", this.branchContent);
 
-        
-
         if (this.branchContents[0].monthly_subscription_amt == this._subscription_amount) {
           this.subscriptionType = "Monthly";
         } else if (this.branchContents[0].quaterly_subscription_amt == this._subscription_amount) {
@@ -68,6 +67,24 @@ export class PaymentPageComponent implements OnInit {
         console.log("loading finish")
       }
     );
+  }
+
+  goToPaymentConfirmation(productId, subscription_amt, discount_amount, gst_state_amount, gst_center_amount, total_amount) {
+    // if (subscription_amt == "" || subscription_amt == undefined) {
+    //   alert("Please choose plan...");
+    //   return false;
+    // }
+    console.log("Resetting filters ON click OpenTAs: ", subscription_amt);
+    localStorage.setItem('product_id', productId);
+    localStorage.setItem('subscription_amount', subscription_amt);
+    localStorage.setItem('discount_amount', discount_amount);
+    localStorage.setItem('gst_state_amount', gst_state_amount);
+    localStorage.setItem('gst_center_amount', gst_center_amount);
+    localStorage.setItem('total_amount', total_amount);
+    localStorage.setItem('subscription_type', this.subscriptionType);
+
+    this.router.navigate(['paymentConfirmationPage']);
+    // this.router.navigate(['paymentpage/'+productId+'/'+amount]);
   }
 
 }

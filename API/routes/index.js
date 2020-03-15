@@ -1,6 +1,7 @@
 var Dashboard = require('./../server/controllers/Dashboard');
 var Detail = require('./../server/controllers/Detail');
 var User = require('./../server/controllers/User');
+var Order = require('./../server/controllers/Order');
 
 var express = require('express');
 var router = express.Router();
@@ -25,6 +26,8 @@ router.post('/getDetailImageContent', Detail.getDetailImageContent);
 router.post('/login', User.login);
 
 router.post('/register', User.register);
+
+router.post('/doOrders', Order.doOrders);
 
 // router.get('/getDetailContent', Detail.getDetailContent, function(req, res) {
 //   // res.render('index', { title: 'Express' });

@@ -35,7 +35,7 @@
         <div class="login-signup-wrapper">
           <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item"> <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
-                role="tab" aria-controls="pills-home" aria-selected="true">Logins</a> </li>
+                role="tab" aria-controls="pills-home" aria-selected="true">Login</a> </li>
             <li class="nav-item"> <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
                 role="tab" aria-controls="pills-profile" aria-selected="false">Register</a> </li>
           </ul>
@@ -147,8 +147,10 @@
         <div class="single-signup-wrapper">
           <div class="single-signup-content">
             <div class="regular-text">Sign in With</div>
-            <button class="icon-gmail-signup"><img src="../../assets/images/icon-gmail-login.png"> Gmail Account</button>
-            <button class="icon-facebook-signup"><img src="../../assets/images/icon-facebook-login.png"> Facebook
+            <button class="icon-gmail-signup" (click)="googleLogin()">Google
+              Gmail Account</button>
+            <button class="icon-facebook-signup" (click)="facebookLogin()"><img src="../../assets/images/icon-facebook-login.png">
+              Facebook
               Account</button>
           </div>
         </div>

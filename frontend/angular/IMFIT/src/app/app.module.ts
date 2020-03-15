@@ -15,6 +15,23 @@ import { UserService } from './@core/data/users.service';
 
 import { CoreModule } from './@core/core.module';
 import { FormsModule } from '@angular/forms';
+import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'ng4-social-login';
+
+const config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider('602254965216-cr900q3maj5vpln5j6sc8rvorf30eke5.apps.googleusercontent.com'),
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider('228510521499174'),
+  }
+], false);
+
+export function provideConfig(){
+  return config;
+}
+
 
 // import { AuthModule } from './auth/auth.module';
 import { AuthInterceptor } from './auth/auth.interceptor';
@@ -22,6 +39,7 @@ import { DetailComponent } from './detail/detail.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { PaymentConfirmationPageComponent } from './payment-confirmation-page/payment-confirmation-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +52,8 @@ import { PaymentPageComponent } from './payment-page/payment-page.component';
     DetailComponent,
     CategoriesComponent,
     LogoutComponent,
-    PaymentPageComponent
+    PaymentPageComponent,
+    PaymentConfirmationPageComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +62,7 @@ import { PaymentPageComponent } from './payment-page/payment-page.component';
     FormsModule,
     // AuthModule,
     CoreModule.forRoot(),
+    SocialLoginModule
   ],
   exports: [
     HeaderComponent,
@@ -53,7 +73,8 @@ import { PaymentPageComponent } from './payment-page/payment-page.component';
     DetailComponent,
     CategoriesComponent,
     LogoutComponent,
-    PaymentPageComponent
+    PaymentPageComponent,
+    PaymentConfirmationPageComponent
   ],
   providers: [DatePipe,
     {
@@ -65,8 +86,10 @@ import { PaymentPageComponent } from './payment-page/payment-page.component';
       provide: [APP_BASE_HREF],
       useValue: '/',
     },
-    UserService
-
+    UserService,
+    {
+      provide: AuthServiceConfig, useFactory: provideConfig
+    }
   ],
   bootstrap: [AppComponent]
 })

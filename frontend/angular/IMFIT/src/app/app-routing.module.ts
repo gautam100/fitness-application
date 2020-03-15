@@ -5,6 +5,7 @@ import { DetailComponent } from './detail/detail.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
+import { PaymentConfirmationPageComponent } from './payment-confirmation-page/payment-confirmation-page.component'
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
     //path: 'paymentpage/:id/:amount',
     path: 'paymentpage',
     component: PaymentPageComponent
+  },
+  {
+    path: 'paymentConfirmationPage',
+    component: PaymentConfirmationPageComponent
   },
   {
     path: 'logout',

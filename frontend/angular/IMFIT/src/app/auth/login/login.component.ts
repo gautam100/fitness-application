@@ -54,6 +54,7 @@ export class LoginComponent {
   private setSession(authResult) {
     const expiresAt = moment().add(authResult.expiresAt,authResult.expireTimeUnit);
     sessionStorage.setItem('currentUser', JSON.stringify({user_name:authResult.user_name}));
+    sessionStorage.setItem('currentUserID', authResult.user_id);
     localStorage.setItem('id_token', authResult.idToken);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()) );
   }

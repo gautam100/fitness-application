@@ -7,3 +7,8 @@ exports.doOrders = function (req, res, next) {
   });
 }
 
+exports.getOrderConfirmation = function (req, res, next) {
+  order_detail.getOrderConfirmation(req.body, function (err, results) {    
+      res.send(results);
+  });
+}

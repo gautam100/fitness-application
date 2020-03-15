@@ -35,6 +35,8 @@ app.engine('ejs', ejsMate);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+const {initPayment, responsePayment} = require("./paytm/services/index");
+
 // ######## End Access-Control-Allow-Origin ###### //
 app.use(function (req, res, next) {
 
@@ -67,6 +69,32 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 // app.use('/admin', admin);
 
+app.get("/paywithpaytm", (req, res) => {
+    initPayment(req.query.amount).then(
+        success => {
+            res.render("paytmRedirect.ejs", {
+                resultData: success,
+                // paytmFinalUrl: process.env.PAYTM_FINAL_URL
+                paytmFinalUrl: "https://securegw-stage.paytm.in/theia/processTransaction"
+            });
+        },
+        error => {
+            res.send(error);
+        }
+    );
+  });
+  
+  app.post("/paywithpaytmresponse", (req, res) => {
+    responsePayment(req.body).then(
+        success => {
+            res.render("response.ejs", {resultData: "true", responseData: success});
+        },
+        error => {
+            res.send(error);
+        }
+    );
+  });
+  
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

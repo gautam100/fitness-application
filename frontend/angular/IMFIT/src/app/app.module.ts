@@ -40,6 +40,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { PaymentConfirmationPageComponent } from './payment-confirmation-page/payment-confirmation-page.component';
+import { PaymentFailurePageComponent } from './payment-failure-page/payment-failure-page.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { PaymentConfirmationPageComponent } from './payment-confirmation-page/pa
     CategoriesComponent,
     LogoutComponent,
     PaymentPageComponent,
-    PaymentConfirmationPageComponent
+    PaymentConfirmationPageComponent,
+    PaymentFailurePageComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +76,8 @@ import { PaymentConfirmationPageComponent } from './payment-confirmation-page/pa
     CategoriesComponent,
     LogoutComponent,
     PaymentPageComponent,
-    PaymentConfirmationPageComponent
+    PaymentConfirmationPageComponent,
+    PaymentFailurePageComponent
   ],
   providers: [DatePipe,
     {

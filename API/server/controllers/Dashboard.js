@@ -44,6 +44,15 @@ exports.getCateList = function (req, res) {
   });
 }
 
+exports.getCateName = function (req, res) {
+  model_dashboard.getCateName(req.body, function (err, result) {
+    if (err) {
+    } else {
+      res.send(result);
+    }
+  });
+}
+
 exports.getDashboardBranchOfferCount = function (req, res) {
 
   model_dashboard.getDashboardBranchOfferCount(req.body, function (err, result) {

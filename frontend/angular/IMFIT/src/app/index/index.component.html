@@ -9,7 +9,7 @@
         <!-- page title and filter start -->
         <section class="page-header-filter-wrapper">
           <div class="header-filter-content">
-            <div class="page-header"><span class="page-title">Gyms</span> - look for gyms in nearby places</div>
+            <!-- <div class="page-header"><span class="page-title">Gyms</span> - look for gyms in nearby places</div> -->
             <div class="btn-filter"><span class="glyphicon glyphicon-filter" id="nav-filter-action"></span></div>
             <div class="filter-wrapper" id="nav-filter-wrapper">
               <div class="mobile-filter-wrapper-overlay"></div>
@@ -20,18 +20,23 @@
                 <div class="filter-close">
                   <span id="btn-filter-close" class="glyphicon glyphicon-remove"></span>
                 </div>
-                <div class="search-location"><input type="tex" placeholder="Search by location" class="ctrl-input"></div>
-                <div class="sort-price"><select class="ctrl-dropdown">
-                    <option>Sort By Price</option>
-                    <option>Ascending</option>
-                    <option>Descending</option>
-                  </select></div>
-                <div class="sort-brand"><select class="ctrl-dropdown">
+                <div class="search-location">
+                  <input type="text" placeholder="Search by location" class="ctrl-input" (keyup)="selectLocation($event)">
+                </div>
+                <div class="sort-price">
+                  <select class="ctrl-dropdown" (change)="priceSorting($event)">
+                    <option value="">Sort By Price</option>
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                  </select>
+                </div>
+                <!-- <div class="sort-brand">
+                  <select class="ctrl-dropdown">
                     <option>Sort By Brand</option>
                     <option>Gold Gym</option>
-                    <option>Hype Gym</option>
                     <option>Indra gandhi institue of yoga</option>
-                  </select></div>
+                  </select>
+                </div> -->
                 <div class="btn-wrapper">
                   <button class="btn-pri" id="btn-filter-pridone">Done</button>
                   <button class="btn-sec" id="btn-filter-secclose">Close</button>
@@ -52,12 +57,15 @@
         <div class='aggregator-product'>
 
           <div class='product-item' *ngFor="let homePageList of homePageLists">
-            <div class='product-image-wrapper'>
-              <!-- <img src='../../assets/images/aggregator-img.jpg'> -->
-              <img src='http://localhost/imfit/app/webroot/media/branch_images/{{homePageList.branch_image}}'>
-            </div>
+            <a [routerLink]="['/detail', homePageList.id]">
+              <div class='product-image-wrapper'>
+                <!-- <img src='../../assets/images/aggregator-img.jpg'> -->
+                <img src='http://localhost/imfit/app/webroot/media/branch_images/{{homePageList.branch_image}}'>
+              </div>
+            </a>
             <div class='product-details-wrapper'>
               <div class='product-title'><a [routerLink]="['/detail', homePageList.id]">{{homePageList.name}}</a></div>
+              <div>{{homePageList.branch_address}}</div>
               <div class='product-address'>{{homePageList.branch_city +", "+homePageList.branch_state}}</div>
               <div class="product-footer">
                 <span class='product-recommend-price'>Rs. {{homePageList.monthly_subscription_amt}} MONTHLY</span>

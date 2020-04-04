@@ -21,6 +21,9 @@ export class IndexComponent implements OnInit {
   user_id;
   title = 'Home Page';
 
+  priceSort: string = '';
+  location: string = '';
+
   constructor(
     private dashboardService: DashboardService,
     // private globalVariableService: GlobalVariableService,
@@ -43,10 +46,23 @@ export class IndexComponent implements OnInit {
 
   }
 
-  getDashboardPageList() {
+  priceSorting(event: any) {
+    this.priceSort = event.target.value;
+    // console.log("priceSort:: ", this.priceSort);
+    this.getDashboardPageList(this.priceSort, this.location);
+  }
+
+  selectLocation(event: any){
+    this.location = event.target.value;
+    // console.log("location:: ", this.location);
+    this.getDashboardPageList(this.priceSort, this.location);
+  }
+
+
+  getDashboardPageList(priceSort='', location='') {
     this.loading = true;
 
-    this.dashboardService.getDashboardContent().subscribe(
+    this.dashboardService.getDashboardContent({ price_sort: priceSort, location: location }).subscribe(
       data => {
         this.result = data;
         this.homePageLists = this.result.result;

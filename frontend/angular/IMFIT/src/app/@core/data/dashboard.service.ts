@@ -16,8 +16,9 @@ export class DashboardService {
   constructor(private http: HttpClient) {
   }
 
-  getDashboardContent() {
-    return this.http.get(API_URL + 'getDashboardContent');
+  getDashboardContent(params) {
+    // return this.http.get(API_URL + 'getDashboardContent');
+    return this.http.post(API_URL + 'getDashboardContent', params, httpOptions);
   }
 
   getCategoryContent() {
@@ -30,6 +31,10 @@ export class DashboardService {
   
   getDashboardBranchOfferCount() {
     return this.http.get(API_URL + 'getDashboardBranchOfferCount');
+  }
+
+  getCateName(params) {
+    return this.http.post(API_URL + 'getCateName', params, httpOptions);
   }
 
 }

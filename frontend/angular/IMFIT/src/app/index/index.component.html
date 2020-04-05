@@ -57,12 +57,12 @@
         <div class='aggregator-product'>
 
           <div class='product-item' *ngFor="let homePageList of homePageLists">
-            <a [routerLink]="['/detail', homePageList.id]">
-              <div class='product-image-wrapper'>
-                <!-- <img src='../../assets/images/aggregator-img.jpg'> -->
-                <img src='http://localhost/imfit/app/webroot/media/branch_images/{{homePageList.branch_image}}'>
-              </div>
-            </a>
+              <a [routerLink]="['/detail', homePageList.id]">
+                <div class='product-image-wrapper'>
+                  <!-- <img src='../../assets/images/aggregator-img.jpg'> -->
+                  <img src='http://localhost/imfit/app/webroot/media/branch_images/{{homePageList.branch_image}}'>
+                </div>
+              </a>
             <div class='product-details-wrapper'>
               <div class='product-title'><a [routerLink]="['/detail', homePageList.id]">{{homePageList.name}}</a></div>
               <div>{{homePageList.branch_address}}</div>

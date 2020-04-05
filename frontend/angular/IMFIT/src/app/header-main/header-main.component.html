@@ -18,10 +18,24 @@
       </div>
       <div class="notification-wrapper"><span class="notification-count">5</span></div>
       <div class="userlogin-wrapper" data-toggle="modal" data-target="#LoginModal" *ngIf="title==null"></div>
-      <div class="" style="margin-left:10px; margin-top: 10px;" *ngIf="title!=null"><a routerLink="logout">Logout</a></div>
+      <div class="userlogin-wrapper user-logined" *ngIf="title!=null">
+	<div class="user-loged-in">
+	    <div class="user-logedin-control" id="userlogedinMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<span class="glyphicon glyphicon-menu-down"></span>
+	    </div>
+	    <div class="dropdown-menu show" aria-labelledby="userlogedinMenu" x-placement="bottom-start">
+		<span class="user-logedin-name">Welcome <br> Gaurav Khanna</span>
+		<a class="dropdown-item" href="#">View Profile</a>
+		<a class="dropdown-item" href="#">Placed Orders</a>        
+		<a class="dropdown-item" href="#">Following Brands</a>        
+		<a class="dropdown-item" href="#">Manage Account</a>
+		<a class="dropdown-item" href="#" routerLink="logout">Sign Out</a>
+	    </div>
+	</div>
+      </div>
 
-      <!-- <div class="userlogin-wrapper" *ngIf='user_name'>{{user_name.user_name}} {{title}}</div> -->
-      <!-- <div class="" style="margin-left:10px; margin-top: 10px;" *ngIf="user_name"><a href="/logout">Logout</a></div> -->
+      <!-- <div class="userlogin-wrapper"  style="margin-left:10px; margin-top: 10px;" *ngIf='user_name'>{{user_name.user_name}} {{title}}</div> -->
+      <!-- <div class="" *ngIf="user_name"><a href="/logout">Logout</a></div> -->
       <!-- <div class="dropdown-menu" aria-labelledby="userlogedinMenu" *ngIf='user_name'>
         <span class="user-logedin-name">Welcome <br>
           {{user_name.user_name}}

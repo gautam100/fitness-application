@@ -27,7 +27,7 @@
     "angular-http-auth-interceptor": "^1.0.4",
     "bootstrap": "^4.4.1",
     "enhanced-resolve": "^4.1.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "ng4-social-login": "^1.4.2",
     "observable": "^2.1.4",

@@ -63,20 +63,22 @@
                         <a [routerLink]="['/detail', cateProductList.id]">
                             <div class='product-image-wrapper'>
                                 <!-- <img src='../../assets/images/aggregator-img.jpg'> -->
-                                <img src='http://localhost/imfit/app/webroot/media/branch_images/{{cateProductList.branch_image}}'>
+                                <img src='http://52.14.36.239/imfit/app/webroot/media/branch_images/{{cateProductList.branch_image}}'>
+                            </div>
+
+                            <div class='product-details-wrapper'>
+                                <div class='product-title'>{{cateProductList.name}}</div>
+                                <div>{{cateProductList.branch_address}}</div>
+                                <div class='product-address'>{{cateProductList.branch_city +",
+                                    "+cateProductList.branch_state}}</div>
+                                <div class="product-footer">
+                                    <span class='product-recommend-price'>Rs.
+                                        {{cateProductList.monthly_subscription_amt}}
+                                        MONTHLY</span>
+                                    <span class='offer-label'>{{cateProductList.offerCount}} Offers</span>
+                                </div>
                             </div>
                         </a>
-                        <div class='product-details-wrapper'>
-                            <div class='product-title'><a [routerLink]="['/detail', cateProductList.id]">{{cateProductList.name}}</a></div>
-                            <div>{{cateProductList.branch_address}}</div>
-                            <div class='product-address'>{{cateProductList.branch_city +",
-                                "+cateProductList.branch_state}}</div>
-                            <div class="product-footer">
-                                <span class='product-recommend-price'>Rs. {{cateProductList.monthly_subscription_amt}}
-                                    MONTHLY</span>
-                                <span class='offer-label'>{{cateProductList.offerCount}} Offers</span>
-                            </div>
-                        </div>
                     </div>
 
                 </div>

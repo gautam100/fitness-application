@@ -64,7 +64,7 @@ exports.register = function (where, callback) {
       if (err) throw err
 
       if (rows.length > 0) {
-        status = 1;
+        status = 2;
         expiresIn = 60 * 60;   // in second (By Default)
         result = rows
         user_name = result[0].user_email;
@@ -94,8 +94,15 @@ exports.register = function (where, callback) {
                 subject: JSON.stringify(result)
               }
               jwtBearerToken = jwt.sign({}, RSA_PRIVATE_KEY, payload);
+
+              var sql_query_template = "SELECT from_email, from_name, subject, content from email_templates WHERE id = 1";
+              console.log(sql_query_template);
+
+              connection.query(sql_query_template, function (err, rows_template) {
+                if (err) throw err
+                callback(null, { status: status, user_name: user_name, idToken: jwtBearerToken, expiresAt: expiresIn, expireTimeUnit: expireTimeUnit, emailTemplate: rows_template });
+              });
             }
-            callback(null, { status: status, user_name: user_name, idToken: jwtBearerToken, expiresAt: expiresIn, expireTimeUnit: expireTimeUnit });
           });
         } else {
           callback(null, { status: status, user_name: user_name, idToken: jwtBearerToken, expiresAt: expiresIn, expireTimeUnit: expireTimeUnit });
@@ -110,7 +117,7 @@ exports.register = function (where, callback) {
 
       if (rows.length > 0) {
         console.log("records: ", rows);
-        status = 1;
+        status = 2;
         expiresIn = 60 * 60;   // in second (By Default)
         result = rows
         user_name = result[0].user_email;
@@ -140,8 +147,15 @@ exports.register = function (where, callback) {
                 subject: JSON.stringify(result)
               }
               jwtBearerToken = jwt.sign({}, RSA_PRIVATE_KEY, payload);
+
+              var sql_query_template = "SELECT from_email, from_name, subject, content from email_templates WHERE id = 1";
+              console.log(sql_query_template);
+
+              connection.query(sql_query_template, function (err, rows_template) {
+                if (err) throw err
+                callback(null, { status: status, user_name: user_name, idToken: jwtBearerToken, expiresAt: expiresIn, expireTimeUnit: expireTimeUnit, emailTemplate: rows_template });
+              });
             }
-            callback(null, { status: status, user_name: user_name, idToken: jwtBearerToken, expiresAt: expiresIn, expireTimeUnit: expireTimeUnit });
           });
         } else {
           callback(null, { status: status, user_name: user_name, idToken: jwtBearerToken, expiresAt: expiresIn, expireTimeUnit: expireTimeUnit });
@@ -149,7 +163,7 @@ exports.register = function (where, callback) {
       }
     });
   } else {
-    var sql_query_select = 'SELECT * from users WHERE user_email="' + where.email + '" AND user_status="enable"';
+    var sql_query_select = 'SELECT * from users WHERE user_email="' + where.email + '" AND user_password!="" AND user_status="enable"';
     connection.query(sql_query_select, function (err, rows) {
       if (err) throw err
 
@@ -174,14 +188,104 @@ exports.register = function (where, callback) {
                 subject: JSON.stringify(result)
               }
               jwtBearerToken = jwt.sign({}, RSA_PRIVATE_KEY, payload);
+
+              var sql_query_template = "SELECT from_email, from_name, subject, content from email_templates WHERE id = 1";
+              console.log(sql_query_template);
+
+              connection.query(sql_query_template, function (err, rows_template) {
+                if (err) throw err
+                callback(null, { status: status, user_name: user_name, idToken: jwtBearerToken, expiresAt: expiresIn, expireTimeUnit: expireTimeUnit, emailTemplate: rows_template });
+              });
             }
-            callback(null, { status: status, user_name: user_name, idToken: jwtBearerToken, expiresAt: expiresIn, expireTimeUnit: expireTimeUnit });
+            // callback(null, { status: status, user_name: user_name, idToken: jwtBearerToken, expiresAt: expiresIn, expireTimeUnit: expireTimeUnit });
           });
         } else {
-          callback(null, { status: status, user_name: user_name, idToken: jwtBearerToken, expiresAt: expiresIn, expireTimeUnit: expireTimeUnit });
+          callback(null, { status: status, user_name: user_name, idToken: jwtBearerToken, expiresAt: expiresIn, expireTimeUnit: expireTimeUnit, emailTemplate: rows_template });
         }
       }
     });
   }
 
+}
+
+exports.forgot = function (where, callback) {
+  var forgotDetails = [];
+  var status = 0;
+  var sql_query = "SELECT user_id, user_email, user_password from users WHERE user_email='" + where.email + "' AND user_password!=''";
+  console.log(sql_query);
+
+
+  var sql_query_template = "SELECT from_email, from_name, subject, content from email_templates WHERE id = 2";
+  console.log(sql_query_template);
+
+  // var query = connection.query(sql_query);
+  // query.on('error', function (err) {
+  //   var status = 0;
+  //   console.log('Database error!', err);
+  // });
+  // query.on('row', (row) => {
+  //   forgotDetails.push(row);
+  //   status = 1;
+  // });
+
+  // query.on("end", function () {
+  //   callback(null, { forgotDetails: forgotDetails, status: status });
+  //   // connection.end();
+  // });
+
+  connection.query(sql_query, function (err, rows) {
+    if (err) throw err
+    if (rows.length > 0) {
+      status = 1;
+
+      connection.query(sql_query_template, function (err, rows_template) {
+        if (err) throw err
+        if (rows_template.length > 0) {
+          status = 1;
+        }
+        callback(null, { forgotDetails: rows, emailTemplate: rows_template, status: status });
+      });
+    } else {
+      callback(null, { forgotDetails: rows, status: status });
+    }
+  });
+}
+
+exports.resetPassword = function (where, callback) {
+  var resetDetails = [];
+  var status = 0;
+  var sql_query = "SELECT user_email from users WHERE user_id='" + where.user_id + "' AND user_password!=''";
+  console.log(sql_query);
+
+  connection.query(sql_query, function (err, rows) {
+    if (err) throw err
+    if (rows.length > 0) {      
+      console.log("email: ", rows[0].user_email);
+      status = 1;
+      var sql_update_query = "UPDATE users set user_password='" + where.reset_password + "' WHERE user_email='" + rows[0].user_email + "' AND user_password!=''";
+      connection.query(sql_update_query, function (err, rows_update) {
+        if (err) throw err
+        if (rows_update) {
+          status = 1;
+
+          var sql_query_template = "SELECT from_email, from_name, subject, content from email_templates WHERE id = 8";
+          // console.log(sql_query_template);
+
+          connection.query(sql_query_template, function (err, rows_template) {
+            if (err) throw err
+            if (rows_template.length > 0) {
+              status = 1;
+            }
+            callback(null, { resetDetails: rows, emailTemplate: rows_template, status: status });
+          });
+
+        } else {
+          status = 0;
+          callback(null, { resetDetails: rows, status: status });
+        }
+      });
+    } else {
+      callback(null, { resetDetails: rows, status: status });
+    }
+  });
 }

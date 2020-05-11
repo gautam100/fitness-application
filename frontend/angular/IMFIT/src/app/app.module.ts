@@ -41,6 +41,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { PaymentPageComponent } from './payment-page/payment-page.component';
 import { PaymentConfirmationPageComponent } from './payment-confirmation-page/payment-confirmation-page.component';
 import { PaymentFailurePageComponent } from './payment-failure-page/payment-failure-page.component';
+import { ForgotComponent } from './forgot/forgot.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { PaymentFailurePageComponent } from './payment-failure-page/payment-fail
     LogoutComponent,
     PaymentPageComponent,
     PaymentConfirmationPageComponent,
-    PaymentFailurePageComponent
+    PaymentFailurePageComponent,
+    ForgotComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +81,9 @@ import { PaymentFailurePageComponent } from './payment-failure-page/payment-fail
     LogoutComponent,
     PaymentPageComponent,
     PaymentConfirmationPageComponent,
-    PaymentFailurePageComponent
+    PaymentFailurePageComponent,
+    ForgotComponent,
+    ResetPasswordComponent
   ],
   providers: [DatePipe,
     {

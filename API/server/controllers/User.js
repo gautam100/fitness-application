@@ -32,25 +32,62 @@ exports.login = function (req, res) {
 }
 
 exports.register = function (req, res) {
-    if(req.body.password != ""){
+    if (req.body.password != "") {
         var pwd = md5(req.body.password);
-    }else{
+    } else {
         var pwd = '';
     }
-    if(req.body.google_id != ""){
+    if (req.body.google_id != "") {
         var gid = req.body.google_id;
-    }else{
+    } else {
         var gid = '';
     }
-    if(req.body.facebook_id != ""){
+    if (req.body.facebook_id != "") {
         var fbid = req.body.facebook_id;
-    }else{
+    } else {
         var fbid = '';
     }
 
     var credentials = { email: req.body.email, password: pwd, google_id: gid, facebook_id: fbid };
     Model_user.register(credentials, function (err, userData) {
-        res.send(userData);
+        // res.send(userData);
+
+        if (userData.status == 1) {
+            console.log("userdataaas::: ", userData);
+            // console.log("emailsTT:: ", userData.emailTemplate[0].content);
+
+            var description = userData.emailTemplate[0].content;
+            description = description.replace('##user_name##', userData.user_name);
+
+            var transporter = nodemailer.createTransport({
+                host: 'smtp.googlemail.com',
+                port: 465,
+                secure: true,
+                auth: {
+                    user: 'piyush.sri.79',
+                    pass: 'jucwvkxztgweturs'
+                }
+            });
+            var mailOptions = {
+                from: userData.emailTemplate[0].from_email,
+                to: userData.user_name,
+                subject: userData.emailTemplate[0].subject,
+                html: description // mail content
+            };
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    res.send({ mailSent: false, msg: error, status:3 });
+                    console.log("erors: " + error);
+                } else {
+                    res.send(userData);
+                    console.log('Email sent: ' + info.response);
+                }
+                transporter.close();
+            });
+        } else {
+            // res.send({ mailSent: false, msg: 'Register not successfully. Please try again.' });
+            res.send(userData);
+        }
     });
 }
 
@@ -77,35 +114,86 @@ exports.editProfile = function (req, res) {
 //To forgot password
 exports.forgot = function (req, res) {
     var credentials = { email: req.body.email };
+    console.log("cred::", credentials);
     Model_user.forgot(credentials, function (err, forgotData) {
-        // console.log(forgotData.forgotDetails[0].user_email);
         if (forgotData.status == 1) {
+            // console.log("emails:: ", forgotData.forgotDetails[0].user_email);
+            // console.log("emailsTT:: ", forgotData.emailTemplate[0].content);
+            // console.log("status: ", forgotData.status);
+            var description = forgotData.emailTemplate[0].content;
+            description = description.replace('##user_name##', forgotData.forgotDetails[0].user_email);
+            description = description.replace('##user_id##', forgotData.forgotDetails[0].user_id);
+
             var transporter = nodemailer.createTransport({
-                host: 'smtp.gmail.com',
+                host: 'smtp.googlemail.com',
                 port: 465,
+                secure: true,
                 auth: {
-                    user: 'piyush.sri.79@gmail.com',
-                    pass: 'Piyush@'
+                    user: 'piyush.sri.79',
+                    pass: 'jucwvkxztgweturs'
                 }
             });
             var mailOptions = {
-                from: 'piyush.sri.79@gmail.com',
+                from: forgotData.emailTemplate[0].from_email,
                 to: forgotData.forgotDetails[0].user_email,
-                subject: 'Forgot Password',
-                html: forgotData.forgotDetails[0].user_pwd
+                subject: forgotData.emailTemplate[0].subject,
+                html: description // mail content
             };
             transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {
                     res.send({ mailSent: false, msg: error });
                     console.log("erors: " + error);
                 } else {
-                    res.send({ mailSent: true, msg: 'Password sent your email address' });
+                    res.send({ mailSent: true, msg: 'Password reset link sent your mail address', status: forgotData.status });
                     console.log('Email sent: ' + info.response);
                 }
                 transporter.close();
             });
         } else {
-            res.send({ mailSent: false, msg: 'Email address does not matched. Please try again.' });
+            res.send({ mailSent: false, msg: 'Email address not exist. Please try again.', status: forgotData.status });
+        }
+    });
+}
+
+exports.reset = function (req, res) {
+    var credentials = { reset_password: md5(req.body.reset_password), user_id: req.body.user_id };
+    console.log("reset::", credentials);
+    Model_user.resetPassword(credentials, function (err, UpdatePassword) {
+
+        if (UpdatePassword.status == 1) {
+            // console.log("emails:: ", UpdatePassword.resetDetails[0].user_email);
+            // console.log("emailsTT:: ", UpdatePassword.emailTemplate[0].content);
+            // console.log("status: ", UpdatePassword.status);
+            var description = UpdatePassword.emailTemplate[0].content;
+            description = description.replace('##user_name##', UpdatePassword.resetDetails[0].user_email);
+
+            var transporter = nodemailer.createTransport({
+                host: 'smtp.googlemail.com',
+                port: 465,
+                secure: true,
+                auth: {
+                    user: 'piyush.sri.79',
+                    pass: 'jucwvkxztgweturs'
+                }
+            });
+            var mailOptions = {
+                from: UpdatePassword.emailTemplate[0].from_email,
+                to: UpdatePassword.resetDetails[0].user_email,
+                subject: UpdatePassword.emailTemplate[0].subject,
+                html: description // mail content
+            };
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    res.send({ mailSent: false, msg: error });
+                    console.log("erors: " + error);
+                } else {
+                    res.send({ mailSent: true, msg: 'Password changed successfully', status: UpdatePassword.status });
+                    console.log('Email sent: ' + info.response);
+                }
+                transporter.close();
+            });
+        } else {
+            res.send({ mailSent: false, msg: 'Please enter right credentials.', status: UpdatePassword.status });
         }
     });
 }

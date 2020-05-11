@@ -42,8 +42,8 @@ export class PaymentPageComponent implements OnInit {
     // console.log("amounts: ", this._subscription_amount);
 
     this.balance_amount = this._subscription_amount - this.discount_amount;
-    this.gst_state_amount = 67.50;
-    this.gst_center_amount = 67.50;
+    this.gst_state_amount = (this.balance_amount*9)/100;
+    this.gst_center_amount = (this.balance_amount*9)/100;
     this.total_amount = this.balance_amount + this.gst_state_amount + this.gst_center_amount;
 
     this.detailService.getDetailContent({ 'product_id': this._product_id }).subscribe(

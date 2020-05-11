@@ -47,6 +47,12 @@ export class UserService {
   doLogin(data) {
     return this.http.post(API_URL + 'login', data, httpOptions);
   }
+  doForgot(data) {
+    return this.http.post(API_URL + 'forgot', data, httpOptions);
+  }
+  doReset(data) {
+    return this.http.post(API_URL + 'reset', data, httpOptions);
+  }
   doRegister(data) {
     return this.http.post(API_URL + 'register', data, httpOptions);
   }

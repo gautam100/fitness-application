@@ -49,73 +49,49 @@
             </div>
 
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-              <!-- <form class="form-signup"> -->
               <form (ngSubmit)="login()" #form="ngForm" autocomplete="nope">
-                <!-- <div class="form-label-group"> -->
-                <!-- <input type="text" class="form-control" id="label-email" placeholder="Enter your registered email id">
-                    <label for="label-email">Email</label> -->
-
-                <!-- <input name="locate" id="input-locate" type="text" value={{href}}> -->
-
-
                 <div class="form-label-group">
-                  <!--     <label for="input-email" class="sr-only">Email address</label> -->
                   <input name="email" #emailForm="ngModel" [(ngModel)]="email" id="input-email" pattern=".+@.+..+"
                     class="form-control" placeholder="Email address" [class.form-control-danger]="emailForm.invalid &&  emailForm.touched"
                     autofocus required>
-		   <label for="label-email">Email</label>
-                  <small class="form-text error" *ngIf=" emailForm.invalid &&  emailForm.touched &&  emailForm.errors?.required"><span class="glyphicon glyphicon-info-sign"></span> Email
+                  <label for="label-email">Email</label>
+                  <small class="form-text error" *ngIf=" emailForm.invalid &&  emailForm.touched &&  emailForm.errors?.required"><span
+                      class="glyphicon glyphicon-info-sign"></span> Email
                     is required!</small>
-                  <small class="form-text error" *ngIf=" emailForm.invalid &&  emailForm.touched &&  emailForm.errors?.pattern"><span class="glyphicon glyphicon-info-sign"></span> Email
+                  <small class="form-text error" *ngIf=" emailForm.invalid &&  emailForm.touched &&  emailForm.errors?.pattern"><span
+                      class="glyphicon glyphicon-info-sign"></span> Email
                     should be the real one!</small>
                 </div>
-
-                <!-- </div> -->
-                <!-- <div class="form-label-group">
-                    <input type="password" class="form-control" id="label-password" placeholder="Enter your password">
-                    <label for="label-password">Password</label>
-                  </div> -->
 
                 <div class="form-label-group">
                   <!--     <label for="input-password" class="sr-only">Password</label>-->
                   <input name="password" #passwordFrom="ngModel" [(ngModel)]="password" type="password" id="input-password"
                     class="form-control" placeholder="Password" [class.form-control-danger]="passwordFrom.invalid && passwordFrom.touched"
                     required>
-                    <label for="label-password">Password</label>
+                  <label for="label-password">Password</label>
                   <small class="form-text error" *ngIf="passwordFrom.invalid && passwordFrom.touched && passwordFrom.errors?.required">
-			<span class="glyphicon glyphicon-info-sign"></span>Password is required!</small>
+                    <span class="glyphicon glyphicon-info-sign"></span>Password is required!</small>
                 </div>
                 <div class="form-label-group">
-                  <!-- <input type="button" class="button button-primary" value="Login"> -->
                   <button class="button button-primary">Sign In</button>
                 </div>
               </form>
+                <button class="button button-primary"><a href="/forgot" style="color:#fff; text-decoration: none;">Forgot Password</a></button>
+                <!-- <li class="nav-item"><a href="/forgot">Forgot Password</a></li> -->
             </div>
 
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
               <!-- <form class="form-signup"> -->
               <form (ngSubmit)="register()" #form="ngForm" autocomplete="nope">
-                <!-- <div class="form-label-group">
-                  <input type="text" class="form-control" id="label-reg-email" placeholder="Enter your email id">
-                  <label for="label-reg-email">Email</label>
-                </div>
-                <div class="form-label-group">
-                  <input type="password" class="form-control" id="label-reg-password" placeholder="Enter your password">
-                  <label for="label-reg-password">Password</label>
-                </div>
-                <div class="form-label-group">
-                  <input type="password" class="form-control" id="label-regconf-password" placeholder="Enter your password">
-                  <label for="label-regconf-password">Confirm Password</label>
-                </div> -->
-
                 <div class="form-label-group">
                   <input name="reg_email" #emailForm="ngModel" [(ngModel)]="email" id="input-reg-email" pattern=".+@.+..+"
                     class="form-control" placeholder="Email address" [class.form-control-danger]="emailForm.invalid &&  emailForm.touched"
                     autofocus required>
                   <label for="label-reg-email">Email</label>
                   <small class="form-text error" *ngIf=" emailForm.invalid &&  emailForm.touched &&  emailForm.errors?.required">
-			<span class="glyphicon glyphicon-info-sign"></span> Email is required!</small>
-                  <small class="form-text error" *ngIf=" emailForm.invalid &&  emailForm.touched &&  emailForm.errors?.pattern"><span class="glyphicon glyphicon-info-sign"></span> Email
+                    <span class="glyphicon glyphicon-info-sign"></span> Email is required!</small>
+                  <small class="form-text error" *ngIf=" emailForm.invalid &&  emailForm.touched &&  emailForm.errors?.pattern"><span
+                      class="glyphicon glyphicon-info-sign"></span> Email
                     should be the real one!</small>
                 </div>
                 <div class="form-label-group">
@@ -123,7 +99,8 @@
                     class="form-control" placeholder="Password" [class.form-control-danger]="passwordFrom.invalid && passwordFrom.touched"
                     required>
                   <label for="label-reg-password">Password</label>
-                  <small class="form-text error" *ngIf="passwordFrom.invalid && passwordFrom.touched && passwordFrom.errors?.required"><span class="glyphicon glyphicon-info-sign"></span> Password
+                  <small class="form-text error" *ngIf="passwordFrom.invalid && passwordFrom.touched && passwordFrom.errors?.required"><span
+                      class="glyphicon glyphicon-info-sign"></span> Password
                     is required!</small>
                 </div>
                 <div class="form-label-group">
@@ -132,7 +109,7 @@
                     [class.form-control-danger]="passwordConfirmFrom.invalid && passwordConfirmFrom.touched" required>
                   <label for="label-regconf-password">Confirm Password</label>
                   <small class="form-text error" *ngIf="passwordConfirmFrom.invalid && passwordConfirmFrom.touched && passwordConfirmFrom.errors?.required">
-			<span class="glyphicon glyphicon-info-sign"></span> Confrm Password
+                    <span class="glyphicon glyphicon-info-sign"></span> Confrm Password
                     is required!</small>
                 </div>
 
@@ -144,6 +121,7 @@
             </div>
           </div>
         </div>
+
         <div class="single-signup-wrapper">
           <div class="single-signup-content">
             <div class="regular-text">Sign in With</div>
@@ -154,6 +132,7 @@
               Account</button>
           </div>
         </div>
+
       </div>
     </div>
   </div>

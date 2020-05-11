@@ -95,7 +95,8 @@ export class PaymentConfirmationPageComponent implements OnInit {
 
        this.balance = this.orderContents[0].charges - this.orderContents[0].discount;
       //  console.log("balance: ", this.balance);
-        
+      this._gst_state_amount = (this.balance*9)/100;
+      this._gst_center_amount = (this.balance*9)/100;  
       },
       err => {
         console.log(err.message)

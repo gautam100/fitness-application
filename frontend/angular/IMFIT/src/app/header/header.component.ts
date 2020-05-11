@@ -187,6 +187,8 @@ export class HeaderComponent implements OnInit {
     this.uesrService.doRegister(this.userCredentials).subscribe(
       data => {
         this.result = data;
+        console.log("recieve:: ", this.result);
+        console.log("statusR:: ", this.result.status);
         if (this.result.status == 1) {
           this.setSession(this.result);
           // this.success = true;
@@ -202,7 +204,12 @@ export class HeaderComponent implements OnInit {
         } else if (this.result.status == 2) {
           this.error = true;
           // this.IsmodelShow = false;
-          this.errorMessage = "Email alraedy exist...";
+          this.errorMessage = "Email already exist...";
+          // this.router.navigate([this.errorMessage]);
+        } else if (this.result.status == 3) {
+          this.error = true;
+          // this.IsmodelShow = false;
+          this.errorMessage = "Registered but Mail not send...";
           // this.router.navigate([this.errorMessage]);
         } else {
           this.error = true;
@@ -221,5 +228,45 @@ export class HeaderComponent implements OnInit {
       }
     );
   }
+
+  //Forgot Password
+  // forgot() {
+  //   this.loading = true;
+  //   this.error = false;
+  //   this.userCredentials = { email: this.email };
+  //   console.log("uemail:: ", this.userCredentials);
+  //   this.uesrService.doForgot(this.userCredentials).subscribe(
+  //     data => {
+  //       this.result = data;
+  //       console.log("data: ", this.result);
+  //       if (this.result.status == 1) {
+  //         // this.setSession(this.result);
+
+  //         this.success = true;
+  //         this.successMessage = "Mail Sent Successfully...";
+
+  //         // window.location.href = './index';
+
+  //         // this.headerService.title.subscribe(title => {
+  //         //   this.title = title;
+  //         // });
+  //         // this.headerService.setTitle('Login');          
+  //       } else {
+  //         this.error = true;
+  //         // this.IsmodelShow = false;
+  //         this.errorMessage = "Mail not send...";
+  //         this.router.navigate([this.errorMessage]);
+  //       }
+  //     },
+  //     err => {
+  //       this.error = true;
+  //       this.errorMessage = err.message;
+  //       this.loading = false;
+  //     },
+  //     () => {
+  //       this.loading = false;
+  //     }
+  //   );
+  // }
 
 }

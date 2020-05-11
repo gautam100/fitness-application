@@ -29,6 +29,10 @@ router.post('/getDetailImageContent', Detail.getDetailImageContent);
 
 router.post('/login', User.login);
 
+router.post('/forgot', User.forgot);
+
+router.post('/reset', User.reset);
+
 router.post('/register', User.register);
 
 router.post('/doOrders', Order.doOrders);

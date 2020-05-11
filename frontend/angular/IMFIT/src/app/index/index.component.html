@@ -71,6 +71,15 @@
                     <span class='offer-label'>{{homePageList.offerCount}} Offers</span>
                   </div>
                 </div>
+                <div class='product-details-wrapper'>
+                  <div class='product-title'><a [routerLink]="['/detail', homePageList.id]">{{homePageList.name}}</a></div>
+                  <div>{{homePageList.branch_address}}</div>
+                  <div class='product-address'>{{homePageList.branch_city +", "+homePageList.branch_state}}</div>
+                  <div class="product-footer">
+                    <span class='product-recommend-price'>Rs. {{homePageList.monthly_subscription_amt}} MONTHLY</span>
+                    <span class='offer-label'>{{homePageList.offerCount}} Offers</span>
+                  </div>
+                </div>
               </a>
             </div>
         </div>

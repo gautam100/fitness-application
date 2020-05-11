@@ -19,7 +19,7 @@ export class HeaderMainComponent implements OnInit {
       this.title = title;
     });
     this.headerService.setTitle(this.user_name);
-
+    // console.log('title: ', this.title);
   }
 
 }

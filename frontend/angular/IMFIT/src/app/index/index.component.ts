@@ -23,6 +23,8 @@ export class IndexComponent implements OnInit {
 
   priceSort: string = '';
   location: string = '';
+  brandSort: string = '';
+  brandLists = [];
 
   constructor(
     private dashboardService: DashboardService,
@@ -44,25 +46,47 @@ export class IndexComponent implements OnInit {
     });
     this.headerService.setTitle(this.user_name);
 
+    this.dashboardService.getBrandNameLists({ catId: ''}).subscribe(
+      data => {
+        this.loading = true;
+        this.result = data;
+        this.brandLists = this.result.result;
+        console.log("lists: ", this.brandLists);
+      },
+      err => {
+        console.log(err.message);
+        this.loading = false;
+      },
+      () => {
+        console.log("loading finish");
+        this.loading = false;
+      }
+    );
+
   }
 
   priceSorting(event: any) {
     this.priceSort = event.target.value;
     // console.log("priceSort:: ", this.priceSort);
-    this.getDashboardPageList(this.priceSort, this.location);
+    this.getDashboardPageList(this.priceSort, this.location, this.brandSort);
   }
 
   selectLocation(event: any){
     this.location = event.target.value;
     // console.log("location:: ", this.location);
-    this.getDashboardPageList(this.priceSort, this.location);
+    this.getDashboardPageList(this.priceSort, this.location, this.brandSort);
   }
 
+  brandSorting(event: any) {
+    this.brandSort = event.target.value;
+    console.log("brandSort:: ", event.target.value);
+    this.getDashboardPageList(this.priceSort, this.location, this.brandSort);
+  }
 
-  getDashboardPageList(priceSort='', location='') {
+  getDashboardPageList(priceSort='', location='', brandSort='') {
     this.loading = true;
 
-    this.dashboardService.getDashboardContent({ price_sort: priceSort, location: location }).subscribe(
+    this.dashboardService.getDashboardContent({ price_sort: priceSort, location: location, brand_sort: brandSort }).subscribe(
       data => {
         this.result = data;
         this.homePageLists = this.result.result;

@@ -17,16 +17,16 @@
         <div class="row">
           <div class="column">
             <ul>
-              <li class="selected-link"  *ngFor="let categoryList of categoryLists">
+              <li [ngClass]="{'selected-link': categoryList.id==cate_id}" *ngFor="let categoryList of categoryLists">
                 <!-- <a [routerLink]="['/cate', categoryList.id]">{{categoryList.name}}</a> -->
-                <a href="/cate/{{categoryList.id}}" >{{categoryList.name}}</a>
+                <a href="/cate/{{categoryList.id}}">{{categoryList.name}}</a>
               </li>
             </ul>
-          </div>          
+          </div>
         </div>
       </div>
     </div>
-    
+
     <!-- <div class="global-navbar-dropdown">
       <div class="dropbtn">Fitness Store <i class="glyphicon glyphicon-menu-down"></i> </div>
       <div class="global-navbar-dropdown-content">

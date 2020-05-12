@@ -30,6 +30,7 @@ export class DetailComponent implements OnInit {
   error = false;
   success = false;
   public href: string = "";
+  arrayOffers = [];
 
   constructor(
     private detailService: DetailService,
@@ -58,6 +59,11 @@ export class DetailComponent implements OnInit {
         this.branchContents = this.result.results;
         this.branchContent = this.branchContents[0];
         console.log("detail: ", this.branchContent);
+
+        var offer = this.branchContents[0].offer;
+        this.arrayOffers = offer.split(',');
+        console.log("offer: ", this.arrayOffers);
+
       },
       err => {
         console.log(err.message)

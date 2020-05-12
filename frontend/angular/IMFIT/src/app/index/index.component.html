@@ -30,13 +30,12 @@
                     <option value="desc">Descending</option>
                   </select>
                 </div>
-                <!-- <div class="sort-brand">
-                  <select class="ctrl-dropdown">
+                <div class="sort-brand">
+                  <select class="ctrl-dropdown" (change)="brandSorting($event)">
                     <option>Sort By Brand</option>
-                    <option>Gold Gym</option>
-                    <option>Indra gandhi institue of yoga</option>
+                    <option *ngFor = "let brandList of brandLists" value="{{brandList.id}}">{{brandList.name}}</option>
                   </select>
-                </div> -->
+                </div>
                 <div class="btn-wrapper">
                   <button class="btn-pri" id="btn-filter-pridone">Done</button>
                   <button class="btn-sec" id="btn-filter-secclose">Close</button>
@@ -44,11 +43,11 @@
               </div>
             </div>
 
-            <div class='selected-filters-wrapper'>
+            <!-- <div class='selected-filters-wrapper'>
               <span class='field-label'>Tags:</span> <span class="active-filter">Indra Gandhi... <span class="glyphicon glyphicon-remove"></span></span>
               <span class="active-filter">Gold Gym <span class="glyphicon glyphicon-remove"></span></span> <span class="active-filter">24
                 hours <span class="glyphicon glyphicon-remove"></span></span>
-            </div>
+            </div> -->
           </div>
         </section>
         <!-- page title and filter end -->

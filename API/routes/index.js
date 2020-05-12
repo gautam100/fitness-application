@@ -16,6 +16,7 @@ router.get('/', function(req, res, next) {
 router.get('/dashboard', Dashboard.index);
 router.post('/getDashboardContent', Dashboard.getDashboardContent);
 router.get('/getCategoryContent', Dashboard.getCategoryContent); //get the left menu categories
+router.post('/getBrandNameLists', Dashboard.getBrandNameLists); //get the left menu categories
 
 router.post('/getCateList', Dashboard.getCateList); //get the left menu categories
 

@@ -25,6 +25,10 @@ export class DashboardService {
     return this.http.get(API_URL + 'getCategoryContent');
   }
 
+  getBrandNameLists(params) {
+    return this.http.post(API_URL + 'getBrandNameLists', params, httpOptions);
+  }
+
   getCateList(params) {
     return this.http.post(API_URL + 'getCateList', params, httpOptions);
   }

@@ -64,3 +64,12 @@ exports.getDashboardBranchOfferCount = function (req, res) {
     }
   });
 }
+
+exports.getBrandNameLists = function (req, res) {
+  model_dashboard.getBrandNameLists(req.body, function (err, result) {
+    if (err) {
+    } else {
+      res.send(result);
+    }
+  });
+}

@@ -46,9 +46,14 @@
                             <div class='product-address'>{{branchContent.branch_address}},
                                 {{branchContent.branch_city}}</div>
                             <div class='contact-details'>Contact Details: {{branchContent.branch_contact_no}}</div>
-                            <div class='detailed-offer-wrapper'> <span class='offer-label' style="float:left;">Offer:</span>
-                                <span class='offer-details'>Get
-                                    discount Rs. 1000 on subscription of 3 months</span> </div>
+
+                            <div class='detailed-offer-wrapper' style="width: 100%">
+                                <div *ngFor="let arrayOffer of arrayOffers; let i = index" style="padding-bottom: 7px;">
+                                    <span class='offer-label' style="float:left;">Offer {{i+1}}:</span>
+                                    <span class='offer-details'>{{arrayOffer}}</span>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 

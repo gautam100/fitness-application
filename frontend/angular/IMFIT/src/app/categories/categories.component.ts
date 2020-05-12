@@ -27,6 +27,8 @@ export class CategoriesComponent implements OnInit {
 
   cateNames;
   cateProductLists = [];
+  brandSort: string = '';
+  brandLists = [];
   
   constructor(
     private dashboardService: DashboardService,
@@ -44,21 +46,44 @@ export class CategoriesComponent implements OnInit {
       this.title = title;
     });
     this.headerService.setTitle(this.user_name);
+
+    this.dashboardService.getBrandNameLists({ catId: this.route.snapshot.paramMap.get("id")}).subscribe(
+      data => {
+        this.loading = true;
+        this.result = data;
+        this.brandLists = this.result.result;
+        console.log("lists: ", this.brandLists);
+      },
+      err => {
+        console.log(err.message);
+        this.loading = false;
+      },
+      () => {
+        console.log("loading finish");
+        this.loading = false;
+      }
+    );
   }
 
   priceSorting(event: any) {
     this.priceSort = event.target.value;
     // console.log("priceSort:: ", this.priceSort);
-    this.getDashboardPageList(this.priceSort, this.location);
+    this.getDashboardPageList(this.priceSort, this.location, this.brandSort);
   }
 
   selectLocation(event: any){
     this.location = event.target.value;
     // console.log("location:: ", this.location);
-    this.getDashboardPageList(this.priceSort, this.location);
+    this.getDashboardPageList(this.priceSort, this.location, this.brandSort);
   }
 
-  getDashboardPageList(priceSort='', location='') {
+  brandSorting(event: any) {
+    this.brandSort = event.target.value;
+    console.log("brandSort:: ", event.target.value);
+    this.getDashboardPageList(this.priceSort, this.location, this.brandSort);
+  }
+
+  getDashboardPageList(priceSort='', location='', brandSort='') {
     this.loading = true;
     this._cate_id = this.route.snapshot.paramMap.get("id");
     // console.log("catID: ", this._cate_id);
@@ -78,7 +103,7 @@ export class CategoriesComponent implements OnInit {
       }
     );
 
-    this.dashboardService.getCateList({cat_id: this._cate_id, price_sort: priceSort, location: location}).subscribe(
+    this.dashboardService.getCateList({cat_id: this._cate_id, price_sort: priceSort, location: location, brand_sort: brandSort}).subscribe(
       data => {
         this.result = data;
         this.cateProductLists = this.result.result;

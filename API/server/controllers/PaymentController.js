@@ -67,8 +67,8 @@ exports.paymentSuccess = function (req, res, next) {
                             port: 465,
                             secure: true,
                             auth: {
-                                user: 'piyush.sri.79',
-                                pass: 'jucwvkxztgweturs'
+                                user: 'ginder.common',
+                                pass: 'nswsqxybofoddofg'
                             }
                         });
                         var mailOptions = {
@@ -142,8 +142,8 @@ exports.paymentFailure = function (req, res, next) {
                             port: 465,
                             secure: true,
                             auth: {
-                                user: 'piyush.sri.79',
-                                pass: 'jucwvkxztgweturs'
+                                user: 'ginder.common',
+                                pass: 'nswsqxybofoddofg'
                             }
                         });
                         var mailOptions = {

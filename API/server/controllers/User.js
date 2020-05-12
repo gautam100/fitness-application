@@ -64,8 +64,8 @@ exports.register = function (req, res) {
                 port: 465,
                 secure: true,
                 auth: {
-                    user: 'piyush.sri.79',
-                    pass: 'jucwvkxztgweturs'
+                    user: 'ginder.common',
+                    pass: 'nswsqxybofoddofg'
                 }
             });
             var mailOptions = {
@@ -129,8 +129,8 @@ exports.forgot = function (req, res) {
                 port: 465,
                 secure: true,
                 auth: {
-                    user: 'piyush.sri.79',
-                    pass: 'jucwvkxztgweturs'
+                    user: 'ginder.common',
+                    pass: 'nswsqxybofoddofg'
                 }
             });
             var mailOptions = {
@@ -172,8 +172,10 @@ exports.reset = function (req, res) {
                 port: 465,
                 secure: true,
                 auth: {
-                    user: 'piyush.sri.79',
-                    pass: 'jucwvkxztgweturs'
+                    user: 'ginder.common',
+                    pass: 'nswsqxybofoddofg'
+                    // user: 'piyush.sri.79',
+                    // pass: 'jucwvkxztgweturs'
                 }
             });
             var mailOptions = {

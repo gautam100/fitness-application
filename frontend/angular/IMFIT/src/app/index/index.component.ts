@@ -36,7 +36,7 @@ export class IndexComponent implements OnInit {
 
     this.user_name = JSON.parse(sessionStorage.getItem('currentUser'));
     this.user_id = JSON.parse(sessionStorage.getItem('currentUserID'));
-    // console.log("user_name: ", this.user_name);
+    console.log("user_name: ", this.user_name);
     // console.log("user_id: ", this.user_id);
 
     this.getDashboardPageList();

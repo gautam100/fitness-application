@@ -76,7 +76,7 @@ exports.register = function (req, res) {
             };
             transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {
-                    res.send({ mailSent: false, msg: error, status:3 });
+                    res.send({ mailSent: false, msg: error, status: 3 });
                     console.log("erors: " + error);
                 } else {
                     res.send(userData);
@@ -92,8 +92,9 @@ exports.register = function (req, res) {
 }
 
 exports.getProfile = function (req, res) {
-    var credentials = { userId: req.currentUserDetail.user_id };
-    //var credentials = { userId: req.body.userId };
+    // var credentials = { userId: req.currentUserDetail.user_id };
+    var credentials = { userId: req.body.userId };
+    console.log("credentials: ", credentials);
     Model_user.selectProfile(credentials, function (err, userData) {
         res.send({ 'userData': userData });
     });
@@ -200,3 +201,42 @@ exports.reset = function (req, res) {
     });
 }
 
+exports.getUserOrders = function (req, res) {
+    // var credentials = { userId: req.currentUserDetail.user_id };
+    var credentials = { userId: req.body.userId };
+    console.log("credentials: ", credentials);
+    Model_user.getUserOrders(credentials, function (err, userData) {
+        res.send({ userData });
+    });
+}
+
+exports.getUserOrdersDetails = function (req, res) {
+    // var credentials = { userId: req.currentUserDetail.user_id };
+    var credentials = { orderId: req.body.orderId };
+    console.log("credentials: ", credentials);
+    Model_user.getUserOrdersDetails(credentials, function (err, userData) {
+        res.send({ userData });
+    });
+}
+
+exports.managePassword = function (req, res) {
+    // var userId = req.currentUserDetail.user_id;
+    var credentials = { userId: req.body.userId, user_pwd: md5(req.body.password), existing_user_pwd: md5(req.body.existing_password) };
+
+    console.log("userData45: ", credentials);
+    
+    Model_user.managePassword(credentials, function (err, userData) {
+        res.send({ 'userData': userData });
+    });
+}
+
+exports.manageUpdateAddress = function (req, res) {
+    // var userId = req.currentUserDetail.user_id;
+    var credentials = { userId: req.body.userId, address: req.body.address };
+
+    console.log("addressUpdate: ", credentials);
+    
+    Model_user.manageUpdateAddress(credentials, function (err, userData) {
+        res.send({ 'userData': userData });
+    });
+}

@@ -47,6 +47,48 @@ exports.index = function (where, callback) {
   //return loginDetails;
 }
 
+exports.selectProfile = function (where, callback) {
+  var userDetails = [];
+  var status = 0;
+  var sql_query = "SELECT users.* from users WHERE users.user_id='" + where.userId + "'";
+  console.log(sql_query);
+
+  connection.query(sql_query, function (err, rows) {
+    if (err) throw err
+
+    if (rows.length > 0) {
+      // console.log(rows);
+      userDetails.push(rows);
+      status = 1;
+    }
+    callback(null, { userDetails: userDetails, status: status });
+  });
+}
+
+exports.profile = function (where, callback) {
+  var loginDetails = [];
+  var status = 0;
+  console.log("Check: " + where.password_check);
+  if (where.password_check == true) {
+    var sql_query = "UPDATE users set user_name='" + where.user_name + "', user_pwd='" + where.user_pwd + "' WHERE user_id='" + where.userId + "'";
+  } else {
+    var sql_query = "UPDATE users set user_name='" + where.user_name + "' WHERE user_id='" + where.userId + "'";
+  }
+
+  var query = connection.query(sql_query, function (err, result) {
+    console.log("results: " + result);
+    if (err) {
+      console.log('Database error!', err);
+    }
+    if (result != undefined && result.rowCount > 0) {
+      status = 1;
+    } else {
+      status = 0;
+    }
+    callback(null, { status: status });
+  });
+}
+
 exports.register = function (where, callback) {
   var jwtBearerToken = null;
   var status = 0;
@@ -259,7 +301,7 @@ exports.resetPassword = function (where, callback) {
 
   connection.query(sql_query, function (err, rows) {
     if (err) throw err
-    if (rows.length > 0) {      
+    if (rows.length > 0) {
       console.log("email: ", rows[0].user_email);
       status = 1;
       var sql_update_query = "UPDATE users set user_password='" + where.reset_password + "' WHERE user_email='" + rows[0].user_email + "' AND user_password!=''";
@@ -288,4 +330,95 @@ exports.resetPassword = function (where, callback) {
       callback(null, { resetDetails: rows, status: status });
     }
   });
+}
+
+exports.getUserOrders = function (where, callback) {
+  var orderDetails = [];
+  var status = 0;
+  var sql_query = "SELECT od.*, ct.name as catName, pb.branch_address, pb.branch_city, pb.branch_state, pb.branch_pincode, p.name, p.description from orders as od LEFT JOIN product_branches as pb on od.product_branch_id=pb.id LEFT JOIN products as p on pb.product_id=p.id LEFT JOIN categories as ct on p.category_id=ct.id WHERE od.user_id='" + where.userId + "' order by order_date desc";
+  console.log(sql_query);
+
+  connection.query(sql_query, function (err, rows) {
+    if (err) throw err
+
+    if (rows.length > 0) {
+      // console.log(rows);
+      orderDetails.push(rows);
+      status = 1;
+    }
+    callback(null, { orderDetails: orderDetails, status: status });
+  });
+}
+
+exports.getUserOrdersDetails = function (where, callback) {
+  var orderDetails = [];
+  var status = 0;
+  var sql_query = "SELECT od.*, ct.name as catName, pb.branch_address, pb.branch_city, pb.branch_state, pb.branch_pincode, pb.branch_contact_no, p.name, p.description from orders as od LEFT JOIN product_branches as pb on od.product_branch_id=pb.id LEFT JOIN products as p on pb.product_id=p.id LEFT JOIN categories as ct on p.category_id=ct.id WHERE od.id='" + where.orderId + "'";
+  console.log(sql_query);
+
+  connection.query(sql_query, function (err, rows) {
+    if (err) throw err
+
+    if (rows.length > 0) {
+      // console.log(rows);
+      orderDetails.push(rows);
+      status = 1;
+    }
+    callback(null, { orderDetails: orderDetails, status: status });
+  });
+}
+
+exports.managePassword = function (where, callback) {
+  var status = 0;
+  console.log("Check: " + where.user_pwd);
+
+  var sql_update_query = "UPDATE users set user_password='" + where.user_pwd + "' WHERE user_id='" + where.userId + "' AND user_password='" + where.existing_user_pwd + "'";
+  console.log(sql_update_query);
+
+  // var query = connection.query(sql_query, function (err, result) {
+  //   console.log("results: " + result.rowCount);
+  //   if (err) {
+  //     console.log('Database error!', err);
+  //   }
+  //   if (result != undefined && result.rowCount > 0) {
+  //     status = 1;
+  //   } else {
+  //     status = 0;
+  //   }
+  //   callback(null, { status: status });
+  // });
+
+
+  connection.query(sql_update_query, function (err, rows_update) {
+    if (err) throw err
+    console.log("count: ", rows_update.affectedRows);
+    if (rows_update.affectedRows==1) {
+      status = 1;
+    }else if (rows_update.affectedRows==0) {
+      status = 2;
+    }else{
+      status = 0;
+    }
+    callback(null, { status: status });
+  });
+
+}
+
+exports.manageUpdateAddress = function (where, callback) {
+  var status = 0;
+  console.log("Check: " + where.user_pwd);
+
+  var sql_update_query = "UPDATE users set user_address='" + where.address + "' WHERE user_id='" + where.userId + "'";
+  // console.log(sql_update_query);
+
+  connection.query(sql_update_query, function (err, rows_update) {
+    if (err) throw err
+    if (rows_update.affectedRows==1) {
+      status = 1;
+    }else{
+      status = 0;
+    }
+    callback(null, { status: status });
+  });
+
 }

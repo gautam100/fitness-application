@@ -65,6 +65,15 @@ export class UserService {
   updateUserDetails(params) {
     return this.http.post(API_URL + 'editProfile', params, httpOptions);
   }
+
+  getUserOrders(params) {
+    return this.http.post(API_URL + 'getUserOrders', params, httpOptions);
+  }
+
+  getUserOrdersDetails(params) {
+    return this.http.post(API_URL + 'getUserOrdersDetails', params, httpOptions);
+  }
+
   isLoggednIn() {
     //return JSON.parse(this.getCurrentUser()) !== null;
     return moment().isBefore(this.getExpiration());
@@ -86,5 +95,12 @@ export class UserService {
     return moment(expiresAt);
   }
 
+  managePassword(params) {
+    return this.http.post(API_URL + 'managePassword', params, httpOptions);
+  }
+
+  manageUpdateAddress(params) {
+    return this.http.post(API_URL + 'manageUpdateAddress', params, httpOptions);
+  }
 
 }

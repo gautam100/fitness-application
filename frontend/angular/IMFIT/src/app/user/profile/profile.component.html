@@ -1,0 +1,111 @@
+<section class="page-content">
+  <div class="main-content">
+    <div class="page-content-wrapper">
+      <!-- global navigation start -->
+      <app-left-menu></app-left-menu>
+      <!-- global navigation end -->
+
+      <div class="main-content-wrapper">
+        <!-- page title start -->
+        <section class="page-title">
+          Profile <span class="intro-text">- Manage your account</span>
+        </section>
+        <!-- page title end -->
+        <!-- page main content start -->
+        <section class="form-section">
+          <div class="row">
+            <div class="col-sm-3 anchor-link" title="You can add maximum 5 addresses" data-toggle="modal" data-target="#addressNewModal"><span
+                class="glyphicon glyphicon-plus"></span> Add New Address</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2 field-label">Email</div>
+            <div class="col-sm-7 field-value">{{userDetails.user_email}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2 field-label">Mobile</div>
+            <div class="col-sm-10 field-value">{{userDetails.user_mobile}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2 field-label">Address 1</div>
+            <div class="col-sm-10 field-value">{{userDetails.user_address}}
+              <!-- <button type="button" class="button-icon" data-toggle="modal" data-target="#addressModal"><span class="glyphicon glyphicon-pencil"></span></button> -->
+            </div>
+          </div>
+        </section>
+        <section class="quick-links">
+          <div class="quick-links-item">
+            <figure><img src="../../assets/images/icon-delivery-order.png"></figure>
+            <header>
+              <a [routerLink]="['/user/orders']" class="heading anchor-link">Order</a>
+              <p class="intro-text">View placed orders status</p>
+            </header>
+          </div>
+          <div class="quick-links-item">
+            <figure><img src="../../assets/images/icon-following-brand.png"></figure>
+            <header>
+              <a [routerLink]="['/user/brands']" class="heading anchor-link">Following Brands</a>
+              <p class="intro-text">View offers from your favourite brands</p>
+            </header>
+          </div>
+          <div class="quick-links-item">
+            <figure><img src="../../assets/images/icon-manage-password.png"></figure>
+            <header>
+              <a [routerLink]="['/user/manage-password']" class="heading anchor-link">Manage Password</a>
+              <p class="intro-text">Change password at any time</p>
+            </header>
+          </div>
+        </section>
+        <!-- page main content end-->
+      </div>
+
+
+
+
+    </div>
+  </div>
+</section>
+
+
+
+<div class="modal fade" id="addressNewModal" tabindex="-1" role="dialog" aria-labelledby="addressNewModalLabel" style="display: none;"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+
+    <div class="alert alert-success" *ngIf="success">
+      {{successMessage}}
+    </div>
+    <div class="alert alert-danger" *ngIf="error">
+      {{errorMessage}}
+    </div>
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addressModalLabel">Add New Address Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+
+      <form (ngSubmit)="updateAddress()" #form="ngForm" autocomplete="nope">
+        <div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-12 field-label">Enter New Address</div>
+              <div class="col-sm-12 field-value">
+                <input name="address" #addressFrom="ngModel" [(ngModel)]="address" type="text" id="input-address" class="form-control"
+                  placeholder="Flat No., Block, Apartment, City, State, Pincode" required>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="button button-primary">Update</button>
+            <!-- <button type="button" class="button button-sec">Delete</button> -->
+            <!-- <button type="button" class="button button-territory" data-dismiss="modal">Cancel</button> -->
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+</div>

@@ -8,7 +8,28 @@
       <!-- <div class="profile-points-wrapper"> <span class="profile-points">400</span> <span class="profile-points-label">rewards points</span> </div> -->
       <!-- <div class="profile-notification">Redeem above points in membership and shopping</div> -->
     </div>
+<<<<<<< HEAD
     <a href="/">Home</a>
+=======
+    <a [routerLink]="['/']">Home</a>
+
+    <div class="global-navbar-dropdown" *ngIf="user_name">
+      <div class="dropbtn">My Account <i class="glyphicon glyphicon-menu-down"></i> </div>
+      <div class="global-navbar-dropdown-content">
+        <div class="row">
+          <div class="column">
+            <ul>
+              <li [ngClass]="{'selected-link': routerUrl=='/user/profile'}"><a [routerLink]="['/user/profile']">Profile</a></li>
+              <li [ngClass]="{'selected-link': routerUrl=='/user/orders'}"><a [routerLink]="['/user/orders']">Orders</a></li>
+              <li [ngClass]="{'selected-link': routerUrl=='/user/brands'}"><a [routerLink]="['/user/brands']">Following Brands</a></li>
+              <li [ngClass]="{'selected-link': routerUrl=='/user/manage-password'}"><a [routerLink]="['/user/manage-password']">Manage Password</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+>>>>>>> a0da4a78b3450e629dd7f722b92ee382e4eb3a25
     <div class="global-navbar-dropdown">
       <!-- <div class="dropbtn">Discover <i class="glyphicon glyphicon-menu-down"></i> </div> -->
       <div class="global-navbar-dropdown-content">

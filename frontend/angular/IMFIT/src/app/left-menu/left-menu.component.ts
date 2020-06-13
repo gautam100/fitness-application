@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class LeftMenuComponent implements OnInit {
 
+  user_name: any = {};
   result: any = [];
   categoryLists = [];
   loading = false;
@@ -20,6 +21,8 @@ export class LeftMenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.user_name = JSON.parse(sessionStorage.getItem('currentUser'));
+    console.log("name: ", this.user_name);
     this.cate_id = this.route.snapshot.paramMap.get("id");
 
     this.dashboardService.getCategoryContent().subscribe(

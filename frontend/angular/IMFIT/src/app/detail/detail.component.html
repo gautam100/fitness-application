@@ -47,8 +47,8 @@
                                 {{branchContent.branch_city}}</div>
                             <div class='contact-details'>Contact Details: {{branchContent.branch_contact_no}}</div>
 
-                            <div class='detailed-offer-wrapper' style="width: 100%">
-                                <div *ngFor="let arrayOffer of arrayOffers; let i = index" style="padding-bottom: 7px;">
+                            <div style="width: 100%">
+                                <div *ngFor="let arrayOffer of arrayOffers; let i = index" class='detailed-offer-wrapper'>
                                     <span class='offer-label' style="float:left;">Offer {{i+1}}:</span>
                                     <span class='offer-details'>{{arrayOffer}}</span>
                                 </div>
@@ -64,17 +64,20 @@
                         </header>
                         <div class="subscription-plan">
                             <div class="subscription-item">
+				<label class="frm-subscription-label" for="customRadio1">
                                 <div class="subscription-label">Monthly</div>
                                 <div class="subscription-price">Rs. {{branchContent.monthly_subscription_amt}}</div>
                                 <div class="custom-control custom-radio">
                                     <input type="radio" [(ngModel)]="subscription_amt" value="{{branchContent.monthly_subscription_amt}}"
                                         id="customRadio1" name="customRadio" class="custom-control-input">
-                                    <label class="custom-control-label" for="customRadio1"></label>
+                                    <label class="custom-control-label"  for="customRadio1"></label>
                                 </div>
+				</label>
                             </div>
                         </div>
                         <div class="subscription-plan">
                             <div class="subscription-item">
+				<label class="frm-subscription-label" for="customRadio2">
                                 <!-- <span class="glyphicon glyphicon-star"></span> -->
                                 <div class="subscription-label">Quarterly</div>
                                 <div class="subscription-price">Rs. {{branchContent.quaterly_subscription_amt}}</div>
@@ -83,10 +86,12 @@
                                         id="customRadio2" name="customRadio" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio2"></label>
                                 </div>
+				</label>
                             </div>
                         </div>
                         <div class="subscription-plan">
                             <div class="subscription-item">
+				<label class="frm-subscription-label" for="customRadio3">
                                 <div class="subscription-label">Half Yearly</div>
                                 <div class="subscription-price">Rs. {{branchContent.halfyearly_subscription_amt}}</div>
                                 <div class="custom-control custom-radio">
@@ -94,10 +99,12 @@
                                         id="customRadio3" name="customRadio" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio3"></label>
                                 </div>
+				</label>
                             </div>
                         </div>
                         <div class="subscription-plan">
                             <div class="subscription-item">
+				<label class="frm-subscription-label" for="customRadio4">
                                 <div class="subscription-label">Yearly</div>
                                 <div class="subscription-price">Rs. {{branchContent.yearly_subscription_amt}}</div>
                                 <div class="custom-control custom-radio">
@@ -105,6 +112,7 @@
                                         id="customRadio4" name="customRadio" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadio4"></label>
                                 </div>
+				</label>
                             </div>
                         </div>
                         <div class="product-action detailedpage-enrollment">

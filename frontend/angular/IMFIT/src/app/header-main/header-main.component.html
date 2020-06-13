@@ -26,10 +26,10 @@
           </div>
           <div class="dropdown-menu show" aria-labelledby="userlogedinMenu" x-placement="bottom-start">
             <span class="user-logedin-name">Welcome <br>{{title.user_name}} </span>
-            <a class="dropdown-item" href="#">View Profile</a>
-            <a class="dropdown-item" href="#">Placed Orders</a>
-            <a class="dropdown-item" href="#">Following Brands</a>
-            <a class="dropdown-item" href="#">Manage Account</a>
+            <a [routerLink]="['/user/profile']" class="dropdown-item">View Profile</a>
+            <a [routerLink]="['/user/orders']" class="dropdown-item" href="#">Placed Orders</a>
+            <a [routerLink]="['/user/brands']" class="dropdown-item" href="#">Following Brands</a>
+            <a [routerLink]="['/user/manage-password']" class="dropdown-item" href="#">Manage Account</a>
             <a class="dropdown-item" href="#" routerLink="logout">Sign Out</a>
           </div>
         </div>

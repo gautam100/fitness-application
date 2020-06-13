@@ -2,15 +2,30 @@
   <div class="mobile-global-navbar-overlay"></div>
   <div id="ctrl-navbar-close" class="navbar-close"><span class="glyphicon glyphicon-remove"></span></div>
   <div class="navbar-items-wrapper">
-    <div class="profile-wrapper">
+    <div class="profile-wrapper" *ngIf="user_name">
       <div class="user-profile-img"></div>
-      <div class="profile-name">Piyush Srivastava</div>
-      <div class="profile-points-wrapper"> <span class="profile-points">400</span> <span class="profile-points-label">rewards
-          points</span> </div>
-      <div class="profile-notification">Redeem above points
-        in membership and shopping</div>
+      <div class="profile-name">{{user_name.user_name}}</div>
+      <!-- <div class="profile-points-wrapper"> <span class="profile-points">400</span> <span class="profile-points-label">rewards points</span> </div> -->
+      <!-- <div class="profile-notification">Redeem above points in membership and shopping</div> -->
     </div>
-    <a href="index.html">Home</a>
+    <a [routerLink]="['/']">Home</a>
+
+    <div class="global-navbar-dropdown" *ngIf="user_name">
+      <div class="dropbtn">My Account <i class="glyphicon glyphicon-menu-down"></i> </div>
+      <div class="global-navbar-dropdown-content">
+        <div class="row">
+          <div class="column">
+            <ul>
+              <li [ngClass]="{'selected-link': routerUrl=='/user/profile'}"><a [routerLink]="['/user/profile']">Profile</a></li>
+              <li [ngClass]="{'selected-link': routerUrl=='/user/orders'}"><a [routerLink]="['/user/orders']">Orders</a></li>
+              <li [ngClass]="{'selected-link': routerUrl=='/user/brands'}"><a [routerLink]="['/user/brands']">Following Brands</a></li>
+              <li [ngClass]="{'selected-link': routerUrl=='/user/manage-password'}"><a [routerLink]="['/user/manage-password']">Manage Password</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="global-navbar-dropdown">
       <div class="dropbtn">Discover <i class="glyphicon glyphicon-menu-down"></i> </div>
       <div class="global-navbar-dropdown-content">

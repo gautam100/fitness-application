@@ -5,12 +5,14 @@ import { APP_BASE_HREF, DatePipe } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
+
+import { UserModule } from './user/user.module';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { IndexComponent } from './index/index.component';
 import { HeaderMainComponent } from './header-main/header-main.component';
-import { LeftMenuComponent } from './left-menu/left-menu.component';
 import { UserService } from './@core/data/users.service';
 
 import { CoreModule } from './@core/core.module';
@@ -32,7 +34,6 @@ export function provideConfig(){
   return config;
 }
 
-
 // import { AuthModule } from './auth/auth.module';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { DetailComponent } from './detail/detail.component';
@@ -48,8 +49,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
   declarations: [
     AppComponent,
     HeaderComponent,
-    HeaderMainComponent,
-    LeftMenuComponent,
+    HeaderMainComponent, 
     FooterComponent,
     IndexComponent,
     DetailComponent,
@@ -68,12 +68,12 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     FormsModule,
     // AuthModule,
     CoreModule.forRoot(),
-    SocialLoginModule
+    SocialLoginModule,
+    UserModule
   ],
   exports: [
     HeaderComponent,
     HeaderMainComponent,
-    LeftMenuComponent,
     FooterComponent,
     IndexComponent,
     DetailComponent,

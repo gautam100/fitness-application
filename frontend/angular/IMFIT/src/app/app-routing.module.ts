@@ -54,7 +54,10 @@ const routes: Routes = [
   {
     path: 'reset/:id',
     component: ResetPasswordComponent
-  },
+  }, {
+    path: 'user',
+    loadChildren: './user/user.module#UserModule',
+  }
 ];
 
 @NgModule({

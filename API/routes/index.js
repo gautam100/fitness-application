@@ -50,4 +50,11 @@ router.post("/api/payment/pay", PaymentController.createPayment);
 router.post("/api/payment/payment-confirmation-page", PaymentController.paymentSuccess);
 router.post("/api/payment/payment-failure-page", PaymentController.paymentFailure);
 
+router.post('/editProfile', User.editProfile);
+router.post('/getProfile', User.getProfile);
+router.post('/managePassword', User.managePassword);
+router.post('/getUserOrders', User.getUserOrders);
+router.post('/getUserOrdersDetails', User.getUserOrdersDetails);
+
+router.post('/manageUpdateAddress', User.manageUpdateAddress);
 module.exports = router;

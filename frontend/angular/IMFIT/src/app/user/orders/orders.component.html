@@ -1,0 +1,132 @@
+<section class="page-content">
+    <div class="main-content">
+        <div class="page-content-wrapper">
+            <!-- global navigation start -->
+            <app-left-menu></app-left-menu>
+            <!-- global navigation end -->
+
+            <div class="main-content-wrapper">
+                <!-- page title start -->
+                <section class="page-title"> Order <span class="intro-text">- View your placed orders status.</span>
+                </section>
+                <!-- page title end -->
+                <!-- page main content start -->
+                <section class="form-section">
+                    <div class="table-grid">
+                        <div class="row grid-header">
+                            <div class="col-sm-5 grid-heading">Product Name</div>
+                            <div class="col-sm-3 grid-heading">Order Status</div>
+                            <div class="col-sm-2 grid-heading">Date</div>
+                            <div class="col-sm-2 grid-heading">Transaction</div>
+                        </div>
+
+                        <div class="row" data-toggle="modal" *ngFor="let orderDetail of orderDetails;" data-target="#orderModal"
+                            (click)="getOrderDetails(orderDetail.id)">
+                            <div class="col-sm-5 order-description">{{orderDetail.name}}
+                                <p class="sub-text-address">{{orderDetail.branch_address}}, {{orderDetail.branch_city}}</p>
+                                <p class="sub-text-category">{{orderDetail.catName}}</p>
+                            </div>
+                            <div class="col-sm-3"><span [ngClass]="(orderDetail.order_status==1)? 'status successful': 'status cancelled'">{{(orderDetail.order_status==1)?
+                                    'Successful': 'Cancelled'}}</span></div>
+                            <div class="col-sm-2 order-date">{{orderDetail.order_date}}</div>
+                            <div class="col-sm-2 oder-trans-no">{{orderDetail.txn_id}}</div>
+                        </div>
+
+                    </div>
+                </section>
+                <!-- page main content end-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--  successful orders modal start -->
+<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <section class="order-confirmation-screen">
+                    <div class="order-left">
+
+                        <div *ngIf="orderPaymentDetails.order_status==1">
+                            <div class="order-section-heading heading-green"><b>Payment confirmed</b> <span class="glyphicon glyphicon-ok"
+                                    style="margin-left: 12px;"></span> </div>
+                            <div class="placed-order-address">Your payment has been successful.</div>
+                        </div>
+
+                        <div *ngIf="orderPaymentDetails.order_status==0">
+                            <div class="order-section-heading heading-red"><b>Product Cancelled - Transaction Failed</b>
+                                <span class="glyphicon glyphicon-warning-sign" style="margin-left: 12px;"></span> </div>
+                        </div>
+
+                        <div class="placed-order-contactdetails">A confirmation email has been sent to your email.
+                            Please check your inbox. <br>
+                            <br>
+                            Transaction No. {{orderPaymentDetails.txn_id}}
+                            <br>
+                            Order No. {{orderPaymentDetails.order_no}} </div>
+                        <div class="order-subscription-amt">
+                            <div class="order-section-heading">Order Summary</div>
+                            <div class="placed-order-amt">{{orderPaymentDetails.name}} <br>
+                                {{orderPaymentDetails.branch_address}}, {{orderPaymentDetails.branch_city}}, Contact
+                                Details: {{orderPaymentDetails.branch_contact_no}} </div>
+                        </div>
+                        <div class="order-subscription-amt">
+                            <div class="order-section-heading">Subscription</div>
+                            <div class="placed-order-amt">{{orderPaymentDetails.subscription_type}}: Rs.
+                                {{orderPaymentDetails.charges}}</div>
+                        </div>
+                        <div class="order-applyvocher">
+                            <div class="order-section-heading">Applied Vocher</div>
+                            <!--<input type='text' value='IMFITNEW' class="vocher-field">
+                    <div class='view-vochers'>View Vochers</div>-->
+                            <div class="vocher-row">
+                                <h2><span class="vocher-code">FITROZ</span> Save 15% for all users</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-amt-right">
+                        <div class="order-section-heading">Total Amount</div>
+                        <table border="0" class="grid_orderconfirm_charges">
+                            <tbody>
+                                <tr>
+                                    <td>Charges</td>
+                                    <td class="order-amt-col">Rs. {{orderPaymentDetails.charges}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="order-charges-div">Discount</td>
+                                    <td class="order-amt-col order-charges-div order-discount-amt">Rs.
+                                        {{orderPaymentDetails.discount}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="order-charges-topdiv">Balance</td>
+                                    <td class="order-amt-col order-charges-topdiv">Rs.
+                                        {{orderPaymentDetails.charges-orderPaymentDetails.discount}}</td>
+                                </tr>
+                                <tr>
+                                    <td>GST (state 9%)</td>
+                                    <td class="order-amt-col">Rs. {{orderPaymentDetails.charges*9/100}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="order-charges-div">GST (Center 9%)</td>
+                                    <td class="order-amt-col order-charges-div">Rs.
+                                        {{orderPaymentDetails.charges*9/100}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="order-charges-topdiv">Total Amount</td>
+                                    <td class="order-amt-col order-charges-topdiv">Rs.
+                                        {{orderPaymentDetails.total_amount}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="button button-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  successful orders modal end -->

@@ -18,6 +18,7 @@ declare var jQuery: any;
 export class HeaderComponent implements OnInit {
   email: string;
   password: string;
+  confirm_password: string;
   userCredentials: any = {};
   currentUser: any = {};
   result: any;
@@ -98,10 +99,12 @@ export class HeaderComponent implements OnInit {
             // this.router.navigate(['/cate/2']);
             window.location.href = './index';
           } else if (this.result.status == 2) {
-            this.error = true;
+            // this.error = true;
             // this.IsmodelShow = false;
-            this.errorMessage = "Email already exist...";
+            // this.errorMessage = "Email already exist...";
             // this.router.navigate([this.errorMessage]);
+            this.setSession(this.result);
+            window.location.href = './index';
           } else {
             this.error = true;
             // this.IsmodelShow = false;
@@ -127,48 +130,57 @@ export class HeaderComponent implements OnInit {
     this.loading = true;
     this.error = false;
     this.userCredentials = { email: this.email, password: this.password };
-    // console.log("user: ", this.userCredentials);
-    this.uesrService.doLogin(this.userCredentials).subscribe(
-      data => {
-        this.result = data;
-        console.log("data: ", this.result);
-        if (this.result.status == 1) {
-          this.setSession(this.result);
+    console.log("user: ", this.userCredentials);
 
-          this.success = true;
-          this.successMessage = "Login Successfully...";
+    if (this.email == undefined || this.email == "") {
+      this.error = true;
+      this.errorMessage = "Please enter email...";
+    } else if (this.password == undefined || this.password == "") {
+      this.error = true;
+      this.errorMessage = "Please enter password...";
+    } else {
+      this.uesrService.doLogin(this.userCredentials).subscribe(
+        data => {
+          this.result = data;
+          console.log("data: ", this.result);
+          if (this.result.status == 1) {
+            this.setSession(this.result);
 
-          // this.getLoggedInName.emit("piyush");
-          // this.router.navigate([this.successMessage]);          
-          // this.IsmodelShow = true;
-          // this.router.navigate(['']);
-          // this.display='block';
+            this.success = true;
+            this.successMessage = "Login Successfully...";
 
-          // jQuery("#LoginModal").modal('hide');
-          // this.router.navigate([]);
+            // this.getLoggedInName.emit("piyush");
+            // this.router.navigate([this.successMessage]);          
+            // this.IsmodelShow = true;
+            // this.router.navigate(['']);
+            // this.display='block';
 
-          window.location.href = './index';
+            // jQuery("#LoginModal").modal('hide');
+            // this.router.navigate([]);
 
-          // this.headerService.title.subscribe(title => {
-          //   this.title = title;
-          // });
-          // this.headerService.setTitle('Login');          
-        } else {
+            window.location.href = './index';
+
+            // this.headerService.title.subscribe(title => {
+            //   this.title = title;
+            // });
+            // this.headerService.setTitle('Login');          
+          } else {
+            this.error = true;
+            // this.IsmodelShow = false;
+            this.errorMessage = "Invalid Email or Password...";
+            this.router.navigate([this.errorMessage]);
+          }
+        },
+        err => {
           this.error = true;
-          // this.IsmodelShow = false;
-          this.errorMessage = "Invalid Email or Password...";
-          this.router.navigate([this.errorMessage]);
+          this.errorMessage = err.message;
+          this.loading = false;
+        },
+        () => {
+          this.loading = false;
         }
-      },
-      err => {
-        this.error = true;
-        this.errorMessage = err.message;
-        this.loading = false;
-      },
-      () => {
-        this.loading = false;
-      }
-    );
+      );
+    }
   }
 
   private setSession(authResult) {
@@ -184,49 +196,63 @@ export class HeaderComponent implements OnInit {
     this.error = false;
     this.userCredentials = { email: this.email, password: this.password, google_id: '', facebook_id: '' };
 
-    this.uesrService.doRegister(this.userCredentials).subscribe(
-      data => {
-        this.result = data;
-        console.log("recieve:: ", this.result);
-        console.log("statusR:: ", this.result.status);
-        if (this.result.status == 1) {
-          this.setSession(this.result);
-          // this.success = true;
-          // this.successMessage = "Login Successfully...";
-          // this.router.navigate([this.errorMessage]);
-          // this.IsmodelShow = true;
-          // this.router.navigate(['index']);
-          // this.router.navigate(['success']);
-          // this.display='block';
-          // jQuery("#LoginModal").modal('hide');
-          // this.router.navigate(['/cate/2']);
-          window.location.href = './index';
-        } else if (this.result.status == 2) {
+    if (this.email == undefined || this.email == "") {
+      this.error = true;
+      this.errorMessage = "Please enter email...";
+    } else if (this.password == undefined || this.password == "") {
+      this.error = true;
+      this.errorMessage = "Please enter password...";
+    } else if (this.confirm_password == undefined || this.confirm_password == "") {
+      this.error = true;
+      this.errorMessage = "Please enter confirm password...";
+    } else if (this.password != this.confirm_password) {
+      this.error = true;
+      this.errorMessage = "Password Mismatched...";
+    } else {
+      this.uesrService.doRegister(this.userCredentials).subscribe(
+        data => {
+          this.result = data;
+          console.log("recieve:: ", this.result);
+          console.log("statusR:: ", this.result.status);
+          if (this.result.status == 1) {
+            this.setSession(this.result);
+            // this.success = true;
+            // this.successMessage = "Login Successfully...";
+            // this.router.navigate([this.errorMessage]);
+            // this.IsmodelShow = true;
+            // this.router.navigate(['index']);
+            // this.router.navigate(['success']);
+            // this.display='block';
+            // jQuery("#LoginModal").modal('hide');
+            // this.router.navigate(['/cate/2']);
+            window.location.href = './index';
+          } else if (this.result.status == 2) {
+            this.error = true;
+            // this.IsmodelShow = false;
+            this.errorMessage = "Email already exist...";
+            // this.router.navigate([this.errorMessage]);
+          } else if (this.result.status == 3) {
+            this.error = true;
+            // this.IsmodelShow = false;
+            this.errorMessage = "Registered but Mail not send...";
+            // this.router.navigate([this.errorMessage]);
+          } else {
+            this.error = true;
+            // this.IsmodelShow = false;
+            this.errorMessage = "Invalid Email or Password...";
+            // this.router.navigate([this.errorMessage]);
+          }
+        },
+        err => {
           this.error = true;
-          // this.IsmodelShow = false;
-          this.errorMessage = "Email already exist...";
-          // this.router.navigate([this.errorMessage]);
-        } else if (this.result.status == 3) {
-          this.error = true;
-          // this.IsmodelShow = false;
-          this.errorMessage = "Registered but Mail not send...";
-          // this.router.navigate([this.errorMessage]);
-        } else {
-          this.error = true;
-          // this.IsmodelShow = false;
-          this.errorMessage = "Invalid Email or Password...";
-          // this.router.navigate([this.errorMessage]);
+          this.errorMessage = err.message;
+          this.loading = false;
+        },
+        () => {
+          this.loading = false;
         }
-      },
-      err => {
-        this.error = true;
-        this.errorMessage = err.message;
-        this.loading = false;
-      },
-      () => {
-        this.loading = false;
-      }
-    );
+      );
+    }
   }
 
   //Forgot Password

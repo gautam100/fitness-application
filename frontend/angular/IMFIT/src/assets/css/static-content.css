@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* CSS Document */
+@media screen and (min-width: 320px) {
+.main-content {
+    /*background-color: #FFF;*/
+}	
+.page-cover-image{
+   background-color: #904894;
+   height: 164px;
+   background-size: cover;
+   position: relative;
+}
+.page-cover-image .page-cover-overlay {
+    background-color: #904894;
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    /* z-index: 5; */
+}
+.page-cover-image.aboutus-image{
+	/*background: url('../images/cover-image-aboutus.jpg') no-repeat 0px 0px transparent;*/
+	background-size: 100%;
+}
+.static-content-wrapper{
+  padding: 45px 60px; 
+  position: relative;  
+}
+.static-content-wrapper .page-heading {
+    font: normal 36px 'SSP-Regular', arial;
+    margin-bottom: 20px;
+    padding: 24px 48px;
+    color: #FFF;
+    display: inline-block;
+    top: -140px;
+    position: absolute;
+}
+.static-content-wrapper .static-content{
+  padding: 0px 80px;
+}
+.static-content-wrapper .page-header-filter-wrapper{
+	padding-bottom: 24px;
+}
+.about-service{
+    background-color: #000;
+    padding: 60px;
+    position: relative;
+    height: 256px;
+    margin-bottom: 104px;
+    margin-top: 48px;
+    width: 100%;
+}
+.about-service .service-content{
+    background-color: #fff;
+    padding: 60px;
+    position: absolute;
+    width: 73%;
+    right: 0px;
+}
+.about-service .service-content-2{
+	margin-bottom: 104px;
+}
+.service-coontent-leftalign{
+    left: 0px;
+}
+.about-service.point-2 {
+    margin-bottom: 90px;
+}
+.point-1{
+	/* background: url('../images/cover-image-aboutus.jpg') no-repeat -148px 0px transparent; */
+	background-size: 100%;
+}
+.point-2 {
+    /* background: url(../images/cover-image-aboutus-2.jpg) no-repeat 120px 0px transparent; */
+    background-size: 100%;
+    height: 364px;
+}
+}

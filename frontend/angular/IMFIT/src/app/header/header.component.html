@@ -76,30 +76,31 @@
                   <button class="button button-primary">Sign In</button>
                 </div>
               </form>
-                <button class="button button-territory float-right" style="margin-top: -59px;"><a href="/forgot">Forgot Password</a></button>
-                <!-- <li class="nav-item"><a href="/forgot">Forgot Password</a></li> -->
+              <button class="button button-territory float-right" style="margin-top: -61px;position: relative;margin-left: 100px;"><a
+                  href="/forgot">Forgot Password</a></button>
+              <!-- <li class="nav-item"><a href="/forgot">Forgot Password</a></li> -->
             </div>
 
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
               <!-- <form class="form-signup"> -->
               <form (ngSubmit)="register()" #form="ngForm" autocomplete="nope">
                 <div class="form-label-group">
-                  <input name="reg_email" #emailForm="ngModel" [(ngModel)]="email" id="input-reg-email" pattern=".+@.+..+"
-                    class="form-control" placeholder="Email address" [class.form-control-danger]="emailForm.invalid &&  emailForm.touched"
+                  <input name="reg_email" #emailFormR="ngModel" [(ngModel)]="email" id="input-reg-email" pattern=".+@.+..+"
+                    class="form-control" placeholder="Email address" [class.form-control-danger]="emailFormR.invalid &&  emailFormR.touched"
                     autofocus required>
                   <label for="label-reg-email">Email</label>
-                  <small class="form-text error" *ngIf=" emailForm.invalid &&  emailForm.touched &&  emailForm.errors?.required">
+                  <small class="form-text error" *ngIf=" emailFormR.invalid &&  emailFormR.touched &&  emailFormR.errors?.required">
                     <span class="glyphicon glyphicon-info-sign"></span> Email is required!</small>
-                  <small class="form-text error" *ngIf=" emailForm.invalid &&  emailForm.touched &&  emailForm.errors?.pattern"><span
+                  <small class="form-text error" *ngIf=" emailFormR.invalid &&  emailFormR.touched &&  emailFormR.errors?.pattern"><span
                       class="glyphicon glyphicon-info-sign"></span> Email
                     should be the real one!</small>
                 </div>
                 <div class="form-label-group">
-                  <input name="reg_password" #passwordFrom="ngModel" [(ngModel)]="password" type="password" id="input-reg-password"
-                    class="form-control" placeholder="Password" [class.form-control-danger]="passwordFrom.invalid && passwordFrom.touched"
+                  <input name="reg_password" #passwordFromR="ngModel" [(ngModel)]="password" type="password" id="input-reg-password"
+                    class="form-control" placeholder="Password" [class.form-control-danger]="passwordFromR.invalid && passwordFromR.touched"
                     required>
                   <label for="label-reg-password">Password</label>
-                  <small class="form-text error" *ngIf="passwordFrom.invalid && passwordFrom.touched && passwordFrom.errors?.required"><span
+                  <small class="form-text error" *ngIf="passwordFromR.invalid && passwordFromR.touched && passwordFromR.errors?.required"><span
                       class="glyphicon glyphicon-info-sign"></span> Password
                     is required!</small>
                 </div>

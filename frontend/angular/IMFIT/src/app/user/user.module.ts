@@ -9,6 +9,7 @@ import { LeftMenuComponent } from './../left-menu/left-menu.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ManagePasswordComponent } from './manage-password/manage-password.component';
 import { BrandsComponent } from './brands/brands.component';
+import { SupportComponent } from './support/support.component';
 
 @NgModule({
   imports: [
@@ -21,10 +22,11 @@ import { BrandsComponent } from './brands/brands.component';
     OrdersComponent,
     ProfileComponent,
     ManagePasswordComponent,
-    BrandsComponent
+    BrandsComponent,
+    SupportComponent
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  declarations: [UserComponent, ProfileComponent, LeftMenuComponent, OrdersComponent, ManagePasswordComponent, BrandsComponent],
+  declarations: [UserComponent, ProfileComponent, LeftMenuComponent, OrdersComponent, ManagePasswordComponent, BrandsComponent, SupportComponent],
   providers: [],
 })
 export class UserModule { }

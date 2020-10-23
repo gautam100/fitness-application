@@ -57,4 +57,5 @@ router.post('/getUserOrders', User.getUserOrders);
 router.post('/getUserOrdersDetails', User.getUserOrdersDetails);
 
 router.post('/manageUpdateAddress', User.manageUpdateAddress);
+router.post('/questionRaised', User.questionRaised);
 module.exports = router;

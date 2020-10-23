@@ -103,4 +103,10 @@ export class UserService {
     return this.http.post(API_URL + 'manageUpdateAddress', params, httpOptions);
   }
 
+  questionRaised(params) {
+    return this.http.post(API_URL + 'questionRaised', params, httpOptions);
+  }
+
+  
+
 }

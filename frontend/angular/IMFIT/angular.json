@@ -30,8 +30,9 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
-              "node_modules/custom/css/fonts-glyphicon.css",
-              "node_modules/custom/css/aggregator-module_v2.css"
+              "./src/assets/css/fonts-glyphicon.css",
+              "./src/assets/css/aggregator-module_v2.css",
+              "./src/assets/css/static-content.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

@@ -1,0 +1,75 @@
+<section class="page-content">
+    <div class="main-content">
+        <div class="page-content-wrapper">
+            <!-- global navigation start -->
+            <app-left-menu></app-left-menu>
+            <!-- global navigation end -->
+
+            <div class="main-content-wrapper">
+                <!-- page title start -->
+                <section class="page-title">
+                    Support <span class="intro-text">- Your Question</span>
+                </section>
+                <!-- page title end -->
+                <!-- page main content start -->
+
+                <div class="alert alert-success" *ngIf="success">
+                    {{successMessage}}
+                </div>
+                <div class="alert alert-danger" *ngIf="error">
+                    {{errorMessage}}
+                </div>
+
+                <form (ngSubmit)="questionRaised()" #form="ngForm" autocomplete="nope">
+                    <section class="form-section">
+
+                        <div class="row">
+                            <div class="col-sm-12 field-label">Email <span class="icon-asterisk">*</span></div>
+                            <div class="col-sm-12 field-value">
+                                <input name="email" #emailFrom="ngModel" [(ngModel)]="email" type="text" id="input-email"
+                                    class="form-control" placeholder="Email" [class.form-control-danger]="emailFrom.invalid && emailFrom.touched"
+                                    required>
+                                <small class="form-text error" *ngIf="emailFrom.invalid &&  emailFrom.touched &&  emailFrom.errors?.required"><span
+                                        class="glyphicon glyphicon-info-sign"></span> Please enter email
+                                    is required!</small>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 field-label">Mobile <span class="icon-asterisk">*</span></div>
+                            <div class="col-sm-12 field-value">
+                                <input name="mobile" #mobileFrom="ngModel" [(ngModel)]="mobile" type="text" id="input-mobile"
+                                    class="form-control" placeholder="Mobile" [class.form-control-danger]="mobileFrom.invalid && mobileFrom.touched"
+                                    required>
+                                <small class="form-text error" *ngIf="mobileFrom.invalid &&  mobileFrom.touched &&  mobileFrom.errors?.required"><span
+                                        class="glyphicon glyphicon-info-sign"></span> Please enter mobile
+                                    is required!</small>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 field-label">Comment <span class="icon-asterisk">*</span></div>
+                            <div class="col-sm-12 field-value">
+                                <textarea name="comment" #commentFrom="ngModel" [(ngModel)]="comment" type="textarea"
+                                    id="input-comment" class="form-control" placeholder="Comment"
+                                    [class.form-control-danger]="commentFrom.invalid && commentFrom.touched" required></textarea>
+                                <small class="form-text error" *ngIf="commentFrom.invalid &&  commentFrom.touched && commentFrom.errors?.required"><span
+                                        class="glyphicon glyphicon-info-sign"></span> Please enter your question
+                                    is required!</small>
+                            </div>
+                        </div>
+
+                        <div class="row form-footer-buttonwrapper">
+                            <div class="col-sm-12">
+                                <button class="button button-primary">Request Raised</button>
+                                <!-- <button class="button button-territory">Cancel</button> -->
+                            </div>
+                        </div>
+                    </section>
+                </form>
+                <!-- page main content end-->
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -19,14 +19,12 @@
 		margin: 0px;
 		background-color: #f8f7f8;		
 	}
-	.page-background {
-		background: url('../images/page-headerbg.jpg') no-repeat 0px 0px #815da0;
-		/*background-color: #815da0;*/
+	.page-background { 
+		background-color: #815da0;
 		height: 124px;
 		position: absolute;
 		width: 100%;
 		z-index: -1;
-		background-size: cover;
 	}
 	.page-content{
 		width: 100%;
@@ -35,9 +33,6 @@
 	/*========================
 	common css start
 	==========================*/
-	.modal-header {
-		padding: 1rem 3rem;
-	}	
 	.modal-content, .btn{
 		border-radius: 0px;
 	}
@@ -58,43 +53,11 @@
 		color: #fff;		
 	}
 	.modal-title{
-		font-size: 24px;
+		font-size: 16px;
 		color: #616161;
 		font-family: "SSP-SemiBold", arial;
 		font-weight: bold;
 	}	
-	.modal-dialog{
-		max-width: 920px;
-	}
-	.modal .modal-body{
-		padding: 48px 48px;
-	}
-	.form-control{
-		border-radius: 0px;
-		color: #171717;
-	}
-	.modal-footer>:not(:last-child) {
-		margin-right: 24px;
-	}	
-	.form-label-group .error{
-		font: 14px 'SSP-Regular', arial;
-   		color: #bc0e0e;
-   		margin: 4px 0px;
-		padding-left: 24px;
-	}
-	.form-label-group .error .glyphicon-info-sign {
-	    font-size: 12px;
-	}
-	.alert{
-		padding: 8px 12px;
-		background-color: transparent;
-		font: 14px 'SSP-Regular', arial;
-		color: #313131;
-	}
-	
-	.alert .alert-danger{
-		border: 1px solid #bc0e0e;
-	}		
 	/*========================
 	common css end
 	==========================*/
@@ -111,12 +74,12 @@
 	.brand-logo {
 		float: left;
 		padding: 0px;
-		margin: 0px 20px 0px 0px;
-		width: 36%;
-		margin-right: 0px;
+		margin: 4px 20px 0px 0px;
+		width: 40%;
+		margin-right: 14px;		
 	}
 	.brand-logo img{
-		width: 80%;
+		width: 100%;
 	}		
 	.mobile-search-control {
 		position: fixed;
@@ -192,14 +155,14 @@
     .input-search::placeholder{
 		color: #d1bbe7;
 	}
-	.btn-search {
+	.btn-search{
 		width: 33px;
-		/* height: 27px; */
+		height: 27px;
 		border: 0px;
 		box-shadow: none;
 		outline: 0px;
 		position: relative;
-		top: 4px;
+		top: 8px;		
 		opacity: 1;
 	}
 	.recent-search-wrapper{
@@ -220,94 +183,42 @@
 	.header-links-wrapper{
 		float: right;		
 	}
-	.notification-wrapper {
-		background: url('../images/icon-offer.png') no-repeat 0px 0px transparent;
+	.notification-wrapper{
+		background: url(../images/icon-notification.png) no-repeat 0px 0px transparent;
 		width: 25px;
 		height: 25px;
 		float: left;
 		position: relative;
-		background-size: cover;
-		top: 1px;
-		cursor: pointer;
+		background-size: cover;	
+		top: 6px;
 	}
-	.notification-wrapper .notification-count {
-		font-size: 12px;
+	.notification-wrapper .notification-count{
+		font-size: 10px;
+		font-weight: bold;
 		background-color: #ffd200;
 		position: absolute;
-		top: 7px;
-		right: -20px;
-		padding: 0px 4px;
-		border-radius: 2px;
+		top: 5px;
+		right: -5px;
+		padding: 0px 6px;
+		border-radius: 100%;
 		box-sizing: border-box;
-		color: #171717;
-		min-width: 30px;
-		text-align: center;
-	}
-	.notification-label{
-		font-size: 16px;
-		color: #FFF;
-		position: absolute;
-		top: 35px;
-		left: -3px;
-	}	
-	.notification-wrapper:hover .notification-label{
-		text-decoration: underline;
 	}
 	.userlogin-wrapper{
 		background: url(../images/icon-header-user.png) no-repeat 0px 0px transparent;
 		width: 24px;
 		height: 24px;
 		float: left;
-		margin-left: 18px;
+		margin-left: 20px;
 		position: relative;
 		background-size: cover;
 		background-position: center;
-		top: 0px;
-		cursor: pointer;
+		top: 5px;
 	}
-	div[aria-labelledby='userlogedinMenu']{
-		box-shadow: rgba(75, 75, 75, 0.5) 1px 1px 9px 0px;
-		top: -8px !important;
-		left: -44px !important;
-	}	
 	.desktop-search-bar{
 		display: none;
 		width: 485px;		
 	    border-bottom: 1px solid #d1bbe7;		
 	}				
-	.user-logined {
-		width: 32px;
-		background-size: 22px;
-		text-align: right;
-		padding-top: 3px;
-		color: #fff;
-		background-position: 0px;
-		font-size: 12px;
-		margin-left: 18px;
-	}	
-	.user-loged-in .dropdown-menu {
-		padding: 0px 0px;
-		border-radius: 0px;
-		transform: translate3d(-80px, 38px, 0px) !important;
-		border-radius: 4px;
-	}	
-	.user-loged-in .dropdown-menu .user-logedin-name {
-		font: normal 14px/24px SSP-Regular;
-		color: #6a6a6a;
-		padding: 12px 24px;
-		display: block;
-		border-bottom: 1px solid #e6e7e7;
-	}
-	.user-loged-in .dropdown-menu .dropdown-item {
-		font: normal 14px/24px SSP-Regular;
-		color: #252525;
-		padding: 12px 24px;
-	}	
-	.user-loged-in .dropdown-menu .dropdown-item:active {
-		background-color: #2ca8d6;
-		color: #fff !important;
-	}	
-	
 	/*========================
 	header end
 	=========================*/	
@@ -316,7 +227,7 @@
 	=======================*/
 	.profile-wrapper{
 		padding: 14px 16px;
-    	background: #815da0;
+    	background: #f9f9f9;
 	}
 	.profile-wrapper .user-profile-img {
 		background: url(../images/user-profile-medium-thumbnail.png) no-repeat 0px 0px transparent;
@@ -387,14 +298,14 @@
 	.global-navbar .collapse{	
 		width: 100%;
 	}	
-	.navbar-toggler {
+	.navbar-toggler{
 		display: block;
 		padding-left: 0px;
 		float: left;
 		font-size: 18px;
 		padding: 0px;
 		position: relative;
-		top: 0px;
+		top: 5px;
 		margin-right: 10px;
 		color: #fff;
 	}	
@@ -430,7 +341,7 @@
 		font-size: 14px;    
 		border: none;
 		outline: none;
-		color: #171717;
+		color: #252525;
 		padding: 14px 16px;
 		/*background-color: #fff;*/
 		margin: 0;
@@ -504,7 +415,7 @@
 	.column a {
 		clear: both;
 		float: none;
-		color: #4B4B4B;
+		color: #616161;
 		text-decoration: none;
 		text-align: left;
 		font-weight: normal;
@@ -512,7 +423,7 @@
 	}
 	
 	.column a:hover {
-		color: #4B4B4B;
+		color: #616161;
 		text-decoration: underline;
 	}
 	
@@ -529,27 +440,17 @@
 	/*===========================
 	Login Modal Start
 	=============================*/
-	div[aria-labelledby='LoginModalLabel'] + .page-content + .modal-backdrop, .modal-backdrop{
-		background: rgb(255,255,255);
-		opacity: 0.90;
-	}
 	div[aria-labelledby='LoginModalLabel'] .modal-dialog{
-		width: 100%;
-		max-width: 100%;
-		position: fixed;
-		height: 100%;
+		max-width: 1070px;
 	}
 	div[aria-labelledby='LoginModalLabel'] .modal-content{
 		border-radius: 0px;
 		border: 0px !important;
-		background: url(../images/background-login.png) no-repeat 0px bottom #fff;
-    	height: 100%;		
-		border-radius: 4px;
 	}
 	div[aria-labelledby='LoginModalLabel'] .modal-body{
-		padding: 0px !important;
+		padding: 0px;
 		position: relative;
-		padding-bottom: 40px !important;
+		padding-bottom: 40px;
 	}
 	div[aria-labelledby='LoginModalLabel'] .registration-features-col{
 		display: none;
@@ -600,30 +501,22 @@
 		border-radius: 0rem;
 		color: #5e5c5c;
 		font-weight: bold;
-		font-size: 18px;
 	}
 	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper .form-control{
 		border: 0px !important;	
-		border-bottom: 1px solid #cccccc !important;
-	  font-weight: 600;
-	  padding-left: 24px;
-	  font-size: 16px;	
-	  background-color: transparent;
-	  position: relative;
-	  z-index: 1;  				
+		border-bottom: 2px solid #cccccc !important;
 	}
 	
 	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper .form-label-group {
 	  position: relative;
 	  margin-bottom: 1rem;
-	  margin-top: 20px;
+	  margin-top: 40px;
 	}
 	
 	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper .form-label-group > input, 
 	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper .form-label-group > label {
-	  /*padding: var(--input-padding-y) var(--input-padding-x);*/
+	  padding: var(--input-padding-y) var(--input-padding-x);
 	  border-radius: 0px;
-	  padding-left: 0px;
 	}
 	
 	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper .form-label-group > label {
@@ -638,24 +531,12 @@
 	  border: 0px;
 	  border-radius: .0rem;
 	  transition: all .1s ease-in-out;
-	  font-weight: 600;
-	  padding-left: 0px;
-	  font-size: 13px;	 
-	  z-index: 0; 
 	}
 	
 	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper input[type=text]:focus, 
 	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper textarea:focus{
-	  outline: 0px;
-	  border: 0px;
-	  font-weight: 600;
-	  padding-left: 0px;
-	  font-size: 16px;	  		
-	}
-	
-	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper input[type=text]:focus	+ label,
-	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper input[type=password]:focus	+ label{
-		transform: translate(0px, -20px);
+		outline: 0px;
+		border: 0px;
 	}
 	
 	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper .form-label-group input::-webkit-input-placeholder {
@@ -679,16 +560,16 @@
 	}
 	
 	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper .form-label-group input:not(:placeholder-shown) {
-	  /*padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
-	  padding-bottom: calc(var(--input-padding-y) / 3);*/
+	  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+	  padding-bottom: calc(var(--input-padding-y) / 3);
 	}
 	
 	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper .form-label-group input:not(:placeholder-shown) ~ label {
-	  /*padding-top: calc(var(--input-padding-y) / 3);
-	  padding-bottom: calc(var(--input-padding-y) / 3);*/
-	  font-size: 13px;
+	  padding-top: calc(var(--input-padding-y) / 3);
+	  padding-bottom: calc(var(--input-padding-y) / 3);
+	  font-size: 12px;
 	  color: #777;
-		transform: translate(0px, -20px);	  
+	  top: -10px;
 	}
 	div[aria-labelledby='LoginModalLabel'] .close{
 		right: 28px;
@@ -705,8 +586,8 @@
 		height: 100%;
 	}
 	.single-signup-wrapper .regular-text{
-		font: bold 16px SSP-Regular;		
-		color: #4b4b4b;			
+		font: normal 16px/27px SSP-Regular;		
+		color: #252525;	
 	}
 	.single-signup-wrapper .icon-gmail-signup{
 		background-color: #dd4b39;
@@ -714,7 +595,7 @@
 		padding: 8px 16px; 
 		margin: 20px 0px;
 		border: 0px;
-		font: normal 13px/22px SSP-Regular;		
+		font: normal 16px/25px SSP-Regular;		
 		color: #fff;
 	}
 	.single-signup-wrapper .icon-facebook-signup{
@@ -723,7 +604,7 @@
 		padding: 8px 16px; 
 		margin: 20px 0px 10px;
 		border: 0px;
-		font: normal 13px/22px SSP-Regular;		
+		font: normal 16px/25px SSP-Regular;		
 		color: #fff;
 	}
 	
@@ -735,11 +616,10 @@
 	Command Buttons Start
 	===========================*/
 	.button{
-		font: normal 13px SSP-Regular;		
-	    border-radius: 0px !important;
-    	padding: 8px 24px !important;
+		font: normal 14px/24px SSP-Regular;		
+	    border-radius: 20px !important;
+    	padding: 2px 18px !important;
 		border: 0px;
-		cursor: pointer;
 	}
 	.button-primary{
 		background-color: #2ca8d6;
@@ -777,27 +657,6 @@
 		background-color: #fff;
 		border: 0px;
 	}	
-	.button-territory{
-		color: #075ba4;
-		background-color: #fff;
-		border: 0px;
-		box-shadow: none;
-		padding: 4px 10px;
-		border-radius: 0px;
-	}
-	.button-icon {
-		margin: 0px 12px;
-		font-size: 13px;
-		position: relative;
-		top: 0px;
-		color: #075ba4;
-		border: 1px solid #e1e1e1;
-		background-color: transparent;
-		border-radius: 4px;
-		padding: 2px 8px;
-		cursor: pointer;
-	}	
-	
 	/*=========================
 	Command Buttons End
 	===========================*/
@@ -807,8 +666,7 @@
 	===========================*/
 	.product-details-wrapper {
 		width: 100%;
-		padding: 20px;
-		box-sizing: border-box;		
+		margin-top: 10px;
 	}
 	.page-header-filter-wrapper{
 		padding: 20px;
@@ -824,7 +682,6 @@
 		margin: 0px;
 		border: 1px solid #ebebeb;
 		background-color: #fff;
-		border-radius: 4px;
 	}
 	.page-header-filter-wrapper .page-header{
 		font-size: 13px;
@@ -839,13 +696,13 @@
     	clear: both;
     	display: block;
 	}
-	.aggregator-product, .main-content-wrapper{
+	.aggregator-product{
 		padding: 0px 20px 20px;
 		box-sizing: border-box;
 		width: 100%;	
 		display: flex;
-		flex-direction: column;
-		flex-wrap: nowrap;			
+		flex-direction: row;
+		flex-wrap: wrap;			
 	}
 	.filter-wrapper{
 		position: absolute;
@@ -895,9 +752,9 @@
 	}	
 	.product-item {
 		background-color: #fff;
-		padding: 0px;
+		padding: 10px;
 		box-sizing: border-box;
-		width: 100%;
+		width: 30%;
 		border-radius: 4px;
 		margin: 20px 0px;
 		border: 1px solid #ebebeb;
@@ -905,21 +762,8 @@
 		margin-right: 20px;
 		position: relative;
 		overflow: hidden;
-		transition: box-shadow 0.3s ease-in-out;		
 	}
-	.product-item:hover{
-		box-shadow: 0 5px 15px 0px #e1e1e1;
-		cursor: pointer;
-	}
-	.product-item a.product-cardlink, .product-item a.product-cardlink:link, .product-item a.product-cardlink:active, 
-	.product-item a.product-cardlink:visited{
-		display: block;
-		width: 100%;
-		border: 5px solid;
-	}
-	.product-item a.product-cardlink:hover{
-		text-decoration: none !important;
-	}
+
 	.product-image-wrapper{
 		width: 100%;
 		height: 180px;
@@ -934,27 +778,11 @@
 		font-size: 13px;
 		font-weight: bold;
 		color: #075ba4;
-		text-decoration: none;
-	}
-	.product-title a:link, .product-title a:active, .product-title a:visited{
-		color: #171717;
-		text-decoration: none;		
-	}
-	.product-title a:hover{
-		color: #171717;
-		text-decoration: none;		
-	}
-	.product-address-1, .product-address{
+	}	
+	.product-address{
 		font-size: 13px;
     	color: #616161;
 		padding-bottom: 40px;
-		text-transform: lowercase;		
-	}
-	.product-address-1::first-letter, .product-address::::first-letter{
-		text-transform:uppercase;
-	}
-	.product-address-1{
-		padding-bottom: 0px;
 	}
 	.product-footer {
 		position: absolute;
@@ -967,14 +795,9 @@
 	}
 	.product-recommend-price{
 		font-size: 13px;
+    	color: #616161;
 		font-weight: normal;
-		color: #4b4b4b;	
-		position: relative;
 	}
-	.product-recommend-price .sub-duration{
-		font-size: 14px;
-		color: #616161;
-	}	
 	.product-offer-wrapper{
 		clear: both;
 	}
@@ -982,19 +805,10 @@
 		font-size: 13px;
 		font-weight: bold;
 		/*background-color: #54b765;*/
-    	color: #904894;
+    	color: #313131;
 		padding: 4px 0px 4px 0px;		
 	}
-	.product-footer .offer-label {
-		font-size: 13px;
-		font-weight: normal;
-		background-color: #fff;
-		color: #7F3F83;
-		padding: 1px 6px;
-		float: right;
-		border-radius: 4px;
-		border: 1px solid #e1e1e1;
-	}	
+	
 	.product-offer-wrapper .offer-details{
 		font-size: 13px;
 	}
@@ -1032,7 +846,7 @@
 	detailed page start
 	=========================*/
 	.carousel-control-next, .carousel-control-prev {
-		top: 68%;
+		top: 35%;
 		width: 10%;
 		opacity: 0.8;
 		background-color: #313131;
@@ -1068,11 +882,11 @@
 	.detailed-content-wrapper .product-title{
 		font-size: 13px;
 		font-weight: bold;
-		color: #171717;
+		color: #075ba4;
 	}		
 	.detailed-content-wrapper .product-address, .detailed-content-wrapper .contact-details{
 		font-size: 13px;
-		color: #4B4B4B;
+		color: #313131;
 	}		
 	.detailed-offer-wrapper {
 		clear: both;
@@ -1081,13 +895,12 @@
 	.detailed-offer-wrapper .offer-label {
 		font-size: 13px;
 		font-weight: bold;
-    	color: #616161;
+		color: #313131;
 		padding: 4px 0px;
 	}	
 	.detailed-offer-wrapper .offer-details {
 		font-size: 13px;
 		padding: 4px 0px;
-		color: #4B4B4B;
 	}
 	.detailed-sectionheading .header-wrapper{
 		display: table;
@@ -1166,10 +979,10 @@
 		padding: 24px 0px 12px !important;
 	}	
 	.tab-pane {
-		background-color: #FFF;
-		padding: 10px 0px 20px;
+		background-color: #fff;
+		padding: 20px;
 		box-sizing: border-box;
-		border: 0px;
+		border: 1px solid #e1e1e1;
 		border-top: 0px;
 		font: 13px 'SSP-Regular', arial;
 		color: #313131;
@@ -1180,7 +993,7 @@
 		color: #313131;
 		background-color: #fff;
 		border-radius: 0px;
-		border-top: 1px solid #dee2e6;
+		border: 1px solid #dee2e6;
 		border-bottom-color: #fff;		
 		border-top-left-radius: 0px;
 		border-top-right-radius: 0px;
@@ -1241,10 +1054,6 @@
 	.detailed-sectionheading .nav-tabs .nav-item{
 		width: 100%;
 		margin-bottom: 0px;
-	}
-	.tab-content{
-		padding: 32px 24px;
-		background-color: #fff;		
 	}
 	/*========================
 	detailed page end
@@ -1440,273 +1249,8 @@
 	}
 	/*========================
 	Selected Filter End
-	=========================*/	
-
-	/*========================
-	grid component start
 	=========================*/		
-	.table-grid{
-		width: 100%;
-	}
-	.table-grid .row{
-		padding: 28px 0px;
-		border: 1px solid #e2e3e3;
-		border-bottom: 0px;
-		border-left: 0px;
-		border-right: 0px;
-		box-sizing: border-box;
-		margin: 0px !important;
-	}
-	.table-grid .row.grid-header{
-		color: #171717;
-		font-size: 14px;
-		padding: 8px 0px;
-		border: 0px;
-	}
-	.table-grid .grid-header:hover{
-		background-color: #fff !important;
-		cursor: default !important;
-	}
-	.table-grid .row:hover{	
-		background-color: #f1faff;
-		cursor: pointer;
-	}
-	/*========================
-	grid component end
-	=========================*/		
-
-	/*========================
-	offers page start
-	=========================*/		
-	.promoted-heading, .normal-heading {
-		width: 100%;
-		padding-top: 16px;
-		background: #fff;
-		border: 1px solid #ebebeb;
-		border-radius: 4px;
-		margin: 0px auto;
-		font-size: 24px;
-		font-weight: 600;
-		color: #313131;
-		text-align: center;
-		border-bottom: 0px;
-		border-bottom-left-radius: 0px;
-		border-bottom-right-radius: 0px;
-		position: relative;
-		z-index: 12;
-		top: 1px;
-	}	
-	.normal-heading{
-		border: 0px;
-		background-color:transparent;
-		margin-bottom: 7px;
-	}
-	.heading-purple-border, .heading-green-border{
-		background: #69589e;
-		height: 2px;
-		width: 72px;
-		margin: 0px auto;
-	}
-	.heading-green-border{
-		background-color: #54b765;
-	}
-	.promoted-offers, .normal-offers {
-		width: 100%;
-		padding: 12px 14px 24px !important;
-		border: 1px solid #ebebeb;	
-		border-radius: 4px;	
-		box-sizing: border-box;
-		background-color: #fff;
-		display: table;
-		margin-bottom: 54px !important;
-	}
-	.normal-offers{
-		border: 0px;
-		background-color: transparent;
-		padding: 0px !important;
-	}
-	.promoted-offers .cardlist-item{
-		background-color: #fff;
-		border: 1px solid #fff;
-		width: 100%;
-		display: table;
-		height: auto;
-		float: none;
-		margin-right: 0px;
-		margin-bottom: 0px;
-		margin-top: 14px;
-		position: relative;
-		border-radius: 4px;
-		overflow: hidden;
-		padding: 10px 0px 24px;
-		box-sizing: border-box;
-		transition: all 0.5s;
-		border-bottom: 1px solid #ebebeb;
-	}	
-	.promoted-offers .cardlist-item:nth-of-type(3n){
-		margin-right: 0px;
-	}
-	.promoted-offers .cardlist-item:last-child{
-		border-bottom: 0px;
-		padding-bottom: 0px;
-	}
-	#normal-offers .cardlist-item {
-		background-color: #fff;
-		border: 1px solid #ebebeb;
-		width: 100%;
-		display: table;
-		height: auto;
-		float: left;
-		margin-right: 0px;
-		margin-bottom: 0px;
-		margin-top: 12px;
-		position: relative;
-		border-radius: 4px;
-		overflow: hidden;
-		padding: 10px;
-		box-sizing: border-box;
-		transition: all 0.5s;
-	}	
-	.normal-offers .cardlist-item:nth-of-type(3n){
-		margin-right: 0px;
-	}	
-	.promoted-offers .img-col,
-	.normal-offers .img-col{
-		float:left;
-		width: 20%;
-	}
-	.promoted-offers .img-placeholder,
-	.normal-offer .img-placeholder{
-		width: 36px;
-		height: 36px;
-		background-color: #c9c9c9;
-		border-radius: 4px;
-		margin-right: 12px;
-	}
-	.promoted-offers .content-col,
-	.normal-offer .content-col{
-		float: left;
-		width: 80%;
-	}
-	.promoted-offers .offer-title{
-		font-weight: 600;
-		font-size: 13px;
-		line-height: 22px;
-		color: #171717;
-	}
-	.promoted-offers .offer-from{
-		font-size: 13px;
-		color: #171717;
-		margin-top: 0px;
-	}
-	.promoted-offers .offer-location{
-		font-size: 13px;
-		color: #616161;
-		margin-top: 12px;
-	}
-	.normal-offers .cardlist-item{
-		padding-left: 10px;
-		padding-right: 10px;		
-	}
-	/*========================
-	offers page end
-	=========================*/		
-	/*========================
-	Form UI start
-	=========================*/	
-	.page-form-wrapper .item-content {
-		margin-bottom: 40px;
-		display: table;
-		width: 100%;
-	}
-	.page-form-wrapper .header-wrapper {
-		display: table;
-		width: 100%;
-	}
-	.page-form-wrapper h2{
-		color: #313131;
-		font-family: 'SSP-Regular', arial;
-		font-size: 21px;
-		font-weight: 500;
-		margin-bottom: 24px;
-	}	
-	.page-form-wrapper .item-content-wrapper {
-		padding: 40px 32px;
-		background-color: #fff;
-	}		
-	.item-content-wrapper .form-group {
-		margin: 30px 0px 0px;
-		padding: 0px;
-	}
-	.item-content-wrapper .form-group:first-child{
-		margin-top: 0px;
-	}
-	.form-group .col-form-label, .col-form-label {
-		padding-left: 0px;
-		padding-right: 0px;
-		color: #171717;
-	    font-size: 16px;
-	}	
-	.required-field {
-		color: #cd3333;
-		font-size: 18px;
-		font-family: 'SSP-Regular', arial;
-	}	
-	.captcha-code {
-		background: #e6e7e7;
-		padding: 10px 16px;
-		border: 1px solid #b0b0b0;
-		color: #6a6a6a;
-		font: normal 16px/32px 'SSP-Regular', arial;
-		margin-right: 10px;
-	}
-	.captcha-field {
-		border: 1px solid #b0b0b0;
-		padding: 8px 16px;
-		font: normal 16px/24px 'SSP-Regular', arial;
-		width: 100%;
-		margin: 30px 0px;
-	}
-	.captcha-field {
-		width: 150px;
-		margin: 0px;
-	}	
-	.btn-primary {
-		background-color: #2ca8d6;
-		border-radius: 0px;
-		margin-right: 40px;
-		font-size: 18px;
-		font-family: 'SSP-Regular', arial;
-	}
 	
-	.btn-secondary {
-		background-color: #FFF;
-		border: 1px solid #d1d9d9;
-		border-radius: 0px;
-		margin-right: 40px;
-		font-size: 18px;
-		font-family: 'SSP-Regular', arial;
-		color: #313131;
-	}
-	
-	.btn-light {
-		background-color: transparent;
-		border: 0px;
-		border-radius: 0px;
-		margin-right: 40px;
-		font-size: 18px;
-		font-family: 'SSP-Regular', arial;
-		color: #313131;
-	}
-	.page-form-wrapper  .error-message {
-		font-size: 16px;
-		color: #bc0e0e;
-		margin: 4px 0px;
-	}
-	/*========================
-	Form UI end
-	=========================*/	
-
 }
 
 @media screen and (max-width: 767px) {
@@ -1736,21 +1280,17 @@
 	header start
 	=========================*/
 	.page-background {
-		height: 84px;
+		height: 242px;
 	}
-	.page-header {
+	.page-header{
 		display: table;
 		width: 100%;
-		padding: 20px 30px 40px;
+		padding: 20px 60px;
 		box-sizing: border-box;
 	}	
 	.brand-logo {
-		margin-right: 0px;
-		width: 20%;		
-		margin: 8px 20px 0px 0px;
-	}	
-	.brand-logo img {
-		width: 80%;
+		margin-right: 126px;
+		width: 24%;		
 	}	
 	.page-header-filter-wrapper {
 		padding: 0px 30px;
@@ -1759,93 +1299,14 @@
 		padding: 50px 150px 30px;
 	}
 	.search-wrapper, .notification-wrapper{
-		margin: 0px 40px;
+		margin: 0px 24px;
 	}
-	.mobtab-search-bar .btn-search {
-		font-size: 18px;
-	}
-	.btn-search {
-		width: 33px;
-		top: 16px;
-	}	
-	.notification-wrapper {
-		width: 28px;
-		height: 29px;
-		top: 12px;
-	}
-	.userlogin-wrapper {
-		top: 13px;
-	}	
-	.user-logined {
-		width: 42px;
-		background-size: 26px;
-		font-size: 16px;
+	div[aria-labelledby='LoginModalLabel'] .modal-dialog {
+		margin: 0px;
 	}	
 	/*========================
 	header start
 	=========================*/
-	
-	/*========================
-	login start
-	=========================*/	
-	div[aria-labelledby='LoginModalLabel'] .tab-pane {
-		border: 0px;
-		padding: 0px;
-		width: 330px;
-	}
-	div[aria-labelledby='LoginModalLabel'] .modal-dialog {
-		width: 700px;
-		max-width: 700px;
-		margin: 20px auto !important;
-		height: auto;
-		position: relative;
-		transform: translate(0,0) !important;
-		box-shadow: 2px 4px 15px 5px rgba(97,97,97,0.2);				
-	}
-	.login-signup-wrapper {
-		width: 380px;
-		float: left;
-	}
-	.single-signup-wrapper{
-		padding: 100px 48px 48px;
-	}
-	div[aria-labelledby='LoginModalLabel'] .tab-content>.tab-pane {
-		background-color: transparent;
-	}	
-	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper .form-label-group > label {
-	  padding-left: 24px;
-	  font-size: 16px;	 
-	}
-	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper input[type=text]:focus, 
-	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper textarea:focus{
-	  padding-left: 24px;
-	  font-size: 16px;	  		
-	}
-	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper .form-label-group > input, 
-	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper .form-label-group > label {
-	  /*padding: var(--input-padding-y) var(--input-padding-x);*/
-	  border-radius: 0px;
-	  padding-left: 24px;
-	}
-	div[aria-labelledby='LoginModalLabel'] .login-signup-wrapper .form-label-group {
-	  margin-top: 40px;
-	}
-	.single-signup-wrapper .icon-gmail-signup{
-		padding: 8px 16px; 
-		font: normal 16px/25px SSP-Regular;		
-	}				
-	.single-signup-wrapper .icon-facebook-signup{
-		padding: 8px 16px;
-		font: normal 16px/25px SSP-Regular;
-	}
-	div[aria-labelledby='LoginModalLabel'] .modal-content{
-    	height: 554px;		
-	}
-		
-	/*========================
-	login end
-	=========================*/
-	
 	/*======================
 	Global navigation start
 	=======================*/
@@ -1855,15 +1316,6 @@
 	.navbar-close {
 		left: 307px;
 	}	
-	.navbar-toggler{
-		padding: 8px 12px;
-		margin-right: 20px;
-		top: 0px;
-		border-radius: 0px;
-	}	
-	.navbar-toggler	.glyphicon-menu-hamburger{
-		font-size: 24px;
-	}
 	/*======================
 	Global navigation end
 	=======================*/
@@ -1907,40 +1359,39 @@
 	.btn-filter {
 		width: 10%;
 	}	
-	.aggregator-product, .main-content-wrapper {
-		padding: 0px 30px;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;					
+	.aggregator-product {
+		padding: 0px 60px;
 	}	
 	.product-item {
-		padding: 0px;
-		margin: 20px 20px 20px 0px;
-		width: 31.3%;		
+		padding: 20px;
+		margin: 20px 40px 20px 0px;
 	}	
 	.product-item:nth-of-type(3n) {
 		margin-right: 0px;
 	}		
 	.product-image-wrapper {
-		height: 160px;
+		width: 25%;
+		height: 112px;
+		float: left;
+		margin-right: 20px;
 	}	
-	.product-details-wrapper {		
+	.product-details-wrapper {
+		float: left;
+    	width: 50%;
+	    margin-top: 0px;		
 	}
 	.product-title, .detailed-content-wrapper .product-title,
 	.detailed-content-wrapper .product-address, .detailed-content-wrapper .contact-details,
 	.detailed-offer-wrapper .offer-label, .detailed-offer-wrapper .offer-details, .subscription-label, .subscription-price{
-		font-size: 13px;
+		font-size: 14px;
 	}	
 	.selected-filters-wrapper .field-label {
 		padding-top: 0px;
 	}	
-	.product-address, .product-address-1, .product-recommend-price, .offer-label, .offer-details {
-		font-size: 13px;
+	.product-address, .product-recommend-price, .offer-label, .offer-details {
+		font-size: 14px;
 		margin: 6px 0px;
 	}
-	.product-recommend-price{
-		top: 6px;	
-	}	
 	.product-action {
 		padding: 0px;
 		display: block;
@@ -1968,7 +1419,7 @@
 	detailed page start
 	=========================*/	
 	.aggregator-detailed-product{
-		padding: 0px 30px;
+		padding: 0px 60px;
 	}
 	.detailed-section, .detailed-sectionheading{
 		padding: 0px;
@@ -1992,18 +1443,8 @@
 		height: 240px;
 	}
 	.carousel-control-next, .carousel-control-prev{
-		top: 83.2%;
-		height: 40px;
+		height: 80px;
 	}
-	.product-address{
-		padding-bottom: 40px;
-	}
-	.detailed-offer-wrapper .offer-label{
-	  margin: 0px 4px 0px 0px;
-	}		
-	.product-footer {
-		padding: 4px 0px 10px;
-	}	
 	.subscription-item .glyphicon {
 		float: none;
 	}
@@ -2039,7 +1480,6 @@
 		padding-top: 40px !important;
 		border: 1px solid #ebebeb;
 		float: left;
-		display: block;
 	}
 	.detailedpage-enrollment .button-enroll{
 		font-size: 14px;
@@ -2060,23 +1500,20 @@
 	.other-product-item .product-title{
 	    font-size: 14px;		
 	}
-	
 	.detailed-sectionheading .nav-tabs .nav-item.show .nav-link, 
 	.detailed-sectionheading .nav-tabs .nav-link.active{
 		border-top: 4px solid #f7941d;
 		border-left: 1px solid #e1e1e1;		
 	}
 	.detailed-sectionheading .nav-tabs .nav-link{
-		/*border-left: 1px solid #e1e1e1;*/
+		border-left: 1px solid #e1e1e1;
 		border-right: 1px solid #e1e1e1;						
 		height: 42px;
-		padding: 8px 48px;
 	}
 	
 	.detailed-sectionheading .nav-tabs .nav-link.active{
 		position: relative;
-		top: 1px;	
-		border-left: 0px;	
+		top: 1px;		
 	}
 	.detailed-sectionheading .nav-tabs .nav-link.active:last-child{		
 		border-right: 1px solid #e1e1e1;	
@@ -2108,80 +1545,7 @@
 	}				
 	/*========================
 	order confirmation end
-	=========================*/	
-
-	/*========================
-	offers page start
-	=========================*/	
-	.promoted-heading{
-		width: 370px;
-		margin-top: 32px;
-	}
-	.normal-heading {
-		width: 370px;
-		margin-top: 0px;
-		padding-top: 0px;
-	}	
-	.promoted-offers .cardlist-item {
-		width: 31.3%;
-		height: 144px;
-		float: left;
-		margin-right: 20px;
-		margin-bottom: 0px;
-		margin-top: 24px;
-		padding: 0px;
-		border-bottom: 0px;
-	}	
-	.promoted-offers .img-col, .normal-offers .img-col{
-		width: 26%;
-	}
-	.promoted-offers .img-placeholder, .normal-offers .img-placeholder{
-		width: 48px;
-		height: 48px;
-	}
-	.promoted-offers .content-col, .normal-offers .content-col{
-		float: left;
-		width: 74%;
-	}
-	.promoted-offers .offer-location{
-		position: absolute;
-		bottom: 8px;
-	}
-	.promoted-offers .offer-from{
-		margin-top: 8px;
-	}	
-	.normal-offers .cardlist-item {
-		background-color: #fff;
-		border: 1px solid #ebebeb;
-		width: 32%;
-		height: 144px;
-		float: left;
-		margin-right: 15px;
-		margin-top: 24px;
-		padding: 10px;
-	}	
-	.normal-offers .cardlist-item:hover{
-		border: 1px solid #ebebeb;
-		box-shadow: 0 5px 15px 0px #e1e1e1;		
-		box-sizing: border-box;
-		cursor: pointer;
-	}		
-	/*========================
-	offers page end
 	=========================*/		
-	/*=========================
-	Command Buttons Start
-	===========================*/
-	.button{
-		font: normal 16px SSP-Regular;		
-	    border-radius: 0px !important;
-    	padding: 12px 24px !important;
-		border: 0px;
-		cursor: pointer;
-	}	
-	/*=========================
-	Command Buttons End
-	===========================*/		
 }
 
 @media screen and (min-width: 1024px){
@@ -2189,35 +1553,14 @@
 	header start
 	=========================*/
 	.page-background {
-		/*height: 250px;*/
+		height: 250px;
 	}
 	.brand-logo{
 		width: 16%;
 	}
-	.page-header, .page-header-filter-wrapper, .aggregator-product {
-		padding-left: 80px;
-		padding-right: 80px;
-	}	
-	.product-item {
-		margin: 30px 30px 0px 0px;
-		width: 30.8%;
-	}	
-	.brand-logo img {
-		width: 85%;
-	}		
-	div[aria-labelledby='LoginModalLabel'] .modal-dialog{
-		width: 900px;
-		max-width: 900px;
-		margin: 20px auto;
-		position: relative;
-	}	
-	.login-signup-wrapper {
-		width: 512px;
-	}	
 	/*========================
 	header end
 	=========================*/	
-	
 	/*======================
 	Global navigation start
 	=======================*/
@@ -2230,15 +1573,12 @@
 	/*========================
 	Detailed page start
 	=========================*/	
-	.aggregator-detailed-product{
-		padding: 0px 80px;
-	}	
 	.subscription-plan {
-		width: 150px;
+		width: 160px;
 		margin-right: 20px;
 	}
 	.detailedpage-enrollment {
-		width: 150px !important;
+		width: 184px !important;
 	}
 	.detailedpage-enrollment .button-enroll {
 		width: 68%;
@@ -2246,7 +1586,7 @@
     	margin: 0px auto;
 	}
 	.other-product-item {
-		width: 18%;
+		width: 18.2%;
 	}
 	.other-product-item:nth-of-type(4n) {	
 		margin-right: 20px;
@@ -2254,9 +1594,7 @@
 	.other-product-item:nth-of-type(5n) {	
 		margin-right: 0px;
 	}				
-	.detailed-sectionheading .nav-tabs .nav-item:first-child .nav-link{
-		border-left: 1px solid #e1e1e1;
-	}	
+	
 	/*========================
 	Detailed page end
 	=========================*/		
@@ -2285,16 +1623,6 @@
 	/*========================
 	order confirmation end
 	=========================*/			
-
-	/*========================
-	offers page start
-	=========================*/	
-	.aggregator-product, .main-content-wrapper {
-		padding: 0px 80px;
-	}	
-	/*========================
-	offers page end
-	=========================*/		
 }
 
 @media screen and (min-width: 1280px){
@@ -2302,16 +1630,16 @@
 	header start
 	=========================*/
 	.brand-logo {
-		width: 162px;
-		height: 54px;
-		margin-left: 0px;		
+		width: 196px;
+		height: 25px;
+		margin-left: 45px;		
 		margin-right: 0px;
 	}	
 	.page-background {
-		height: 127px;
+		height: 400px;
 	}	
 	.page-header {
-		padding: 24px 0px 24px;
+		padding: 38px 0px 48px;
 		width: 1156px;
 		margin: 0px auto;
 	}
@@ -2321,7 +1649,7 @@
 		background-color: transparent;
 	}	
 	.page-header-filter-wrapper .page-header {
-		font-size: 16px;
+		font-size: 14px;
 	}
 	.page-header-filter-wrapper .page-header .page-title {
 		font-size: 24px;		
@@ -2344,36 +1672,12 @@
 		color: #fff;
 	}
 	.search-wrapper{
-		margin-right: 92px;
-    	margin-top: 12px;		
+		margin-right: 148px;
 	}
 	.notification-wrapper, .userlogin-wrapper{
 		width: 32px;
 		height: 30px;
-    	top: 16px;		
 	}
-	.notification-wrapper{
-		position: relative;
-		top: 0px;
-		width: 36px;
-		height: 36px;
-	}		
-	.userlogin-wrapper{
-		width: 48px;
-		background-size: contain;
-		position: relative;
-		top: 3px;		
-	}	
-	.userlogin-wrapper .user-name{
-		font-size: 16px;
-		color: #FFF;
-		position: absolute;
-		top: 32px;
-		left: 4px;		
-	}
-	.user-loged-in .user-name{
-		left: -3px;		
-	}	
 	/*========================
 	header end
 	=========================*/	
@@ -2384,14 +1688,18 @@
 	.login-signup-wrapper {
 		width: 512px;
 	}
+	div[aria-labelledby='LoginModalLabel'] .tab-pane {
+		border: 0px;
+	}
 	div[aria-labelledby='LoginModalLabel'] .modal-dialog {
-		margin: 1.75rem auto !important;
-	}	
+		margin: 1.75rem auto;
+	}
 	div[aria-labelledby='LoginModalLabel'] .modal-dialog .single-signup-wrapper{
 		padding: 100px 48px 48px;
 	}	
 	.single-signup-wrapper .regular-text {
-		font: bold 16px SSP-Regular;	
+		font: normal 14px/25px SSP-Regular;
+		color: #252525;
 	}			
 	/*===========================
 	Login Modal End
@@ -2437,14 +1745,13 @@
 		border-bottom: 2px solid #875ea0
 	}
 	.global-navbar-dropdown{
-		margin-bottom: 0px;
+		margin-bottom: 30px;
 	}
 	.global-navbar-dropdown-content{
 		display: block;
 	}
 	.global-navbar-dropdown-content	.column{
 		width: 100%;
-		max-height: 100%;
 	}
 	.global-navbar-dropdown .dropbtn .glyphicon{
 		display: none;
@@ -2456,9 +1763,6 @@
 	.navbar-toggler{
 		display: none;
 	}
-	.nav-tabs .nav-link, .tab-pane {
-		font-size: 16px;
-	}	
 	/*========================
 	navigation end
 	=========================*/
@@ -2493,7 +1797,6 @@
 		position: relative;
 		width: 100%;
 		padding: 0px;
-		background-color: transparent;
 	}	
 	/*========================
 	Filter End
@@ -2506,15 +1809,15 @@
 		background-color: #f9f9f9;
 		width: 100%;
 	}
-	.aggregator-product, .main-content-wrapper {
-		padding: 0px 80px 0px 80px;
+	.aggregator-product {
+		padding: 0px 0px 0px 30px;
 		margin-top: 20px;
 	}	
 	.page-header-filter-wrapper .page-header{
 		margin-bottom: 0px;
 	}
 	.profile-name, .profile-wrapper .profile-notification {
-		color: #171717;
+		color: #313131;
 	}
 	.profile-points-wrapper .profile-points, .profile-points-wrapper .profile-points-label{
 		color: #075ba4;
@@ -2546,11 +1849,9 @@
 		width: 100%;
 		height: 140px;
 	}
-	.product-address, .product-address-1, .product-recommend-price, .offer-label, .offer-details {
-		font-size: 14px;
-	}	
 	.product-details-wrapper{
 		width: 100%;
+		padding: 20px;
 	}
 	.product-offer-wrapper {
 		display: block;
@@ -2577,7 +1878,7 @@
 	.product-title, .detailed-content-wrapper .product-title,
 	.detailed-content-wrapper .product-address, .detailed-content-wrapper .contact-details,
 	.detailed-offer-wrapper .offer-label, .detailed-offer-wrapper .offer-details, .subscription-label, .subscription-price{
-		font-size: 16px;
+		font-size: 18px;
 		font-weight: normal;
 	}	
 	
@@ -2605,16 +1906,14 @@
 		font-size: 18px;
 		font-weight: normal;
 		line-height: 23px;
+		color: #075ba4;
 	}	
 	.detailed-content-wrapper .product-address, .detailed-content-wrapper .contact-details{
 		font-size: 16px;
 		line-height: 23px;
-		color: #4B4B4B;
+		color: #313131;
 		margin: 8px 0px 0px;
 	}	
-	.product-address{
-		padding-bottom: 40px;
-	}		
 	.detailed-offer-wrapper {
 		background-color: #ededed;
 		clear: both;
@@ -2622,16 +1921,19 @@
 		padding-right: 10px;
 		margin: 20px 0px 0px;
 		min-height: 26px;		
-	}			
-	.detailed-offer-wrapper .offer-details {
-		font-size: 16px;
-		padding: 4px;
 	}	
-	.detailed-offer-wrapper .offer-label {
+	.offer-label{
+		font-size: 14px;
+		font-weight: normal;
+		background-color: #54b765;
 		color: #fff;
-		padding: 2px 10px;
-		background: #54b765;
-		margin: 0px;
+		padding: 2px 6px;
+		float: right;
+		border-radius: 4px;
+	}		
+	.detailed-offer-wrapper .offer-details {
+		font-size: 14px;
+		padding: 4px 10px;
 	}	
 	.product-action .button-enroll {
 		font-size: 16px;
@@ -2642,9 +1944,7 @@
 		margin: 0px auto;
 	}	
 	.carousel-control-next, .carousel-control-prev {
-		top: 83%;
-		width: 5%;
-		height: 40px;
+		height: 80px;
 	}
 	.detailed-sectionheading .header-wrapper h2 {
 		margin-top: 0px;
@@ -2669,8 +1969,7 @@
 	}	
 	.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
 		border-top: 4px solid #f7941d;
-		font: 16px/22px 'SSP-Regular', arial;	
-		padding: 8px 48px;	
+		font: 16px/22px 'SSP-Regular', arial;		
 	}	
 	.tab-pane {
 		font: 16px/23px 'SSP-Regular', arial;
@@ -2684,9 +1983,6 @@
 	.other-product-item:nth-of-type(5n) {
     	margin-right: 20px;
 	}	
-	.detailed-sectionheading .nav-tabs .nav-link:hover{
-		border-left: 1px solid transparent;		
-	}
 	/*========================
 	detailed page end
 	=========================*/
@@ -2708,84 +2004,4 @@
 	/*========================
 	order confirmation end
 	=========================*/		
-
-	/*=====================
-	Following brand start
-	=======================*/			
-	div[aria-labelledby='productOfferModalLabel'] .offer-label {
-		font-size: 16px;
-		font-weight: normal;
-		background-color: #fff;
-		color: #904894;
-		padding: 1px 6px;
-		float: right;
-		border-radius: 4px;
-		border: 1px solid #e1e1e1;
-		margin: 4px 18px;
-	}	
-	div[aria-labelledby='productOfferModalLabel'] .modal-footer{
-		padding: 32px 0px;
-	}
-	div[aria-labelledby='productOfferModalLabel'] .modal-footer	a:hover{
-		color: #fff;
-		text-decoration: none;
-	}
-	/*====================
-	Following brand end
-	======================*/
-	
-	/*========================
-	offers page start
-	=========================*/	
-	.promoted-offers, .normal-offers {
-		width: 802px;
-	}			
-	.promoted-heading, .normal-heading {
-		margin-top: 0px;
-	}
-	.normal-heading{
-		padding-top: 14px;
-	}
-	.promoted-offers .cardlist-item{
-		width: 243px;
-		height: 165px;		
-		padding: 10px;
-		margin-top: 14px;		
-		border: 1px solid #FFF;		
-	}	
-	.promoted-offers .cardlist-item:hover{
-		box-shadow: 0 5px 15px 0px #e1e1e1;		
-		box-sizing: border-box;
-		cursor: pointer;
-	}	
-	.promoted-offers .img-col, .normal-offers .img-col{
-		width: 68px;
-	}	
-	.promoted-offers .img-placeholder, .normal-offers .img-placeholder{
-		width: 48px;
-		height: 48px;
-	}	
-	.promoted-offers .content-col, .normal-offers .content-col{
-		width: 140px;
-	}	
-	.promoted-offers .offer-title{
-	   font-size: 18px;
-	}
-	.promoted-offers .offer-from{
-	   font-size: 16px;
-	}
-	.promoted-offers .offer-location{
-	   font-size: 14px;
-	}	
-	.normal-offers .cardlist-item{
-		border: 1px solid #ebebeb;	
-		width: 257px;
-		height: 165px;
-	}	
-	.normal-offers .cardlist-item:last-child{
-		border: 1px solid #ebebeb;
-	}		
-	/*========================
-	offers page end
-	=========================*/			
 }

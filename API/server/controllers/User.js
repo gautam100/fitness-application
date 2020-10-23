@@ -240,3 +240,11 @@ exports.manageUpdateAddress = function (req, res) {
         res.send({ 'userData': userData });
     });
 }
+
+exports.questionRaised = function (req, res) {
+    var credentials = { userId: req.body.userId, email: req.body.email, mobile: req.body.mobile, comment: req.body.comment };
+    console.log("question raised: ", credentials);    
+    Model_user.questionRaised(credentials, function (err, userData) {
+        res.send({ 'userData': userData });
+    });
+}

@@ -5,6 +5,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ManagePasswordComponent } from './manage-password/manage-password.component';
 import { BrandsComponent } from './brands/brands.component';
+import { SupportComponent } from './support/support.component';
 
 const routes: Routes = [{
   path: '',
@@ -26,6 +27,10 @@ const routes: Routes = [{
     {
       path: 'brands',
       component: BrandsComponent,
+    },
+    {
+      path: 'support',
+      component: SupportComponent,
     }
   ],
 }];

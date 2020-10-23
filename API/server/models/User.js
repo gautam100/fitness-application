@@ -392,11 +392,11 @@ exports.managePassword = function (where, callback) {
   connection.query(sql_update_query, function (err, rows_update) {
     if (err) throw err
     console.log("count: ", rows_update.affectedRows);
-    if (rows_update.affectedRows==1) {
+    if (rows_update.affectedRows == 1) {
       status = 1;
-    }else if (rows_update.affectedRows==0) {
+    } else if (rows_update.affectedRows == 0) {
       status = 2;
-    }else{
+    } else {
       status = 0;
     }
     callback(null, { status: status });
@@ -413,9 +413,31 @@ exports.manageUpdateAddress = function (where, callback) {
 
   connection.query(sql_update_query, function (err, rows_update) {
     if (err) throw err
-    if (rows_update.affectedRows==1) {
+    if (rows_update.affectedRows == 1) {
       status = 1;
-    }else{
+    } else {
+      status = 0;
+    }
+    callback(null, { status: status });
+  });
+
+}
+
+exports.questionRaised = function (where, callback) {
+  var status = 0;
+
+  var dateTime = require('node-datetime');
+  var dt = dateTime.create();
+  var formatted = dt.format('Y-m-d');
+
+  var sql_insert_query = "INSERT supports set user_id='" + where.userId + "', email='" + where.email + "', mobile_no='" + where.mobile + "', comment='" + where.comment + "', request_raised='" + formatted + "', created='" + formatted + "', modified='" + formatted + "'";
+  // console.log(sql_insert_query);
+
+  connection.query(sql_insert_query, function (err, rows_update) {
+    if (err) throw err
+    if (rows_update.affectedRows == 1) {
+      status = 1;
+    } else {
       status = 0;
     }
     callback(null, { status: status });

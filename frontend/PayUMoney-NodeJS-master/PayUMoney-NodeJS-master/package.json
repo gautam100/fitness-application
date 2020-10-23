@@ -23,7 +23,7 @@
     "js-sha512": "^0.8.0",
     "method-override": "^3.0.0",
     "mongodb": "^3.1.13",
-    "mongoose": "^5.4.19",
+    "mongoose": "^5.7.5",
     "nodemon": "^1.18.10",
     "payumoney_nodejs": "^2.0.2"
   },
